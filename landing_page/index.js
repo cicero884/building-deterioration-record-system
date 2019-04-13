@@ -1,6 +1,7 @@
 let buttonAbout = document.getElementById("main__about");
 let buttonVision = document.getElementById("main__vision");
 
+// change of about us button 
 buttonAbout.addEventListener("mouseenter", ()=>{
     buttonAbout.classList.add("main__about--click");
 })
@@ -8,6 +9,7 @@ buttonAbout.addEventListener("mouseleave", ()=>{
     buttonAbout.classList.remove("main__about--click");
 })
 
+// change of our vision button
 buttonVision.addEventListener("mouseenter", ()=>{
     buttonVision.classList.add("main__vision--click");
 })
