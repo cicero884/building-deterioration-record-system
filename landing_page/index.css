@@ -1,0 +1,152 @@
+body {
+    /* position */
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+
+    /* layout */
+    grid-template-rows: 7fr 5fr 3rem; 
+    grid-template-areas: 
+        "header"
+        "main  "
+        "footer" ;
+    
+    /* skin */
+    font-style: 'Agency FB', arial;
+}
+
+.header {
+    /* position */
+    grid-area: header;
+    width: 100%;
+    height: 100%;
+
+    /* skin */
+    background-image: url("./image/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* header -> header__slogan */
+.header__slogan {
+    /* position */
+    display: block;
+    align-self: center;
+    margin-top: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* [ PWD ] */
+/* header -> header__sologn */
+@media only screen and (max-width: 1372px) {
+    .header__slogan {
+        width:100% ;
+        height: auto;
+    }
+}
+
+/* header -> header__logo */
+.header__logo {
+    /* position */
+    display: block;
+    margin-left: 1rem;
+}
+
+/* [ PWD ] */
+/* header -> header__logo */
+@media only screen and (max-width: 1600px) {
+    .header__logo {
+        /* position */
+        margin-bottom: 2rem;
+
+        /* skin */
+        width: 10vw ;
+        height: auto;
+    }
+}
+
+.main {
+    /* position */
+    display: grid;
+    grid-area: main;
+
+    /* layout */
+    grid-template-columns: 2fr 20rem 1fr 20rem 2fr;
+    grid-template-rows: 1fr 20rem 1fr;
+    grid-template-areas: 
+        ". .     . .      ."
+        ". about . vision ."
+        ". .     . .      .";
+}
+
+/* main -> main__button */
+.main__button {
+    /* skin */
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+}
+
+/* main -> main__about */
+.main__about {
+    /* position */
+    grid-area: about;
+
+    /* skin */
+    background-image: url("./image/AboutUs.jpg");
+    border: none;
+
+    /* transition */
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+
+/* main -> main__about--click */
+.main__about--click {
+    /* skin */
+    background-image: url("./image/aboutus_click.jpg");
+
+    /* transition */
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+
+/* main -> main__vision */
+.main__vision {
+    /* position */
+    grid-area: vision;
+
+    /* skin */
+    background-image: url("./image/OurVision.jpg");
+    border: none;
+
+    /* transition */
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+
+/* main -> main__vision--click */
+.main__vision--click {
+    /* skin */
+    background-image: url("./image/OurVision_click.jpg");
+
+    /* transition */
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+
+/* footer */
+.footer {
+    /* position */
+    display: flex;
+    grid-area: footer;
+
+    /* layout */
+    align-items: center;
+
+    /* skin */
+    color: white;
+    background-color: rgb(7, 198, 186);
+}
+
