@@ -2,7 +2,6 @@
 	font-family: AgencyFB;
 	src: local("Agency FB"),
 	url('/fonts/AGENCYR_0.TTF');
-	font-weight: bold;
 }
 body{
 	margin:0;
@@ -20,23 +19,25 @@ body{
 #title{
 	top:5%;
 	font-family:AgencyFB;
+	font-weight:lighter;
 	color:#7D7D7D;
 }
 #subTitle{
 	top:15%;
 	font-family:AgencyFB;
+	font-weight:lighter;
 }
 #content{
 	position:absolute;
-	top:20%;
+	top:25%;
 	width:100%;
-	height:80%;
+	height:75%;
 	background-color:rgba(255,255,255,0);
 }
 .person{
-	font-family:'Microsoft JhengHei';
+	font-family:Helvetica,"Microsoft JhengHei",Arial,sans-serif!important;
 	position:absolute;
-	width:20%;
+	width:18%;
 	height:100%;
 	background-color:rgba(255,255,255,0);
 }
@@ -49,7 +50,7 @@ body{
 	object-fit: cover;
 	width:99%;
 	height:99%;
-	border:2px #7E7E7E solid;
+	border:1.5px #7E7E7E solid;
 }
 .tag{
 	position:absolute;
@@ -71,14 +72,17 @@ body{
 .name{
 	top:55%;
 	color:#333;
+	font-weight:lighter;
 }
 .department{
 	top:65%;
 	color:#BBB;
+	font-weight:lighter;
 }
 .info{
 	position:absolute;
 	top:70%;
 }
 p{
+	color:#555;
 }

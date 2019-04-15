@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<link type="text/css" href="about.css" rel="stylesheet">
+		<link type="text/css" href="index.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -21,7 +21,7 @@
 						person image
 					</img>
 					<div class='tag'>
-						<img src="<?php echo '/image/'.(strpos($person['type'],'組長')===false ? 'sticker1.png':'sticker2.png');?>" class='tagImg'></img>
+						<img src="<?php echo '/image/'.(strpos($person['type'],'組長')===false ? 'sticker2.png':'sticker1.png');?>" class='tagImg'></img>
 						<div class='tagText middle'><?php echo $person['type']?></div>
 					</div>
 				</div>
@@ -38,5 +38,5 @@
 		</div>
 	</body>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="about.js"></script>
+	<script src="index.js"></script>
 </html>
