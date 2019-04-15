@@ -34,10 +34,11 @@ function drawLine(){
 }
 function setContent(){
 	persons=$('.person');
+	let padding=window.innerWidth/100;
 	for(let i=0;i<persons.length;++i){
-		persons[i].style.left=window.innerWidth/persons.length*i;
+		persons[i].style.left=window.innerWidth/persons.length*i+padding;
 	}
-	$('.tagText').css("font-size",window.innerWidth/70+'px');
+	$('.tagText').css("font-size",window.innerWidth/80+'px');
 	$('.name').css({"font-size":window.innerWidth/40+"px"});
 	$('.department').css({"font-size":window.innerWidth/45+"px"});
 }

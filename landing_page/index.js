@@ -8,6 +8,9 @@ buttonAbout.addEventListener("mouseenter", ()=>{
 buttonAbout.addEventListener("mouseleave", ()=>{
     buttonAbout.classList.remove("main__about--click");
 })
+buttonAbout.addEventListener("click", ()=>{
+	window.location.replace("./about/index.html");
+})
 
 // change of our vision button
 buttonVision.addEventListener("mouseenter", ()=>{
