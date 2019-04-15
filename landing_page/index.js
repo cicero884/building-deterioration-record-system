@@ -4,13 +4,12 @@ let buttonVision = document.getElementById("main__vision");
 // change of about us button 
 buttonAbout.addEventListener("mouseenter", ()=>{
     buttonAbout.classList.add("main__about--click");
-	console.log('123');
 })
 buttonAbout.addEventListener("mouseleave", ()=>{
     buttonAbout.classList.remove("main__about--click");
 })
 buttonAbout.addEventListener("click", ()=>{
-	window.location.replace("/about/index.html");
+	window.location.replace("./about/index.html");
 })
 
 // change of our vision button
