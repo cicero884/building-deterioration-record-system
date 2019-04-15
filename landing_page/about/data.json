@@ -1,7 +1,7 @@
 [
-	{"name":"何孟珣","type":"組長/設計師","department":"工設所碩一","expertise":"Solidworks,Photoshop","interest":"煮菜、打LOL","img":"A7R02085.jpg"},
-	{"name":"伍志忠","type":"組員/工程師","department":"資訊系大三","expertise":"Coding","interest":"看小說、打電動","img":"A7R02084.jpg"},
-	{"name":"林謙慈","type":"組員/工程師","department":"資訊系大三","expertise":"Coding","interest":"看動畫、漫畫","img":"A7R02086.jpg"},
-	{"name":"柯奇均","type":"組員/工程師","department":"水利系大四","expertise":"C、C++、matlab","interest":"旅遊、攝影","img":"A7R02087.jpg"},
-	{"name":"蔡常忻","type":"組員/工程師","department":"水利系大四","expertise":"工程結構、Coding","interest":"吉他、旅遊","img":"A7R02089.jpg"}
+	{"name":"何孟珣","type":"組長/設計師","department":"工設所碩一","expertise":"Solidworks,Photoshop","interest":"煮菜、打LOL","img":"1.jpg"},
+	{"name":"伍志忠","type":"組員/工程師","department":"資訊系大三","expertise":"Coding","interest":"看小說、打電動","img":"2.jpg"},
+	{"name":"林謙慈","type":"組員/工程師","department":"資訊系大二","expertise":"Coding","interest":"看動畫、漫畫","img":"3.jpg"},
+	{"name":"柯奇均","type":"組員/工程師","department":"水利系大四","expertise":"C、C++、matlab","interest":"旅遊、攝影","img":"4.jpg"},
+	{"name":"蔡常忻","type":"組員/工程師","department":"水利系大四","expertise":"工程結構、Coding","interest":"吉他、旅遊","img":"5.jpg"}
 ]

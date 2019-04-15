@@ -12,11 +12,6 @@ function drawBackground(){
 	ctx.stroke();	
 }
 
-function setTitle(){
-	$('#title').css({"font-size":window.innerWidth/30+"px"});
-	$('#subTitle').css({"font-size":window.innerWidth/20+"px"});
-
-}
 function drawLine(){
 	let background=$('#background')[0];
 	let ctx=background.getContext('2d');
@@ -35,22 +30,19 @@ function drawLine(){
 function setContent(){
 	persons=$('.person');
 	let padding=window.innerWidth/100;
+	let step=(window.innerWidth-padding*5)/persons.length;
 	for(let i=0;i<persons.length;++i){
-		persons[i].style.left=window.innerWidth/persons.length*i+padding;
+		persons[i].style.left=step*i+padding*3;
 	}
-	$('.tagText').css("font-size",window.innerWidth/80+'px');
-	$('.name').css({"font-size":window.innerWidth/40+"px"});
-	$('.department').css({"font-size":window.innerWidth/45+"px"});
 }
 function beginPage(){
 	drawBackground();
-	setTitle();
 	drawLine();
 	setContent();
 }
 $(window).resize(function(){
 	beginPage();
 });
-window.addEventListener('load', function(){
+setTimeout(function() {
 	beginPage();
-});
+}, 500);
