@@ -1,0 +1,84 @@
+@font-face {
+	font-family: AgencyFB;
+	src: local("Agency FB"),
+	url('/fonts/AGENCYR_0.TTF');
+	font-weight: bold;
+}
+body{
+	margin:0;
+}
+#background{
+	position:absolute;
+}
+.middle{
+	white-space: nowrap;
+	position:absolute;
+	margin:0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+#title{
+	top:5%;
+	font-family:AgencyFB;
+	color:#7D7D7D;
+}
+#subTitle{
+	top:15%;
+	font-family:AgencyFB;
+}
+#content{
+	position:absolute;
+	top:20%;
+	width:100%;
+	height:80%;
+	background-color:rgba(255,255,255,0);
+}
+.person{
+	font-family:'Microsoft JhengHei';
+	position:absolute;
+	width:20%;
+	height:100%;
+	background-color:rgba(255,255,255,0);
+}
+.photo{
+    height:50%;
+	position:relative;
+}
+.headImg{
+	position:absolute;
+	object-fit: cover;
+	width:99%;
+	height:99%;
+	border:2px #7E7E7E solid;
+}
+.tag{
+	position:absolute;
+	right:0;
+	bottom:0;
+	width:50%;
+}
+.tagImg{
+	width:100%;
+	height:auto;
+}
+.tagText{
+	position:absolute;
+	top:50%;
+	width:100%;
+	color:#FFF;	
+	text-align:center;
+}
+.name{
+	top:55%;
+	color:#333;
+}
+.department{
+	top:65%;
+	color:#BBB;
+}
+.info{
+	position:absolute;
+	top:70%;
+}
+p{
+}
