@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html>
 	<head>
+		<meta charset=UTF-8">
 		<link type="text/css" href="index.css" rel="stylesheet">
 	</head>
 
