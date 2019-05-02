@@ -18,12 +18,14 @@ body{
 }
 #title{
 	top:5%;
+	font-size: 3vw;
 	font-family:AgencyFB;
 	font-weight:lighter;
 	color:#7D7D7D;
 }
 #subTitle{
 	top:15%;
+	font-size: 5vw;
 	font-family:AgencyFB;
 	font-weight:lighter;
 }
@@ -42,7 +44,7 @@ body{
 	background-color:rgba(255,255,255,0);
 }
 .photo{
-    height:50%;
+    height:45%;
 	position:relative;
 }
 .headImg{
@@ -67,22 +69,26 @@ body{
 	top:50%;
 	width:100%;
 	color:#FFF;	
+	font-size:1.25vw;
 	text-align:center;
 }
 .name{
-	top:55%;
+	top:50%;
 	color:#333;
+	font-size:1.5vw;
 	font-weight:lighter;
 }
 .department{
-	top:65%;
-	color:#BBB;
+	top:55%;
+	color:#AAA;
+	font-size:1.5vw;
 	font-weight:lighter;
 }
 .info{
 	position:absolute;
-	top:70%;
+	top:60%;
 }
 p{
 	color:#555;
+	font-size:1.3vw;
 }

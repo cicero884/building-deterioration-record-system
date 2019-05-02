@@ -9,14 +9,9 @@ function drawBackground(){
 	grd.addColorStop(1,"#CCC");
 	ctx.fillStyle=grd;
 	ctx.fillRect(0,0,window.innerWidth,window.innerHeight)
-	ctx.stroke();	
+	ctx.stroke();
 }
 
-function setTitle(){
-	$('#title').css({"font-size":window.innerWidth/30+"px"});
-	$('#subTitle').css({"font-size":window.innerWidth/20+"px"});
-
-}
 function drawLine(){
 	let background=$('#background')[0];
 	let ctx=background.getContext('2d');
@@ -37,21 +32,19 @@ function setContent(){
 	let padding=window.innerWidth/100;
 	let step=(window.innerWidth-padding*5)/persons.length;
 	for(let i=0;i<persons.length;++i){
-		persons[i].style.left=step*i+padding*3;
+		persons[i].style.left=step*i+padding*3+'px';
 	}
 }
 function beginPage(){
 	drawBackground();
-	setTitle();
 	drawLine();
 	setContent();
 }
 $(window).resize(function(){
 	beginPage();
 });
-drawBackground();
-setTitle();
-setContent();
 setTimeout(function() {
 	drawLine();
 }, 500);
+drawBackground();
+setContent();
