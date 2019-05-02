@@ -9,7 +9,7 @@ buttonAbout.addEventListener("mouseleave", ()=>{
     buttonAbout.classList.remove("main__about--click");
 })
 buttonAbout.addEventListener("click", ()=>{
-	window.location.replace("./about/index.html");
+	window.location.replace("./about/index.php");
 })
 
 // change of our vision button

@@ -51,6 +51,9 @@ function beginPage(){
 $(window).resize(function(){
 	beginPage();
 });
-window.addEventListener('load', function(){
-	beginPage();
-});
+drawBackground();
+setTitle();
+setContent();
+setTimeout(function() {
+	drawLine();
+}, 500);

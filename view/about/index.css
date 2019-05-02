@@ -1,7 +1,7 @@
 @font-face {
 	font-family: AgencyFB;
 	src: local("Agency FB"),
-	url('/fonts/AGENCYR_0.TTF');
+	url('../fonts/AGENCYR_0.TTF');
 }
 body{
 	margin:0;

@@ -28,7 +28,7 @@ body {
     height: 100%;
 
     /* skin */
-    background-image: url("./image/background.jpg");
+    background-image: url("./image/backgrounds/background.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -100,7 +100,7 @@ body {
     grid-area: about;
 
     /* skin */
-    background-image: url("./image/AboutUs.jpg");
+    background-image: url("./image/buttons/AboutUs.jpg");
     border: none;
 
     /* transition */
@@ -111,7 +111,7 @@ body {
 /* main -> main__about--click */
 .main__about--click {
     /* skin */
-    background-image: url("./image/aboutus_click.jpg");
+    background-image: url("./image/buttons/aboutus_click.jpg");
 
     /* transition */
     transition-duration: 0.5s;
@@ -124,7 +124,7 @@ body {
     grid-area: vision;
 
     /* skin */
-    background-image: url("./image/OurVision.jpg");
+    background-image: url("./image/buttons/OurVision.jpg");
     border: none;
 
     /* transition */
@@ -135,7 +135,7 @@ body {
 /* main -> main__vision--click */
 .main__vision--click {
     /* skin */
-    background-image: url("./image/OurVision_click.jpg");
+    background-image: url("./image/buttons/OurVision_click.jpg");
 
     /* transition */
     transition-duration: 0.5s;
