@@ -35,12 +35,10 @@ function drawLine(){
 function setContent(){
 	persons=$('.person');
 	let padding=window.innerWidth/100;
+	let step=(window.innerWidth-padding*5)/persons.length;
 	for(let i=0;i<persons.length;++i){
-		persons[i].style.left=window.innerWidth/persons.length*i+padding;
+		persons[i].style.left=step*i+padding*3;
 	}
-	$('.tagText').css("font-size",window.innerWidth/80+'px');
-	$('.name').css({"font-size":window.innerWidth/40+"px"});
-	$('.department').css({"font-size":window.innerWidth/45+"px"});
 }
 function beginPage(){
 	drawBackground();
