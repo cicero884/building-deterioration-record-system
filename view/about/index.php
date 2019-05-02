@@ -23,7 +23,7 @@
 						person image
 					</img>
 					<div class='tag'>
-						<img src="<?php echo '../image/'.(strpos($person['type'],'組長')===false ? 'sticker2.png':'sticker1.png');?>" class='tagImg'></img>
+						<img src="<?php echo '../image/icons/'.(strpos($person['type'],'組長')===false ? 'sticker2.png':'sticker1.png');?>" class='tagImg'></img>
 						<div class='tagText middle'><?php echo $person['type']?></div>
 					</div>
 				</div>
