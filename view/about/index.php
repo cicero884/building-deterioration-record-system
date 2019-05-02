@@ -19,7 +19,7 @@
 		?>
 			<div class='person'>
 				<div class='photo'>
-					<img src="<?php echo '../image/person'.$person['img']; ?>" class='headImg'>
+					<img src="<?php echo '../image/person/'.$person['img']; ?>" class='headImg'>
 						person image
 					</img>
 					<div class='tag'>
