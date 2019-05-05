@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("./config.php");
 
 $account  = $_POST['account'];
@@ -9,10 +10,13 @@ $search->execute([':account'=>$account, ':password'=>$password]);
 $result=$search->fetch();
 
 if( $result == '' ) {
+    $_SESSION['userId'] = '';
     echo "false";
 }
 else {
-    echo $result[0];
+    $_SESSION['userId'] = $result[0];
+    $_POST['userId'] = $result[0];
+    echo "success";
 }
 
 ?>

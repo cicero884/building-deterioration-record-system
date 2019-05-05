@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,3 +28,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="./login.js"></script>
 </body>
+
+<?php
+    // if there is $_SESSION['userId'], go to next page
+    if( isset($_SESSION['userId']) and ($_SESSION['userId'] != '')) {
+        $_POST['userId'] = $_SESSION['userId'];
+        echo '<script> nextPage() </script>';
+    }
+?>
