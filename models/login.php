@@ -1,6 +1,7 @@
 <?php
     session_start();
-    include("../models/config.php");
+    include("./config.php");
+
     $account  = $_POST['account'];
     $password = $_POST['password'];
     $sqlSearch = 'SELECT userId FROM user WHERE account=:account AND password=:password';
@@ -16,4 +17,5 @@
         $_POST['userId'] = $result[0];
         echo "success";
     }
+
 ?>

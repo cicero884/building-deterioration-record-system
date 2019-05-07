@@ -4,7 +4,7 @@ let errorMessage = document.getElementById("error__message");
 login.addEventListener("click", ()=>{
     errorMessage.classList.remove("error__message--show");
 	$.ajax({
-		url:'/building-deterioration-record-system/controllers/login.php',
+		url:'../../../models/login.php',
 		type:'POST',
 		data:{
             account: $('#login__account').val(),
@@ -24,19 +24,19 @@ login.addEventListener("click", ()=>{
 	});
 })
 
-let autoLogin = function() {
+window.onload = function() {
 	$.ajax({
-		url:'/building-deterioration-record-system/controllers/autoLogin.php',
+		url:'../../../models/autoLogin.php',
 		error: function(xhr) {
 			alert('Ajax request error');
 		},
 		success: function(response) {
-			if( response.search('false') != -1 ) {
-                errorMessage.classList.add("error__message--show");
-            }
-            else {
+			if( response.search('success') != -1 ) {
                 nextPage();
-            }
+			}
+			else {
+				console.log('test: ' + response);
+			}
 		}
 	});	
 }
