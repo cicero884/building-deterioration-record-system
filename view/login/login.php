@@ -18,7 +18,7 @@
         </section>
         <section>
             <img/>
-            <input type="password" name="account" id="login__password">
+            <input type="password" name="password" id="login__password">
         </section>
         <button type="button" id="login__button">Login</button>
     </form>
@@ -32,7 +32,6 @@
 <?php
     // if there is $_SESSION['userId'], go to next page
     if( isset($_SESSION['userId']) and ($_SESSION['userId'] != '')) {
-        $_POST['userId'] = $_SESSION['userId'];
-        echo '<script> nextPage() </script>';
+        echo '<script> autoLogin() </script>';
     }
 ?>

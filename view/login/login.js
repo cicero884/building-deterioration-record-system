@@ -24,6 +24,23 @@ login.addEventListener("click", ()=>{
 	});
 })
 
+let autoLogin = function() {
+	$.ajax({
+		url:'/building-deterioration-record-system/controllers/autoLogin.php',
+		error: function(xhr) {
+			alert('Ajax request error');
+		},
+		success: function(response) {
+			if( response.search('false') != -1 ) {
+                errorMessage.classList.add("error__message--show");
+            }
+            else {
+                nextPage();
+            }
+		}
+	});	
+}
+
 let nextPage = function() {
     window.alert('next page');
 }
