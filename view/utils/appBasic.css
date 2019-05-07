@@ -1,0 +1,17 @@
+.middle{                                                                                                                                                                    
+    white-space: nowrap;
+    position:absolute;
+    margin:0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.input_text{
+    border-radius: 10vmin;
+    font-size:5vmin;
+    line-height: 10vmin;
+}
+.next_button{
+    border-radius: 10vmin;
+    background-color:#ff9c00;
+    font-size: 5vmin;
+}
