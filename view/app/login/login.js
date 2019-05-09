@@ -18,8 +18,7 @@ login.addEventListener("click", ()=>{
                 errorMessage.classList.add("error__message--show");
             }
             else {
-				// nextPage();
-				console.log(response);
+				nextPage();
             }
 		}
 	});

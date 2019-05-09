@@ -1,6 +1,8 @@
 <?php
     require ("../models/config.php");
 
+class ModelLogin 
+{   
     function login($account, $password) {
         $sqlSearch = 'SELECT userId FROM user WHERE account=:account AND password=:password';
         $search    = $GLOBALS['conn']->prepare($sqlSearch);
@@ -9,5 +11,6 @@
         
         return $result;
     }
+}
 
 ?>

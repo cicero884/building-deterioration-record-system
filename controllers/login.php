@@ -2,9 +2,11 @@
     session_start();
     require "../models/login.php";
 
+    $model = new ModelLogin();
+
     $account  = $_POST['account'];
     $password = $_POST['password'];
-    $result = login($account, $password);
+    $result = $model->login($account, $password);
     if( $result == '' ) {
         $_SESSION['userId'] = '';
         echo "false";
