@@ -4,7 +4,7 @@
 		<meta charset = "utf-8">
 <?php
 foreach($this->page_css as $css){
-	echo "<link type='text/css' href='index.css' rel='$css'>\n";
+	echo "<link type='text/css' rel='stylesheet' href='$css'>\n";
 }
 ?>
 	</head>

@@ -4,7 +4,7 @@ let errorMessage = document.getElementById("error__message");
 login.addEventListener("click", ()=>{
     errorMessage.classList.remove("error__message--show");
 	$.ajax({
-		url:'../../../controllers/login.php',
+		url:'./controllers/login.php',
 		type:'POST',
 		data:{
             account: $('#login__account').val(),
@@ -26,7 +26,7 @@ login.addEventListener("click", ()=>{
 
 window.onload = function() {
 	$.ajax({
-		url:'../../../controllers/loginCheck.php',
+		url:'./controllers/loginCheck.php',
 		error: function(xhr) {
 			alert('Ajax request error');
 		},

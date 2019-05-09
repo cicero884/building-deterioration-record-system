@@ -1,15 +1,3 @@
-<?php
-    session_start();
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>login</title>
-    <link rel="stylesheet" type="text/css" href="./login.css">
-</head>
-<body>
     <img/>
     <form>
         <section>
@@ -24,7 +12,3 @@
     </form>
     <button type="button">立即註冊</button>
     <p id="error__message" class="error__message">帳號或密碼錯誤</p>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="./login.js"></script>
-</body>
