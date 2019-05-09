@@ -23,5 +23,4 @@
 		<h1>登出</h1>
 		<hr/>
 	</div>
-	<div id='mask' class='ground'></div>
 </div>

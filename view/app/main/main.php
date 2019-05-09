@@ -8,7 +8,5 @@
 	</div>
 <?php endforeach;?>
 </div>
-<button id="add_house">
-<?php echo "<img src='{$this->cur_path}image/buttons/new.png'>";?>
-</button>
+	<img id="add_house" src='view/app/image/buttons/new.png'>
 </div>

@@ -1,9 +1,7 @@
-.middle{
-    white-space: nowrap;
-    position:absolute;
-    margin:0;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@font-face {
+    font-family: '3ds';
+    src: local("3ds Regular"),
+    url('../../fonts/3ds/3ds Regular.ttf');
 }
 .input_text{
     border-radius: 10vmin;
@@ -17,8 +15,8 @@
 }
 .ground{
 	position:fixed;
-	width=100vw;
-	height=100hw;
+	width:100vw;
+	height:100vh;
 	left:0;
 	top:0;
 }

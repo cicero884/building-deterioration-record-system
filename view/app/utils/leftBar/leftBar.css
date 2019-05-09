@@ -1,3 +1,27 @@
-#mask{
-	background-color:rgba(0,0,0,0.6);
+#leftBar{
+	background-color:#FFF;
+	position:fixed;
+	left:0;
+	top:0;
+	width:30vw;
+	height:100vh;
+	z-index:1001;
+	color:#6d6d6d;
+	display:flex;
+	flex-direction:column;
+	justify-content:flex-start;
+	align-items:center;
+}
+#leftBar hr{
+	width:25vw;
+}
+#leftBar div{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+#leftBar div img{
+	width:15vw;
+	height:auto;
 }

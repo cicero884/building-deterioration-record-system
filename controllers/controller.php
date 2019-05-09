@@ -22,8 +22,9 @@ class Controller{
 
 			$this->page_css[]=$this->cur_path.'utils/appBasic.css';
 			$this->importFolder($this->cur_path.'utils/background/');
-			$this->importFolder($this->cur_path.'utils/upperBar/');
 			$this->importFolder($this->cur_path.'utils/leftBar/');
+			$this->importFolder($this->cur_path.'utils/upperBar/');
+			$this->importFolder($this->cur_path.'utils/mask/');
 			
 			if($page==="app_main"){
 				$recentHouses=[];

@@ -1,0 +1,25 @@
+#upperBar{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100vw;
+	height:10vh;
+	margin:5vmin;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+#hamburger{
+	position:absolute;
+	height:80%;
+	width:auto;
+	top:0;
+	left:0;
+}
+#userName{
+	margin:0;
+	color:#FFF;
+	display:inline-block;
+	font-family:'3ds';
+	font-size:5vh;
+}
