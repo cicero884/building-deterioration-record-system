@@ -26,7 +26,7 @@ login.addEventListener("click", ()=>{
 
 window.onload = function() {
 	$.ajax({
-		url:'../../../models/autoLogin.php',
+		url:'../../../controllers/loginCheck.php',
 		error: function(xhr) {
 			alert('Ajax request error');
 		},

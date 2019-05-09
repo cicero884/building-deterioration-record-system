@@ -2,7 +2,7 @@
     session_start();
     require "../models/login.php";
 
-    $model = new ModelLogin();
+    $model = new ModuleLogin();
 
     $account  = $_POST['account'];
     $password = $_POST['password'];

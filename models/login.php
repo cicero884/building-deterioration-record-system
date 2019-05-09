@@ -1,7 +1,7 @@
 <?php
     require ("../models/config.php");
 
-class ModelLogin 
+class ModuleLogin 
 {   
     function login($account, $password) {
         $sqlSearch = 'SELECT userId FROM user WHERE account=:account AND password=:password';
