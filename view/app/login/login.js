@@ -4,7 +4,7 @@ let errorMessage = document.getElementById("error__message");
 login.addEventListener("click", ()=>{
     errorMessage.classList.remove("error__message--show");
 	$.ajax({
-		url:'../../../models/login.php',
+		url:'../../../controllers/login.php',
 		type:'POST',
 		data:{
             account: $('#login__account').val(),
@@ -18,7 +18,8 @@ login.addEventListener("click", ()=>{
                 errorMessage.classList.add("error__message--show");
             }
             else {
-                nextPage();
+				// nextPage();
+				console.log(response);
             }
 		}
 	});
