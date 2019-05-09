@@ -14,7 +14,8 @@ class Controller{
 		$this->page_js=[];
 
 		if($page=="login"){
-		
+			$this->cur_path.='app/';
+			$this->importFolder($this->cur_path.'login/');
 		}
 		elseif(substr($page,0,3)==='app'){
 			$this->cur_path.='app/';
