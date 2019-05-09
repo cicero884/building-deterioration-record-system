@@ -14,8 +14,8 @@ class Controller{
 		elseif(substr($page,0,3)==='app'){
 			//load basic element
 			$page_css[]='utils/appBasic.css';
-			$page_html[]='utils/upperBar.php';
-			$page_html[]='utils/leftBar.php';
+			$page_html[]='utils/upperBar/upperBar.php';
+			$page_html[]='utils/leftBar/leftBar.php';
 			$page_js[]='utils/background.js';
 			
 			//load page element
