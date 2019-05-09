@@ -14,6 +14,6 @@
     else {
         $_SESSION['userId'] = $result[0];
         // echo "success";
-        echo $result[0];
+        echo "main_app.php";
     }
 ?>

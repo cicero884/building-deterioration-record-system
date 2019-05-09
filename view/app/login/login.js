@@ -18,7 +18,7 @@ login.addEventListener("click", ()=>{
                 errorMessage.classList.add("error__message--show");
             }
             else {
-				nextPage();
+				nextPage(response);
             }
 		}
 	});
@@ -31,8 +31,8 @@ window.onload = function() {
 			alert('Ajax request error');
 		},
 		success: function(response) {
-			if( response.search('success') != -1 ) {
-                nextPage();
+			if( response.search('false') == -1 ) {
+                nextPage(response);
 			}
 			else {
 				console.log('test: ' + response);
@@ -41,6 +41,6 @@ window.onload = function() {
 	});	
 }
 
-let nextPage = function() {
-    window.alert('next page');
+let nextPage = function(response) {
+    window.location.href = response;
 }

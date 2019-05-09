@@ -12,7 +12,7 @@ class ModuleLoginCheck {
             return "false";
         }
         else {
-            return "success";
+            return "main_app.php";
         }
     }
 }
