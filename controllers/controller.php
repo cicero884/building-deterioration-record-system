@@ -18,14 +18,15 @@ class Controller{
 		}
 		elseif(substr($page,0,3)==='app'){
 			$this->cur_path.='app/';
-			$this->page_css[]='utils/appBasic.css';
+
+			$this->page_css[]=$this->cur_path.'utils/appBasic.css';
+			$this->importFolder($this->cur_path.'utils/background/');
 			$this->importFolder($this->cur_path.'utils/upperBar/');
 			$this->importFolder($this->cur_path.'utils/leftBar/');
-			$this->page_js[]=$this->cur_path.'utils/background.js';
 			
 			if($page==="app_main"){
 				$recentHouses=[];
-				$this->importFolder($cur_path.'main/');
+				$this->importFolder($this->cur_path.'main/');
 			}
 		}
 
