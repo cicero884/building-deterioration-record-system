@@ -9,6 +9,6 @@
 <?php endforeach;?>
 </div>
 <button id="add_house">
-<?php echo "<img src='{$cur_path}image/buttons/new.png'>";?>
+<?php echo "<img src='{$this->cur_path}image/buttons/new.png'>";?>
 </button>
 </div>
