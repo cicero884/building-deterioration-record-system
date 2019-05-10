@@ -1,5 +1,5 @@
 <?php
-    require ("../models/config.php");
+    require ("config.php");
 
 class ModuleLogin 
 {   
@@ -9,6 +9,7 @@ class ModuleLogin
         $search->execute([':account'=>$account, ':password'=>$password]);
         $result=$search->fetch();
         
+        // return the user id or empty array
         return $result;
     }
 }

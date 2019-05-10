@@ -1,5 +1,5 @@
 <?php
-require_once("../models/config.php");
+require_once("config.php");
 
 class ModuleLoginCheck {
     public function isLogin( $userId ) {
@@ -8,13 +8,15 @@ class ModuleLoginCheck {
         $search->execute([':userId'=>$userId]);
         $result=$search->fetch();
 
+        // if the session userId exist, 
+        // means the user has login,
+        // return true
         if( $result == '' ) {
             return "false";
         }
         else {
-            return "main_app.php";
+            return "true";
         }
     }
 }
-
 ?>
