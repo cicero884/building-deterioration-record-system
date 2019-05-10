@@ -1,0 +1,12 @@
+#subTitle{
+	position:relative;
+	font-size:4vmax;
+	color:#FFF;
+}
+#addHouse{
+	position:fixed;
+	width:20vmin;
+	margin:3vmin;
+	bottom:0;
+	right:0
+}

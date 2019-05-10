@@ -4,7 +4,7 @@
 		<meta charset = "utf-8">
 <?php
 foreach($this->page_css as $css){
-	echo "<link rel='stylesheet' type='text/css' href='$css'>";
+	echo "<link rel='stylesheet' type='text/css' href='$css'>\n";
 }
 ?>
 	</head>
@@ -25,7 +25,7 @@ foreach($this->page_html as $html){
   		crossorigin="anonymous"></script>
 <?php
 foreach($this->page_js as $js){
-	echo "<script src='$js'></script>";
+	echo "<script src='$js'></script>\n";
 }
 ?>
 	</body>

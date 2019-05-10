@@ -1,0 +1,12 @@
+$('#addHouse').click(function(){
+	$.ajax({
+		url:'',
+		type:'GET',
+		data:{
+			action:'addHouse';
+		},
+		success:function(responce){
+			$('content').html(responce);
+		}
+	})
+})
