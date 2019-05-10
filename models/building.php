@@ -12,7 +12,7 @@ class buildingJson {
     public $usage = null;
     public $scaleUp = null;
     public $scaleDown = null;
-    public $image = array();
+    public $image = null;
 }
 
 class ModelBuilding {
@@ -31,7 +31,8 @@ class ModelBuilding {
             $buildingInfo[$count]->type = $row->type;
             $buildingInfo[$count]->usage = $row->usage;
             $buildingInfo[$count]->scaleUp = $row->floorUpper;
-            $buildingInfo[$count]->scaleDown = $row->floorDown;  
+            $buildingInfo[$count]->scaleDown = $row->floorDown; 
+            $buildingInfo[$count]->image = $row->image;
             $count = $count+1;
         }
     }
