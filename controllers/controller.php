@@ -7,6 +7,7 @@ class Controller{
 	protected $cur_path='view/';
 	protected $page_css=[];
 	protected $page_html=[];
+	protected $page_content=[];
 	protected $page_js=[];
 	public function redirect($page='login'){
 		$this->cur_path='view/';
@@ -30,7 +31,7 @@ class Controller{
 			if($page==="app_main"){
 				//load recent house
 				$recentHouses=[];
-				$this->getFiles($this->cur_path.'main/');
+				$this->getFiles($this->cur_path.'main/',1);
 			}
 		}
 		require realpath('view/structure.php');
@@ -50,14 +51,15 @@ class Controller{
 			echo "<script src='$js'></script>\n";
 		}
 	}
-	private function getFiles($path){
+	private function getFiles($path,$isContent=0){
 		$html=[];
 		$css=[];
 		$js=[];
 		$this->importFolder($path,$html,$css,$js);
-		$this->page_html=array_merge($this->page_html,$html);
-		$this->page_css=array_merge($this->page_css,$css);
-		$this->page_js=array_merge($this->page_js,$js);
+		if($isContent==0) $this->page_html=array_merge($this->page_html,$html);
+		else $this->page_content=array_merge($this->page_content,$html);
+		$this->page_css =array_merge($this->page_css,$css);
+		$this->page_js  =array_merge($this->page_js,$js);
 	}
 	private function importFolder($path,&$html,&$css,&$js){
 		$html=array_merge($html,glob("$path{*.html,*.php}", GLOB_BRACE));

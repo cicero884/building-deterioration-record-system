@@ -10,8 +10,11 @@ foreach($this->page_css as $css){
 	</head>
 	<body>
 <?php
-foreach($this->page_html as $html){
-	include "$html";
+foreach($this->page_html as $html) include "$html";
+if(count($this->page_content)>0){
+	echo "<div class='content'>";
+	foreach($this->page_content as $html) include "$html";
+	echo "</div>";
 }
 ?>
 	<body>

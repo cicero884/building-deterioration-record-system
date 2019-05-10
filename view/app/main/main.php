@@ -1,12 +1,12 @@
-<div class='content'>
-<h2 id="subTitle">Recently</h2>
-<div id="homeList">
+<div class='page'>
+	<h2 id="subTitle">Recently</h2>
+	<div id="homeList">
 <?php foreach($this->recentHouses as $house):?>
-	<div id='house'>
-		<img id='houseImage' src='<?php echo "$house->img";?>'></img>
-		<p id='houseAddress'><?php echo "$house->address";?></p>
-	</div>
+		<div id='house'>
+			<img id='houseImage' src='<?php echo "$house->img";?>'></img>
+			<p id='houseAddress'><?php echo "$house->address";?></p>
+		</div>
 <?php endforeach;?>
-</div>
+	</div>
 	<img id="addHouse" src='view/app/image/buttons/new.png'>
 </div>
