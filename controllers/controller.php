@@ -1,14 +1,30 @@
 <?php
+require "../models/login.php";
 class Controller{
-	public function __construct(){
-	
-	}
+	public $models;
 	public $recentHouses=[];
 	protected $cur_path='view/';
 	protected $page_css=[];
 	protected $page_html=[];
 	protected $page_content=[];
 	protected $page_js=[];
+	public function __construct(){
+		$models[]=new ModuleLogin();
+	}
+	public function login(){
+		$account  = $_POST['account'];
+		$password = $_POST['password'];
+		$result = $model->login($account, $password);
+		if( $result == '' ) {
+			$_SESSION['userId'] = '';
+			echo "false";
+		}
+		else {
+			$_SESSION['userId'] = $result[0];
+			// echo "success";
+			redirect('app_main');
+		}
+	}
 	public function redirect($page='login'){
 		$this->cur_path='view/';
 		$this->page_css=[];
