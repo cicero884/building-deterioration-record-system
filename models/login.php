@@ -1,5 +1,5 @@
 <?php
-    require ("models/config.php");
+require ("models/config.php");
 
 class ModuleLogin 
 {   
