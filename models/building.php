@@ -2,7 +2,7 @@
 require_once("config.php");
 
 class ModelBuilding {
-
+    
     // build a nested array with buildingId, address, image
     // ex. the third house's address => $buildingInfo[2]['address']
     public function latestThreeBuildings( $userId, array & $buildingInfo ) {
