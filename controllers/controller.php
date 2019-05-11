@@ -1,37 +1,21 @@
 <?php
-require "../models/login.php";
 class Controller{
-	public $models;
-	public $recentHouses=[];
+	protected $recentHouses=[];
 	protected $cur_path='view/';
 	protected $page_css=[];
 	protected $page_html=[];
 	protected $page_content=[];
 	protected $page_js=[];
+	private $models;
 	public function __construct(){
-		$models[]=new ModuleLogin();
 	}
-	public function login(){
-		$account  = $_POST['account'];
-		$password = $_POST['password'];
-		$result = $model->login($account, $password);
-		if( $result == '' ) {
-			$_SESSION['userId'] = '';
-			echo "false";
-		}
-		else {
-			$_SESSION['userId'] = $result[0];
-			// echo "success";
-			redirect('app_main');
-		}
-	}
-	public function redirect($page='login'){
+	public function redirect($page='app_main'){
 		$this->cur_path='view/';
 		$this->page_css=[];
 		$this->page_html=[];
 		$this->page_js=[];
 
-		if($page=="login"){
+		if($page==='login'||!isset($_SESSION['userId'])||$_SESSION['userId']==''){
 			$this->cur_path.='app/';
 			$this->getFiles($this->cur_path.'login/');
 		}

@@ -1,46 +1,19 @@
-let login = document.getElementById("login__button");
-let errorMessage = document.getElementById("error__message");
 
-login.addEventListener("click", ()=>{
-    errorMessage.classList.remove("error__message--show");
+$("#login__button").click(function(){
 	$.ajax({
-		url:'./controllers/login.php',
+		url:'login.php',
 		type:'POST',
 		data:{
+			action:'login',
             account: $('#login__account').val(),
             password: $('#login__password').val()
 		},
 		error: function(xhr) {
 			alert('Ajax request error');
 		},
-		success: function(response) {
-			if( response.search('false') != -1 ) {
-                errorMessage.classList.add("error__message--show");
-            }
-            else {
-				nextPage(response);
-            }
+		success: function(response){
+			if(response==="") location.reload();
+			else $('#errMsg').html(response);
 		}
 	});
 })
-
-window.onload = function() {
-	$.ajax({
-		url:'./controllers/loginCheck.php',
-		error: function(xhr) {
-			alert('Ajax request error');
-		},
-		success: function(response) {
-			if( response.search('false') == -1 ) {
-                nextPage(response);
-			}
-			else {
-				console.log('test: ' + response);
-			}
-		}
-	});	
-}
-
-let nextPage = function(response) {
-    window.location.href = response;
-}
