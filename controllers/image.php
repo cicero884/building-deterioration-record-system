@@ -2,7 +2,7 @@
 class ImageController {
 
     function imageUpload() {
-        $target_dir = "../image/";
+        $target_dir = "image/";
 
         // rename
         $extension=end(explode(".", $_FILES["image"]["name"]));

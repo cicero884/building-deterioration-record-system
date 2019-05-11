@@ -1,6 +1,6 @@
 <?php
-require_once("../models/building.php");
-require_once("image.php");
+require_once("models/building.php");
+require_once("controllers/image.php");
 class BuildingController {
 
     public $imageController = NULL;
