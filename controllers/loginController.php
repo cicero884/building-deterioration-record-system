@@ -9,8 +9,7 @@ class loginController extends Controller{
 	}
 	public function login(){
 		$this->errMsg=$this->models['login']->login();
-		if(empty($this->errMsg)) $this->redirect('app_main');
-		else $this->redirect('login');
+		echo $this->errMsg;
 	}
 	public function logout(){
 		if(session_destroy()){
