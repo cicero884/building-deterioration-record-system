@@ -1,6 +1,7 @@
 <?php
-require_once("models/login.php");
+require_once("models/building.php");
 class Building {
+    // call it to insert building information to the database
     function insertBuildingInfo() {
         $modelBuilding = new ModelBuilding(); 
         $buildingInfo = array(
