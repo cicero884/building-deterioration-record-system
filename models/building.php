@@ -5,7 +5,8 @@ class ModelBuilding {
     
     // build a nested array with buildingId, address, image
     // ex. the third house's address => $buildingInfo[2]['address']
-    public function latestThreeBuildings( $userId, array & $buildingInfo ) {
+    public function getLatestThreeBuildings( $userId ) {
+        $buildingInfo = array();
         $count = 0;
         $sqlSearch  = "SELECT address, buildingId, image
                         FROM building 
@@ -22,6 +23,7 @@ class ModelBuilding {
             );
             $count = $count + 1;
         }
+        return $buildingInfo;
     }
 
     // insert building information to the database
@@ -34,6 +36,29 @@ class ModelBuilding {
                     :type ,:floorUpper , :floorDown, :structure, :image ); ";
         $insert = $GLOBALS['conn']->prepare( $sql ); 
         $insert->execute( $buildingInfo );
+    }
+
+    // get building information by buildingIds array
+    public function getBuildingInfos( $buildingIds ) {
+        $items = array();
+        $count = 0;
+        foreach( $buildingIds as $n ) {
+            $sql = "SELECT `address`, ownerName, ownerPhone, recordDate
+                    FROM building
+                    WHERE buildingId=".$n;
+            $search = $GLOBALS['conn']->prepare( $sql );
+            $search->execute();
+            $row=$search->fetch(PDO::FETCH_OBJ);
+
+            $items[$count] = array(
+                'address' => $row->address,
+                'name'    => $row->ownerName,
+                'phone'   => $row->ownerPhone,
+                'date'    => $row->recordDate
+            );
+            $count++;
+        }
+        return $items;
     }
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 require_once("models/deterioration.php");
 
-class Deterioration {
+class DeteriorationController {
     public $modelDeterioration = NULL;
 
     public function __constructor() {
@@ -29,18 +29,6 @@ class Deterioration {
             ':ps'          => '噗疵'
         );
         $this->modelDeterioration->insertFloorInfo( $floorInfo );
-    }
-
-    public function selectDeterioration() {
-        $items = array();
-        if( $_POST['PC'] )
-            array_push( $items, 'rebarExposed' );
-        if( $_POST['crack'] )
-            array_push( $items, 'crackLength', 'crackWidth');
-        if( $_POST['exfoliation'] )
-            array_push( $items, 'exfoliationDepth', 'exfoliationScrap');
-        
-        $this->modelDeterioration->selectDeterioration( $items );
     }
 }
 
