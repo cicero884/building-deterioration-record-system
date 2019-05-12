@@ -22,8 +22,9 @@ time, mark, audio, video {
 /* body > header */
 .header {
     /* [ layout ] */
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-areas: "logo title link";
+    grid-template-columns: 2fr 3fr 2fr;
 
     /* [ position ] */ 
     height: 15vh;
@@ -38,17 +39,18 @@ time, mark, audio, video {
 /* .header > .header__logo */
 .header > .header__logo{
     /* [ position ] */
-    margin-left: 2rem;
+    grid-area: logo;
     height: 90%;
 }
 
 
 .header > .header__word{
     /* layout */
-    display: block;
+    display: flex;
+    align-self: center;
 
     /* position */
-    margin-left: 5rem;
+    grid-area: title;
 
     /* skin */
     color: #ffffff;
@@ -58,9 +60,10 @@ time, mark, audio, video {
 
 .header > .header__link {
     /* position */
-    position: absolute;
-    margin-left: 80vw;
+    display: flex;
+    grid-area: link;
     width: auto;
+    align-items: center
 }
 
 .header__link > .link__item {
