@@ -1,80 +1,58 @@
-<?php
-    session_start();
-?>
-
-    <!DOCTYPE html>
-    <html>
-
-    <head>
-        <meta charset="utf-8">
-        <title>房屋Info2</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="houseForm2.css" rel="stylesheet" type="text/css">
-    </head>
-
-    <body>
-        <div class="header">
-            <div>Header</div>
-        </div>
-        <div class="BuildingType">
-            <b>建築種類</b>
-
-            <div>
-                <form action="">
-                    <select name="BuildingType" id="BuildingType" style="width:330px;height:35px;font-size:12px;">
-        <option value="">透天</option>
-        <option value="">公寓</option>
-        <option value="">大廈</option>
-        <option value="">三合院</option>
-        <option value="">其他</option>
-    </select>
-                </form>
-            </div>
-        </div>
-        <div class="BuildingUsage">
-            <b>建築用途</b>
-            <div>
-                <form action="">
-                    <select name="BuildingUsage" id="BuildingUsage" style="width:330px;height:35px;font-size:12px;">
-        <option value="">住宅</option>
-        <option value="">辦公室</option>
-        <option value="">工廠</option>
-        <option value="">商店</option>
-        <option value="">混合式</option>
-    </select>
-                </form>
-            </div>
-        </div>
-        <div class="BuildingStruc">
-            <b>建築結構</b>
-            <div>
-                <form action="">
-                    <select name="BuildingStruc" id="BuildingStruc" style="width:330px;height:35px;font-size:12px;">
-        <option value="">鋼筋混凝土</option>
-        <option value="">鋼骨</option>
-        <option value="">木造</option>
-        <option value="">磚造</option>
-        <option value="">其他</option>
-    </select>
-                </form>
-            </div>
-        </div>
-        <div class="BuildingScale">
-            <b>建築規模</b>
-        </div>
-        <div class="BuildingScaleUp">
-            <b class="ground">地上</b><input type=number id=upperFloor style="width:50px;height:30px;font-size:12px;"></input>
-            <b class="foor">樓</b>
-        </div>
-        <div class="BuildingScaleDown">
-            <b class="ground">地下</b><input type=number id=underFloor style="width:50px;height:30px;font-size:12px;"></input>
-            <b class="foor">樓</b>
-        </div>
-        <div class="Button">
-            <b><input type='submit' value='完成基本資料'></b>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="./house.js"></script>
-    </body>
-
-    </html>
+<div class="page">
+	<div class="BuildingType">
+		<b>建築種類</b>
+		<div>
+			<form action="">
+				<select name="BuildingType" id="BuildingType" style="width:330px;height:35px;font-size:12px;">
+					<option value="">透天</option>
+					<option value="">公寓</option>
+					<option value="">大廈</option>
+					<option value="">三合院</option>
+					<option value="">其他</option>
+				</select>
+			</form>
+		</div>
+	</div>
+	<div class="BuildingUsage">
+		<b>建築用途</b>
+		<div>
+			<form action="">
+				<select name="BuildingUsage" id="BuildingUsage" style="width:330px;height:35px;font-size:12px;">
+					<option value="">住宅</option>
+					<option value="">辦公室</option>
+					<option value="">工廠</option>
+					<option value="">商店</option>
+					<option value="">混合式</option>
+				</select>
+			</form>
+		</div>
+	</div>
+	<div class="BuildingStruc">
+		<b>建築結構</b>
+		<div>
+			<form action="">
+				<select name="BuildingStruc" id="BuildingStruc" style="width:330px;height:35px;font-size:12px;">
+					<option value="">鋼筋混凝土</option>
+					<option value="">鋼骨</option>
+					<option value="">木造</option>
+					<option value="">磚造</option>
+					<option value="">其他</option>
+				</select>
+			</form>
+		</div>
+	</div>
+	<div class="BuildingScale">
+		<b>建築規模</b>
+	</div>
+	<div class="BuildingScaleUp">
+		<b class="ground">地上</b><input type=number id=upperFloor style="width:50px;height:30px;font-size:12px;"></input>
+		<b class="foor">樓</b>
+	</div>
+	<div class="BuildingScaleDown">
+		<b class="ground">地下</b><input type=number id=underFloor style="width:50px;height:30px;font-size:12px;"></input>
+		<b class="foor">樓</b>
+	</div>
+	<div class="Button">
+		<b><input type='submit' value='完成基本資料'></b>
+	</div>
+</div>

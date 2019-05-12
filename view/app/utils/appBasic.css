@@ -16,6 +16,10 @@
 	bottom:0;
 	z-index:1;
 }
+.page{
+	width:100%;
+
+}
 .input_text{
     font-size:5vmin;
     line-height: 10vmin;
