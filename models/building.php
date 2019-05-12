@@ -25,7 +25,7 @@ class ModelBuilding {
     }
 
     // insert building information to the database
-    public function insertBuildingInfo( $buildingInfo ) {
+    public function insertBuilding( $buildingInfo ) {
         $sql = "INSERT INTO building
                     ( userId, address, ownerName, ownerPhone, used, recordDate,
                     type, floorUpper, floorDown, structure, image)
