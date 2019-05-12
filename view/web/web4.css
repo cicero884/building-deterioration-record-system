@@ -17,7 +17,7 @@
                          "main . . "
                          "main_11 . . "
                          "main_12 . . "
-                         ". . . ";
+                         "table_ table_ table_ ";
  }
 
 
@@ -47,20 +47,81 @@
     font-family:微軟正黑體;
     
  }
-.main_11{
+ .main_11{
     grid-area: main_11;
     color: #595959;
     display: flex; 
     font-family:微軟正黑體;
     
  }
-.main_12{
+ .main_12{
     grid-area: main_12;
     color: #595959;
     display: flex; 
     font-family:微軟正黑體;
-    
+ }
+ .table_{
+     grid-area: table_;
+     position: relative;
+     left:5vw;
+     
+ }
+ .tilte{
+     position: relative;
+     top:2vh;
+     size:80%;
+ }
+
+ .table_1{
+    grid-area: table_;
+    display: flex; 
+    font-family:微軟正黑體;
+ }
+ .input1{
+    position: relative;
+    top:2vh;
+    color:#595959;
+    font-family:微軟正黑體;
+    font-size: 3vh;
+ }
+ .input2{
+        position: relative;
+        top:5.5vh;
+        border: solid #d6d6d6;
+        width:7vw;
+        height:2vh;
+ }
+ .input3{
+    position: relative;
+    top:-5vh;
+    color:#595959;
+    font-family:微軟正黑體;
+    font-size: 3vh;
+ }
+ .input4{
+    position: relative;
+    top:-11vh;
+    color:#595959;
+    font-family:微軟正黑體;
+    font-size: 3vh;
 }
+
+
+table {  
+        font-family: 微軟正黑體; 
+        font-size:3vh; 
+        width:90vw;
+        text-align:center;
+        border-collapse:collapse;
+        position: relative;
+        top:10vh;
+        border-top: 1vh solid #8c8c8c;  
+        border-bottom: 0.5vh solid #b5b5b5;       
+}
+
+
+
+    
 
 
 
@@ -103,7 +164,6 @@
     left:25%;
     top:30px;
 }
-
 
 
 
