@@ -6,7 +6,8 @@ $('#addHouse').click(function(){
 			action:'addHouse',
 		},
 		success:function(responce){
-			$('content').html(responce);
+			$('.content').html(responce);
+			console.log(responce);
 		}
 	})
 })

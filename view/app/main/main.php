@@ -1,4 +1,4 @@
-<div class='page'>
+<div class='main'>
 	<h2 id="subTitle">Recently</h2>
 	<div id="homeList">
 <?php foreach($this->recentHouses as $house):?>
