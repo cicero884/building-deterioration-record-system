@@ -1,26 +1,115 @@
-#bar{
-    width: 100vw;
+/* initialize */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-#logo{
+/* body > header */
+.header {
+    /* [ layout ] */
+    display: flex;
+    align-items: center;
+
+    /* [ position ] */ 
+    height: 15vh;
+    width: 100%;
+
+    /* [ skin ] */
+    background-image: url("./image/bar.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .header > .header__logo */
+.header > .header__logo{
+    /* [ position ] */
+    margin-left: 2rem;
+    height: 90%;
+}
+
+
+.header > .header__word{
+    /* layout */
+    display: block;
+
+    /* position */
+    margin-left: 5rem;
+
+    /* skin */
+    color: #ffffff;
+    font-size: 1.5em;
+    font-family:Agency FB;
+}
+
+.header > .header__link {
+    /* position */
     position: absolute;
-    top:0px;
-    left:2%;
-    height:13%;
+    margin-left: 80vw;
+    width: auto;
 }
-.test1 {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 0.1fr 0.6fr 0.3fr ;
-    grid-template-rows: 0.1fr 0.15fr 0.15fr 0.15fr 0.55fr ;
-    grid-template-areas: "left_1  . . "
-                         "main . . "
-                         "main_11 . . "
-                         "main_12 . . "
-                         "table_ table_ table_ ";
- }
 
+.header__link > .link__item {
+    /* layout */
+    display: inline-block;
 
+    /* skin */
+    color: #ffffff;
+    font-size: 1em;
+    font-family:微軟正黑體;
+}
+
+.main {
+    /* layout */
+    display: block;
+
+    /* position */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.main__form > .form__title {
+    /* layout */
+    display: block;
+    height: 2rem;
+    width: auto;
+}
+
+.main__form > .form__question {
+    /* layout */
+    display: inline-block;
+
+    /* skin */
+    color:#595959;
+    font-family:微軟正黑體;
+    font-size: 2rem;
+}
+
+.main__form > .form__option {
+    /* layout */
+    display: inline-block;
+}
+
+.main__form > .form__option > .option__item {
+    /* layout */
+    display: inline-block;
+}
   .left_1 {
     grid-area:left_1;
     background-image: url("logo.png");
@@ -77,35 +166,6 @@
     display: flex; 
     font-family:微軟正黑體;
  }
- .input1{
-    position: relative;
-    top:2vh;
-    color:#595959;
-    font-family:微軟正黑體;
-    font-size: 3vh;
- }
- .input2{
-        position: relative;
-        top:5.5vh;
-        border: solid #d6d6d6;
-        width:7vw;
-        height:2vh;
- }
- .input3{
-    position: relative;
-    top:-5vh;
-    color:#595959;
-    font-family:微軟正黑體;
-    font-size: 3vh;
- }
- .input4{
-    position: relative;
-    top:-11vh;
-    color:#595959;
-    font-family:微軟正黑體;
-    font-size: 3vh;
-}
-
 
 table {  
         font-family: 微軟正黑體; 
@@ -118,54 +178,6 @@ table {
         border-top: 1vh solid #8c8c8c;  
         border-bottom: 0.5vh solid #b5b5b5;       
 }
-
-
-
-    
-
-
-
-#login{
-    color: #ffffff;
-    display: flex;
-    font-size: 1em;
-    font-family:微軟正黑體;
-    position: absolute;
-    left:90%;
-    top:50px;
-}
-
-#about{
-    color: #ffffff;
-    display: flex;
-    font-size: 1em;
-    font-family:微軟正黑體;
-    position: absolute;
-    left:82%;
-    top:50px;
-}
-
-#design{
-    color: #ffffff;
-    display: flex;
-    font-size: 1em;
-    font-family:微軟正黑體;
-    position: absolute;
-    left:75%;
-    top:50px;
-}
-
-#word{
-    color: #ffffff;
-    display: flex;
-    font-size: 1.5em;
-    font-family:Agency FB;
-    position: absolute;
-    left:25%;
-    top:30px;
-}
-
-
 
 .b{
     margin: 0%;
