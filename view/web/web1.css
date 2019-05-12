@@ -1,0 +1,252 @@
+.test1 {
+    height: 100vh;
+    background-image:  url("./image/background1.jpg");
+    display: grid;
+    grid-template-columns: 0.15fr 0.45fr 0.1fr 0.3fr ;
+    grid-template-rows: 0.3fr 0.4fr 0.3fr ;
+    grid-template-areas: "left_1  . . login"
+                         "main_1 main_1 main_1 main_1 "
+                         ". . . sidebar"
+ }
+
+
+  .left_1 {
+    grid-area:left_1;
+    background-image: url("./image/Logo.jpg");
+    background-repeat:no-repeat;
+    background-size: 90%;
+    position:relative;
+    left:30px;
+    top:40px;
+  }
+
+  .main_1 {
+    grid-area: main_1;
+    color: #ffffff;
+    display: flex;
+    font-size: 2em;
+    font-family:Agency FB;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+  }
+  
+  .sidebar {
+    grid-area: sidebar;
+    background-image: url("./image/house_pic.PNG");
+    background-repeat:no-repeat;
+    background-size: 80%;
+   
+  }
+  
+
+
+  .footer {
+    grid-area: footer;
+    background-image: url("./image/line.PNG");
+    background-repeat:no-repeat;
+  }
+
+  .login{
+    grid-area:login;
+    color: #ffffff;
+    display: flex;
+    font-size: 1em;
+    font-family:微軟正黑體;
+    position: relative;
+    left:70%;
+    top:15%;
+  }
+  .about{
+    grid-area:login;
+    color: #ffffff;
+     display: flex;
+  font-size: 1em;
+  font-family:微軟正黑體;
+  position: relative;
+  left:45%;
+  top:15%;
+  
+ }
+
+ .design{
+  grid-area:login;
+  color: #ffffff;
+  display: flex;
+  font-size: 1em;
+  font-family:微軟正黑體;
+  position: relative;
+  left:20%;
+  top:15%;
+}
+
+a {
+    text-decoration:none;
+    color: #ffffff;
+} 
+
+
+
+
+.test2{
+    height: 100vh;
+    background-color:#ffffff;
+    display: grid;
+    grid-template-columns: 0.33fr 0.34fr 0.33fr ;
+    grid-template-rows: 0.2fr 0.35fr 0.25fr 0.2fr;
+    grid-template-areas: " .  header  .  "
+                         " main_11  main_12 main_13 "
+                         "left_11 left_12  left_13 "
+                         "left_111 left_112 left_113 ";
+    
+ }
+ .header {
+    grid-area: header;
+    background-image: url("./image/logo2.PNG");
+    background-repeat:no-repeat;
+    background-size: 50%;
+    position: relative;
+    left:27%;
+    
+ }
+ .main_11 {
+    grid-area: main_11;
+    background-image: url("./image/pic1.jpg");
+    background-repeat:no-repeat;
+    background-size: 40%;
+    position: relative;
+    left:50%;
+    top:40%;
+ }
+ .left_11 {
+    grid-area: left_11;
+    width: 60%;
+    height: 20%;
+    background: #3bc7aa;
+    position:relative;
+    top:45%;
+    left:35%;
+    color: #ffffff;
+    display: flex;
+    font-size: 1.5em;
+    font-family:微軟正黑體;
+    justify-content: center;
+    align-items: center;
+ } 
+
+ .left_111{
+    grid-area: left_111;
+    
+    color: #878686;
+    display: flex;
+    font-size: 1.5em;
+    font-family:微軟正黑體;
+ }
+
+ .main_12 {
+    grid-area: main_12;
+    background-image: url("./image/pic2.jpg");
+    background-repeat:no-repeat;
+    background-size: 40%;
+    position: relative;
+    left:30%;
+    top:40%;
+ }
+ .left_12 {
+    grid-area: left_12;
+    width: 60%;
+    height: 20%;
+    background: #3bc7aa;
+    position:relative;
+    top:45%;
+    left:20%;
+    color: #ffffff;
+    display: flex;
+    font-size: 1.5em;
+    font-family:微軟正黑體;
+    justify-content: center;
+    align-items: center;
+ } 
+ .left_112{
+    grid-area: left_112;
+    
+    color: #878686;
+    display: flex;
+    font-size: 1.5em;
+    font-family:微軟正黑體;
+ }
+ .main_13 {
+    grid-area: main_13;
+    background-image: url("./image/pic3.jpg");
+    background-repeat:no-repeat;
+    background-size: 40%;
+    position: relative;
+    left:30%;
+    top:40%;
+ }
+ .left_13 {
+    grid-area: left_13;
+    width: 60%;
+    height: 20%;
+    background: #3bc7aa;
+    position:relative;
+    top:45%;
+    left:20%;
+    color: #ffffff;
+    display: flex;
+    font-size: 1.5em;
+    font-family:微軟正黑體;
+    justify-content: center;
+    align-items: center;
+ } 
+ .left_113{
+    grid-area: left_113;
+    
+    color: #878686;
+    display: flex;
+    font-size: 1.5em;
+    font-family:微軟正黑體;
+}
+
+
+.test3{
+    height: 100vh;
+    background-color:#ffffff;
+    display: grid;
+    grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr ;
+    grid-template-rows: 0.1fr 0.9fr;
+    grid-template-areas: " left_122  . . .  .  "
+                         " . . . . . "
+                         " . . . . . ";
+                         
+    
+ }
+ .left_122{
+    grid-area: left_122;
+    color: #b4b4b4;
+    display: flex;
+    font-size: 2em;
+    font-family:微軟正黑體;
+    position: relative;
+    left:5%;
+    top:1%;
+ }
+ .left_123{
+    grid-area: left_122;
+    color: #b4b4b4;
+    display: flex;
+    font-size: 2em;
+    font-family:Bahnschrift;
+    position: relative;
+    left:65%;
+    top:1%;
+ }
+ 
+
+
+
+
+.b{
+    margin: 0%;
+}
+
