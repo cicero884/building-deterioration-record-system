@@ -39,8 +39,7 @@ class BuildingController {
 
     // call the building model
     public function getLatestThreeBuildings( $userId, array & $buildingInfo ) {
-        $modelBuilding = new ModelBuilding(); 
-        $modelBuilding->latestThreeBuildings( $userId, $buildingInfo );
+        $this->$modelBuilding->latestThreeBuildings( $userId, $buildingInfo );
     }
 }
 ?>
