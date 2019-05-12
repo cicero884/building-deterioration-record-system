@@ -28,5 +28,47 @@ class ModelDeterioration {
         $insert->bindValue(':crackWidth', $deterioration[':crackWidth'] , PDO::PARAM_INT );
         $insert->execute( $deterioration );
     }
+
+    // item is an array with the information need to select
+    // return selected id
+    public function selectDeterioration( $item ) {
+        $condition = "";
+        $floorIds = array();
+
+        foreach( $item as $n ) {
+            if( $condition == "" )
+                $condition = $n. "=1";
+            else
+                $condition = $condition." and ".$n."=1";
+        }
+        
+        $sql = "SELECT floorId 
+                FROM   deterioration 
+                WHERE ". $condition ;
+        $select = $GLOBALS['conn']->prepare( $sql ); 
+        $select->execute();
+
+        while( $row=$select->fetch(PDO::FETCH_OBJ) ){
+            if( !in_array( $row->floorId, $floorIds) ) {
+                array_push( $floorIds, $row->floorId);
+                echo $row->floorId."<br>";
+            }
+        }
+
+        // use floorId to search building
+        $buildingIds = array();
+        foreach( $floorIds as $n ) {
+            $sql = "SELECT buildingId 
+                    FROM   `floor`
+                    WHERE floorId=". $n ;
+            $select = $GLOBALS['conn']->prepare( $sql ); 
+            $select->execute();
+            $row=$select->fetch(PDO::FETCH_OBJ);
+            if( !in_array( $row->buildingId, $buildingIds) ) {
+                array_push( $buildingIds, $row->buildingId);
+            }
+        }
+        return $buildingIds;
+    }
 }
 ?>

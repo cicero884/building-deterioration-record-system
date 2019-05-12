@@ -13,7 +13,7 @@ class BuildingController {
     }
 
     // call it to insert building information to the database
-    public function insertBuildingInfo() {
+    public function insertBuilding() {
         $imageUpload = $this->imageController->imageUpload();
         
         // upload Image sucess
@@ -30,7 +30,7 @@ class BuildingController {
                 ':structure'  => htmlspecialchars( $_POST['structure'] ),
                 ':image'      => htmlspecialchars( $imageUpload ) 
             );
-            $this->modelBuilding->insertBuildingInfo( $buildingInfo );
+            $this->modelBuilding->insertBuilding( $buildingInfo );
         }
         // false to upload image
         else {
@@ -42,5 +42,6 @@ class BuildingController {
     public function getLatestThreeBuildings( $userId, array & $buildingInfo ) {
         $this->$modelBuilding->latestThreeBuildings( $userId, $buildingInfo );
     }
+
 }
 ?>

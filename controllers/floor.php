@@ -4,18 +4,18 @@ require_once("models/floor.php");
 class FloorController {
 
     public $modelFloor = NULL;
-    
+
     public function __constructor() {
         $this->modelFloor = new ModelFloor();
     }
 
-    public function insertFloorInfo() {
+    public function insertFloor() {
         $floorInfo = array(
             ':buildingId' => htmlspecialchars( $_POST['buildingId'] ),
             ':floor'      => htmlspecialchars( $_POST['floor'] ),
             ':image'      => htmlspecialchars( 'test.svg' ) 
         );
-        $this->modelFloor->insertFloorInfo( $floorInfo );
+        $this->modelFloor->insertFloor( $floorInfo );
     }
 }
 
