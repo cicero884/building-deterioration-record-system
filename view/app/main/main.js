@@ -1,9 +1,9 @@
 $('#addHouse').click(function(){
 	$.ajax({
-		url:'',
+		url:'index.php',
 		type:'GET',
 		data:{
-			action:'addHouse';
+			action:'addHouse',
 		},
 		success:function(responce){
 			$('content').html(responce);
