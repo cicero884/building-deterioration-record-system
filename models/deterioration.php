@@ -51,7 +51,6 @@ class ModelDeterioration {
         while( $row=$select->fetch(PDO::FETCH_OBJ) ){
             if( !in_array( $row->floorId, $floorIds) ) {
                 array_push( $floorIds, $row->floorId);
-                echo $row->floorId."<br>";
             }
         }
 
