@@ -8,8 +8,8 @@
 <body class="b"> 
            
             <div class="test1">
-                    <img src="bar.jpg" id="bar">
-                    <img src="logo.png" id="logo">
+                    <img src="./image/bar.jpg" id="bar">
+                    <img src="./image/logo.png" id="logo">
             
             
             <h1 id="word">Save every detail. Check building safety.</h1> 
@@ -17,20 +17,39 @@
             <a id="about" href=" ">關於我們</a>
             <a id="design" href=" ">設計理念</a>
             <div class="main">
-            1.地區：<input  name="location" /><form></form> 
+                <img src="./image/title.png" >
+            <h3 class="input1">1.路名：</h3>
+             <form >
+              <input name="location" class="input2" > 
             </div>
             <div class="main_11">
-            2.劣化程度(可複選)：<input type="radio" name="action"  id="pc"/>鋼筋外露  
-                               <input type="radio"  id="flake"/>碎片2.5cm、長1.5cm  
-                               <input type="radio"  id="crack"/>裂縫長30cm、寬3mm
-                                <br>
+            <h3 class="input3">2.劣化程度(可複選)：</h3><form >
+                <input type="radio" name="action"  id="pc"/>鋼筋外露  
+                <input type="radio"  id="flake"/>碎片2.5cm、長1.5cm  
+                <input type="radio"  id="crack"/>裂縫長30cm、寬3mm
+                <br>
                 </div>
             <div class="main_12">
-            3.時間：<input type="radio" name="time" id="month"/>1個月內  
-                    <input type="radio" name="time" id="dmonth"/>3個月內  
-                    <input type="radio" name="time" id="year"/>半年內<br>
-                    <button id="submit">submit</button>
-                </div>   
+            <h3 class="input4">3.時間：</h3>
+                <input type="radio" name="time" id="month" />1個月內  
+                <input type="radio" name="time" id="dmonth"/>3個月內  
+                <input type="radio" name="time" id="year"/>半年內<br>
+                <button type="submit">submit</button>
+            </form>
+                </div> 
+             <h2 class=table_1>共有幾筆</h2>   
+                <table class="table_"> 
+                         <th>編號</th> 
+                          <th>地址</th>
+                          <th>屋主姓名</th>
+                          <th>屋主電話</th>
+                          <th>新增日期</th>
+                          <th>勾選</th>
+                        
+                          
+                </table> 
+              
+                
             </div>
 
 <script src="search.js"></script>
