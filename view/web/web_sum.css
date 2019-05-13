@@ -40,7 +40,10 @@ time, mark, audio, video {
 .header > .header__logo{
     /* [ position ] */
     grid-area: logo;
-    height: 90%;
+    height: 12vh;
+    position: absolute;
+    top:1vh;
+    left:2vw;
 }
 
 
@@ -51,10 +54,12 @@ time, mark, audio, video {
 
     /* position */
     grid-area: title;
-
+    position: relative;
+    top:1vh;
+    left:-8vw;
     /* skin */
     color: #ffffff;
-    font-size: 1.5em;
+    font-size: 4vh;
     font-family:Agency FB;
 }
 
@@ -72,8 +77,26 @@ time, mark, audio, video {
 
     /* skin */
     color: #ffffff;
-    font-size: 1em;
+    font-size: 2.5vh;
     font-family:微軟正黑體;
+}
+
+#link__login{
+    position: relative;
+    left:20vw;
+    top:1vh;
+}
+
+#link__about{
+    position: relative;
+    left:8vw;
+    top:1vh;
+}
+
+#link__design{
+    position: relative;
+    left:-4vw;
+    top:1vh;
 }
 
 .main {
@@ -97,11 +120,34 @@ time, mark, audio, video {
 .main__form > .form__question {
     /* layout */
     display: inline-block;
-
     /* skin */
     color:#595959;
     font-family:微軟正黑體;
-    font-size: 2rem;
+    font-size: 1.2rem;
+}
+
+#question1{
+    position: relative;
+    top:2vh;
+    
+}
+
+#question2{
+    position: relative;
+    top:4vh;
+    
+}
+
+#question3{
+    position: relative;
+    top:6vh;
+    
+}
+
+#question4{
+    position: relative;
+    top:6vh;
+    left:2vw;
 }
 
 .main__form > .form__option {
@@ -168,6 +214,10 @@ time, mark, audio, video {
     grid-area: table_;
     display: flex; 
     font-family:微軟正黑體;
+    font-size:3vh; 
+    position: relative;
+    top:8vh;
+    left:5vw;
  }
 
 table {  
