@@ -144,6 +144,12 @@ time, mark, audio, video {
     
 }
 
+#question4{
+    position: relative;
+    top:6vh;
+    left:2vw;
+}
+
 .main__form > .form__option {
     /* layout */
     display: inline-block;
@@ -208,6 +214,10 @@ time, mark, audio, video {
     grid-area: table_;
     display: flex; 
     font-family:微軟正黑體;
+    font-size:3vh; 
+    position: relative;
+    top:8vh;
+    left:5vw;
  }
 
 table {  
