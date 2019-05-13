@@ -75,29 +75,17 @@ time, mark, audio, video {
     /* layout */
     display: inline-block;
 
+    /*position*/
+    margin-left:3vw;
+    margin-top:2vh;
+
     /* skin */
     color: #ffffff;
     font-size: 2.5vh;
     font-family:微軟正黑體;
 }
 
-#link__login{
-    position: relative;
-    left:20vw;
-    top:1vh;
-}
 
-#link__about{
-    position: relative;
-    left:8vw;
-    top:1vh;
-}
-
-#link__design{
-    position: relative;
-    left:-4vw;
-    top:1vh;
-}
 
 .main {
     /* layout */
@@ -120,35 +108,17 @@ time, mark, audio, video {
 .main__form > .form__question {
     /* layout */
     display: inline-block;
+
+     /*position*/
+     margin-top:2vh;
+    
     /* skin */
     color:#595959;
     font-family:微軟正黑體;
     font-size: 1.2rem;
 }
 
-#question1{
-    position: relative;
-    top:2vh;
-    
-}
 
-#question2{
-    position: relative;
-    top:4vh;
-    
-}
-
-#question3{
-    position: relative;
-    top:6vh;
-    
-}
-
-#question4{
-    position: relative;
-    top:6vh;
-    left:2vw;
-}
 
 .main__form > .form__option {
     /* layout */
@@ -162,6 +132,7 @@ time, mark, audio, video {
 
 #form__submit {
     display: block;
+    margin-top:2vh;
 }
   .left_1 {
     grid-area:left_1;
@@ -202,11 +173,7 @@ time, mark, audio, video {
     display: flex; 
     font-family:微軟正黑體;
  }
- .table_{
-     grid-area: table_;
-     position: relative;
-     left:5vw;
- }
+ 
  .tilte{
      position: relative;
      top:2vh;
@@ -218,9 +185,8 @@ time, mark, audio, video {
     display: flex; 
     font-family:微軟正黑體;
     font-size:3vh; 
-    position: relative;
-    top:8vh;
-    left:5vw;
+    margin-top:3vh;
+    margin-left:9vh;
  }
 
 table {  
@@ -231,11 +197,15 @@ table {
         text-align:center;
         overflow:auto;
         border-collapse:collapse;
-        position: relative;
-        top:10vh;
+        margin-top:2vh;   
         border-top: 0.8vh solid #8c8c8c;  
         border-bottom: 0.8vh solid #8c8c8c; 
 }
+
+td {
+    border-top: 0.5vh solid #b5b5b5;  
+    border-bottom: 0.5vh solid #b5b5b5; 
+  }
 
 #table_location{
     height:40vh;
@@ -243,14 +213,11 @@ table {
     overflow-x:hidden;
     overflow-y:auto;
     position: relative;
-    top:5vh;
+    top:1vh;
+    left:5vw;
 }
 
-#table_border{
-    border-top: 0.5vh solid #b5b5b5;  
-    border-bottom: 0.5vh solid #b5b5b5; 
-    
-}
+
 
 .b{
     margin: 0%;
