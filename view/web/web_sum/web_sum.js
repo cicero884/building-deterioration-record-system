@@ -1,3 +1,18 @@
+let submitButton = document.getElementById("form__submit");
+submitButton.addEventListener("click", ()=>{
+	let pc = 0;
+	let flake = 0;
+	let crack = 0;
+
+	if( document.getElementById("pc").checked )
+		pc = 1;
+	if( document.getElementById("flake").checked )
+		flake = 1;
+	if( document.getElementById("crack").checked )
+		crack = 1;
+	selectBuilding( pc, flake, crack );
+})
+
 
 function selectBuilding( pc, flake, crack ) {
 	$.ajax({
@@ -19,21 +34,6 @@ function selectBuilding( pc, flake, crack ) {
 		
 	});
 }
-
-let submitButton = document.getElementById("form__submit");
-submitButton.addEventListener("click", ()=>{
-	let pc = 0;
-	let flake = 0;
-	let crack = 0;
-
-	if( document.getElementById("pc").checked )
-		pc = 1;
-	if( document.getElementById("flake").checked )
-		flake = 1;
-	if( document.getElementById("crack").checked )
-		crack = 1;
-	selectBuilding( pc, flake, crack );
-})
 
 function makeTable( items ) {
 	let table = document.getElementById("table");
