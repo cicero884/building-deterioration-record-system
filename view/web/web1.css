@@ -22,11 +22,10 @@ time, mark, audio, video {
 .header {
     /* [ layout ] */
     display: grid;
-    grid-template-areas: "logo title link" 
-                        "aa aa aa"
-                        "house house house";
-    grid-template-columns: 2fr 3fr 2fr;
-    grid-template-rows: 1fr 3fr 2fr;
+    grid-template-areas: "title" 
+                        "aa"
+                        "house";
+    grid-template-rows: 2fr 3fr 2fr;
 
     /* [ position ] */ 
     height: 100vh;
@@ -41,35 +40,43 @@ time, mark, audio, video {
 /* .header > .header__logo */
 .header > .header__logo{
     /* [ position ] */
-    grid-area: logo;
+    grid-area:title;
     height: 28vh;
     position: absolute;
     top:4vh;
     left:2vw;
 }
 
-
 .header > .header__word{
     /* layout */
     display: flex;
     align-self: center;
-
+    justify-content: center;
+    align-items: center; 
     /* position */
     grid-area: aa;
-    margin-left: 15vw;
-    margin-top:15vh;
+    margin-left: center;
+    margin-top:center;
     /* skin */
     color: #ffffff;
-    font-size: 12vh;
+    font-size: 5rem;
     font-family:Agency FB;
+}
+
+.header_word > .header_wordloc{
+    display: inline-block;
+    
 }
 
 .header > .header__link {
     /* position */
     display: flex;
-    grid-area: link;
+    grid-area: title;
     width: auto;
-    align-items: center
+    align-items: center;
+    /*position*/
+    margin-left:70vw;
+    
 }
 
 .header__link > .link__item {
@@ -78,7 +85,7 @@ time, mark, audio, video {
 
     /*position*/
     margin-left:3vw;
-    margin-top:-2vh;
+    margin-top:-8vh;
 
     /* skin */
     color: #ffffff;
@@ -258,6 +265,7 @@ a {
     grid-area: pic_2;
     width: auto;
     align-items: center
+    
 }
 
 .header2__pic > .header2__pic1 {
@@ -268,4 +276,6 @@ a {
     height: 50vh;
     margin-top:-30vh;
     margin-left:2vw;
+    z-index:1;
 }
+
