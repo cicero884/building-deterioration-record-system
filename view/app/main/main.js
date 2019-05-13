@@ -6,8 +6,12 @@ $('#addHouse').click(function(){
 			action:'addHouse',
 		},
 		success:function(responce){
+			$('.content').remove();
+			$('body').append("<div class='content'></content>");
 			$('.content').html(responce);
-			console.log(responce);
+			var flky = new Flickity( '.content', {
+				cellSelector: ".page"
+			})
 		}
 	})
 })

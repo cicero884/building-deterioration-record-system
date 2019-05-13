@@ -12,7 +12,7 @@ foreach($this->page_css as $css){
 <?php
 foreach($this->page_html as $html) include "$html";
 if(count($this->page_content)>0){
-	echo "<div class='content' data-flickity='{ \"cellSelector\": \".page\" }'>";
+	echo "<div class='content'>";
 	foreach($this->page_content as $path) $this->load($path);
 	echo "</div>";
 }

@@ -3,7 +3,7 @@ https://flickity.metafizzy.co
 ---------------------------------------------- */
 
 .flickity-enabled {
-	position: relative;
+	position: absolute;
 }
 
 .flickity-enabled:focus { outline: none; }
