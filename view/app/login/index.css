@@ -1,0 +1,157 @@
+@font-face {
+	font-family: AgencyFB;
+	src: local("Agency FB"),
+	url('../../fonts/AGENCYR_0.TTF');
+}
+
+/* initialize */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* body > header */
+.header {
+    /* [ layout ] */
+    display: grid;
+    grid-template-areas: "logo title link";
+    grid-template-columns: auto 2fr 23rem;
+
+    /* [ position ] */ 
+    height: 15vh;
+    width: 100%;
+
+    /* [ skin ] */
+    background-image: url('../../image/backgrounds/bar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .header > .header__logo */
+.header > .header__logo{
+    /* [ position ] */
+    grid-area: logo;
+    height: 12vh;
+    margin-left: 2rem;
+
+    /* [ layout ] */
+    display: flex;
+    align-self: center;
+
+}
+
+/* .header > .header__title */
+.header > .header__title{
+    /* layout */
+    display: flex;
+    align-self: center;
+
+    /* position */
+    grid-area: title;
+    margin-left: 5vw;
+
+    /* skin */
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-family:AgencyFB;
+}
+
+/* .header > .header__link */
+.header > .header__link {
+    /* position */
+    grid-area: link;
+    margin-right: 2rem;
+
+    /* layout */
+    display: flex;
+    align-self: center;
+}
+
+/* .header > .header__link > .link__item */
+.header__link > .link__item {
+    /* layout */
+    display: inline-block;
+
+    /*position*/
+    margin-left:2rem;
+    margin-top:2vh;
+
+    /* skin */
+    color: #ffffff;
+    font-size: 2.5vh;
+    font-family: Microsoft JhengHei;
+}
+
+/* .content */
+.content {
+    /* position */
+    width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+/* .content > .content__logo */
+.content > .content__logo {
+    /* layout */
+    display: flex;
+    justify-self: center;
+
+    /* position */
+    width: 17rem;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.login__session {
+    /* layout */
+    display: flex;
+    align-items: center;
+
+    /* position */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    height: 2.8rem;
+    width: 21rem;
+
+    /* skin */
+    border: 3px solid;
+    border-radius: 12px;
+    border-color: lightgrey;
+}
+
+.login__session > .session__logo {
+    /* position */
+    height: 1.7rem;
+    width: auto;
+    margin-left: 1rem;
+}
+
+.login__session > .session__input {
+    /* position */
+    width: 70%;
+    height: 75%;
+    margin-left: 1rem;
+    border: none;
+
+    /* skin */
+    font-size: 1rem;
+}
