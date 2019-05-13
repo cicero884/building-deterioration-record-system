@@ -34,17 +34,24 @@ class ModelDeterioration {
     public function selectDeterioration( $item ) {
         $condition = "";
         $floorIds = array();
+        $sql = "";
 
-        foreach( $item as $n ) {
-            if( $condition == "" )
-                $condition = $n. "=1";
-            else
-                $condition = $condition." and ".$n."=1";
+        if( empty($item) ) {
+            $sql = "SELECT floorId
+                    FROM   deterioration";
         }
-        
-        $sql = "SELECT floorId 
-                FROM   deterioration 
-                WHERE ". $condition ;
+        else {
+            foreach( $item as $n ) {
+                if( $condition == "" )
+                    $condition = $n. "=1";
+                else
+                    $condition = $condition." and ".$n."=1";
+            }
+            $sql = "SELECT floorId 
+            FROM   deterioration 
+            WHERE ". $condition ;
+        }
+
         $select = $GLOBALS['conn']->prepare( $sql ); 
         $select->execute();
 

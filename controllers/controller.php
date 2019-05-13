@@ -39,7 +39,7 @@ class Controller{
 		elseif(substr($page,0,3)==='web') {
 			$this->cur_path.='web/';
 
-			if($page==="web_sum") {
+			if( $page==="web_sum" ) {
 				$this->getFiles($this->cur_path.'web_sum');	
 			}
 		}

@@ -1,7 +1,7 @@
 
-function myFunction( pc, flake, crack ) {
+function selectBuilding( pc, flake, crack ) {
 	$.ajax({
-		url:'../../web.php',
+		url:'web_ajax.php',
 		type:'POST',
 		data:{
 			action: 'select',
@@ -14,12 +14,13 @@ function myFunction( pc, flake, crack ) {
 		},
 		success: function(response){
 			console.log(response);
+			makeTable( response );
 		}
 		
 	});
 }
 
-let submitButton = document.getElementById("submit");
+let submitButton = document.getElementById("form__submit");
 submitButton.addEventListener("click", ()=>{
 	let pc = 0;
 	let flake = 0;
@@ -31,6 +32,20 @@ submitButton.addEventListener("click", ()=>{
 		flake = 1;
 	if( document.getElementById("crack").checked )
 		crack = 1;
-	
-  	myFunction(pc, flake, crack);
+	selectBuilding( pc, flake, crack );
 })
+
+function makeTable( items ) {
+	let table = document.getElementById("table");
+	content = JSON.parse( items );
+
+	content.forEach(( item ) => {
+		let row = table.insertRow(2);
+		row.insertCell(0).innerHTML = item.buildingId;
+		row.insertCell(1).innerHTML = item.address;
+		row.insertCell(2).innerHTML = item.name;
+		row.insertCell(3).innerHTML = item.phone;
+		row.insertCell(4).innerHTML = item.date.substring(0, 10);
+		row.insertCell(5).innerHTML = "口";
+	});
+}

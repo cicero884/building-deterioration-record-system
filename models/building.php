@@ -54,7 +54,8 @@ class ModelBuilding {
                 'address' => $row->address,
                 'name'    => $row->ownerName,
                 'phone'   => $row->ownerPhone,
-                'date'    => $row->recordDate
+                'date'    => $row->recordDate,
+                'buildingId' => $n
             );
             $count++;
         }

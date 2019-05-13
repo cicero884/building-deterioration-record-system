@@ -159,6 +159,10 @@ time, mark, audio, video {
     /* layout */
     display: inline-block;
 }
+
+#form__submit {
+    display: block;
+}
   .left_1 {
     grid-area:left_1;
     background-image: url("logo.png");

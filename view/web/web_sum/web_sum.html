@@ -9,7 +9,7 @@
 </header>
 
 <main class="main">
-    <form class="main__form">
+    <form class="main__form" onsubmit="return false;">
         <img class="form__title" src="view/web/image/title.png">
 
         <h3 id="question1" class="form__question" >1.路名：</h3>
@@ -20,9 +20,9 @@
     
         <h3 id="question2" class="form__question">2.劣化程度(可複選)：</h3>
         <section class="form__option" id="question2">
-            <input  class="option__item" type="radio" name="action"  id="pc"/>鋼筋外露  
-            <input  class="option__item" type="radio"  id="flake"/>碎片2.5cm、長1.5cm  
-            <input  class="option__item" type="radio"  id="crack"/>裂縫長30cm、寬3mm
+            <input  class="option__item" type="checkbox" name="pc"  id="pc"/>鋼筋外露  
+            <input  class="option__item" type="checkbox" name="flame" id="flake"/>碎片2.5cm、長1.5cm  
+            <input  class="option__item" type="checkbox" name="crack"id="crack"/>裂縫長30cm、寬3mm
         </section>
         <br>
 
@@ -32,12 +32,12 @@
             <input class="option__item" type="radio" name="time" id="dmonth"/>3個月內  
             <input class="option__item" type="radio" name="time" id="year"/>半年內<br>
         </section>
-        <button type="submit" id="question4">submit</button> 
+        <button id="form__submit">submit</button> 
     </form>
 </main>
 <article>
     <h2 class=table_1>共有幾筆</h2>   
-    <table class="table_"> 
+    <table class="table_sum" id="table"> 
         <th>編號</th> 
         <th>地址</th>
         <th>屋主姓名</th>
