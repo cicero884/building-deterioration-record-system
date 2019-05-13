@@ -9,6 +9,11 @@ if(isset($_GET['action'])){
 			break;
 	}
 }
-elseif(!isset($_GET['page'])) $controller->redirect('app_main');
+elseif(!isset($_GET['page'])) {
+	if($_SESSION['userType'] == 1)
+		$controller->redirect('web_sum');
+	else
+		$controller->redirect('app_main');
+}
 else $controller->redirect($_GET['page']);
 ?>

@@ -4,17 +4,17 @@ require_once("controllers/image.php");
 
 class BuildingController {
 
-    public $imageController = NULL;
-    public $modelBuilding = NULL;
+    public $controllers = NULL;
+    public $models = NULL;
 
     function __construct() {
-        $this->imageController = new ImageController();
-        $this->modelBuilding = new ModelBuilding();
+        $this->controllers['image'] = new ImageController();
+        $this->models['building'] = new ModelBuilding();
     }
 
     // call it to insert building information to the database
     public function insertBuilding() {
-        $imageUpload = $this->imageController->imageUpload();
+        $imageUpload = $this->controllers['image']->imageUpload();
         
         // upload Image sucess
         if( $imageUpload != false ) {
@@ -30,7 +30,7 @@ class BuildingController {
                 ':structure'  => htmlspecialchars( $_POST['structure'] ),
                 ':image'      => htmlspecialchars( $imageUpload ) 
             );
-            $this->modelBuilding->insertBuilding( $buildingInfo );
+            $this->models['building']->insertBuilding( $buildingInfo );
         }
         // false to upload image
         else {

@@ -5,13 +5,14 @@ class ModuleLogin
 {   
 	public function login(){
 		if(isset($_POST['account'])&&isset($_POST['password'])){
-			$sqlSearch = 'SELECT userId FROM user WHERE account=:account AND password=:password';
+			$sqlSearch = 'SELECT userId, type FROM user WHERE account=:account AND password=:password';
 			$search    = $GLOBALS['conn']->prepare($sqlSearch);
 			$search->execute([':account'=>$_REQUEST['account'], ':password'=>$_REQUEST['password']]);
-			$result=$search->fetch();
+			$result = $select->fetch(PDO::FETCH_OBJ);
 			if(empty($result)) return 'wrong account or password!';
 			else{
-				$_SESSION['userId']=$result;
+				$_SESSION['userId']=$result->userId;
+				$_SESSION['userType']=$result->type;
 				return;
 			}
 		}
