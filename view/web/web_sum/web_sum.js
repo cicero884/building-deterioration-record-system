@@ -38,6 +38,7 @@ function selectBuilding( pc, flake, crack, date ) {
 			alert('Ajax request error');
 		},
 		success: function(response){
+			console.log(response);
 			makeTable( response );
 		}
 		
@@ -49,7 +50,7 @@ function makeTable( items ) {
 	content = JSON.parse( items );
 
 	content.forEach(( item ) => {
-		let row = table.insertRow(0);
+		let row = table.insertRow( table.length );
 		row.insertCell(0).appendChild( document.createTextNode( item.buildingId ));
 		row.insertCell(1).appendChild( document.createTextNode( item.address ) );
 		row.insertCell(2).appendChild( document.createTextNode( item.name ) );

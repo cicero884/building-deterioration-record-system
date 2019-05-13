@@ -19,7 +19,7 @@ switch( $_POST['action'] ) {
             array_push( $items, 'exfoliationDepth', 'exfoliationScrap');
 
         $buildingIds = $models['deterioration']->selectDeterioration( $items );
-        $buildingInfo = $models['building']->getBuildingInfos($buildingIds);
+        $buildingInfo = $models['building']->getBuildingInfos($buildingIds, $_POST['date']);
         echo json_encode($buildingInfo);
         break;
     default:
