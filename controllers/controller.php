@@ -35,6 +35,9 @@ class Controller{
 			elseif($page==="app_floor"){
 				$this->page_content[]=$this->cur_path.'floor';
 			}
+			elseif($page==="app_deterioration"){
+				$this->page_content[]=$this->cur_path.'deterioration';
+			}
 		}
 		elseif(substr($page,0,3)==='web') {
 			$this->cur_path.='web/';

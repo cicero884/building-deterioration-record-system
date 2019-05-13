@@ -1,4 +1,4 @@
-let canvas=$('#floor')
+let canvas=$('#floor');
 let clickX = new Array();
 let clickY = new Array();
 let clickDrag = new Array();
@@ -30,25 +30,6 @@ function redraw(){
 		context.stroke();
 	}
 }
-
-canvas.mousedown(function(e){
-	var mouseX = e.pageX - this.offsetLeft;
-	var mouseY = e.pageY - this.offsetTop;
-
-	paint = true;
-	addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-	redraw();
-});
-canvas.mousemove(function(e){
-	if(paint){
-		addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
-		redraw();
-	}
-});
-canvas.mouseup(function(e){
-	paint = false;
-});
 canvas.mouseleave(function(e){
 	paint = false;
 });
-
