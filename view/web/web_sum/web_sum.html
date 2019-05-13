@@ -1,40 +1,56 @@
-
-         <header class="header">
-                <img class="header__logo" src="view/web/image/logo.png" >
+        <header class="header">
+                <img class="header__logo" src="./image/logo.png" >
                 <h1  class="header__word"> Save every detail. Check building safety.</h1> 
                 <section class="header__link">
                     <a class="link__item" href=" ">會員登入</a>
                     <a class="link__item" href=" ">關於我們</a>
                     <a class="link__item" href=" ">設計理念</a>
                 </section>
-            </header>
+        </header>
             
-            <main class="main">
-                <form class="main__form" onsubmit="return false;">
-                    <img class="form__title" src="view/web/image/title.png">
-            
-                    <h3 class="form__question" >1.路名：</h3>
-                    <section class="form__option" >
-                        <input  id="question1" class="option__item" name="location" > 
-                    </section>
-                    <br>
+        <main class="main">
+            <form class="main__form" onsubmit="return false;">
+                <img class="form__title" src="./image/title.png">
+                <h3 class="form__question" >1.路名：</h3>
+                <section class="form__option" >
+                    <input  id="question1" class="option__item" name="location" > 
+                </section>
+                <br>
                 
-                    <h3  class="form__question">2.劣化程度(可複選)：</h3>
-                    <section class="form__option" id="question2">
-                        <input  class="option__item" type="checkbox" name="pc"  id="pc"/>鋼筋外露  
-                        <input  class="option__item" type="checkbox" name="flame" id="flake"/>碎片2.5cm、長1.5cm  
-                        <input  class="option__item" type="checkbox" name="crack"id="crack"/>裂縫長30cm、寬3mm
+                <h3  class="form__question">2.劣化程度(可複選)：</h3>
+                <section class="form__option" id="question2">
+                    <section class="option__item">
+                        <input class="location" type="checkbox" name="pc"  id="pc" >
+                        <h6 class="location">鋼筋外露</h6>
                     </section>
-                    <br>
+                    <section class="option__item">
+                        <input  class="location" type="checkbox" name="flame" id="flake"/>
+                        <h6 class="location" >碎片2.5cm、長1.5cm</h6>
+                    </section>
+                    <section class="option__item">
+                        <input class="location" type="checkbox" name="crack"id="crack"/>
+                        <h6 class="location" >裂縫長30cm、寬3mm</h6>
+                    </section>
+                </section>
+                <br>
             
-                    <h3 class="form__question">3.時間：</h3>
-                    <section class="form__option" id="question3" >
-                        <input class="option__item" type="radio" name="time" id="month" />1個月內  
-                        <input class="option__item" type="radio" name="time" id="dmonth"/>3個月內  
-                        <input class="option__item" type="radio" name="time" id="year"/>半年內<br>
+                <h3 class="form__question">3.時間：</h3>
+                <section class="form__option" id="question3" >
+                    <section class="option__item">
+                        <input class="location" type="radio" name="time" id="month" />
+                        <h6 class="location">1個月內</h6>
+                    </section>  
+                    <section class="option__item">
+                        <input class="option__item" type="radio" name="time" id="dmonth"/>
+                        <h6 class="location">3個月內</h6>
                     </section>
-                    <button id="form__submit">submit</button> 
-                </form>
+                    <section class="option__item">
+                        <input class="option__item" type="radio" name="time" id="year"/>
+                        <h6 class="location">半年內</h6><br>
+                    </section>
+                    </section>
+                    <button class="form__submit">送出資料</button> 
+            </form>
             </main>
             <article>
                 <h2 class=table_1>共有幾筆</h2>   
@@ -59,5 +75,3 @@
                     </table> 
                 </section>
             </article>
-
-
