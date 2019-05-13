@@ -206,7 +206,6 @@ time, mark, audio, video {
      grid-area: table_;
      position: relative;
      left:5vw;
-     
  }
  .tilte{
      position: relative;
@@ -227,13 +226,30 @@ time, mark, audio, video {
 table {  
         font-family: 微軟正黑體; 
         font-size:3vh; 
+        height:15vh;
         width:90vw;
         text-align:center;
+        overflow:auto;
         border-collapse:collapse;
         position: relative;
         top:10vh;
-        border-top: 1vh solid #8c8c8c;  
-        border-bottom: 0.5vh solid #b5b5b5;       
+        border-top: 0.8vh solid #8c8c8c;  
+        border-bottom: 0.8vh solid #8c8c8c; 
+}
+
+#table_location{
+    height:40vh;
+    width:100vw;
+    overflow-x:hidden;
+    overflow-y:auto;
+    position: relative;
+    top:5vh;
+}
+
+#table_border{
+    border-top: 0.5vh solid #b5b5b5;  
+    border-bottom: 0.5vh solid #b5b5b5; 
+    
 }
 
 .b{
