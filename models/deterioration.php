@@ -43,9 +43,9 @@ class ModelDeterioration {
         else {
             foreach( $item as $n ) {
                 if( $condition == "" )
-                    $condition = $n. "=1";
+                    $condition = $n;
                 else
-                    $condition = $condition." and ".$n."=1";
+                    $condition .= " OR ".$n;
             }
             $sql = "SELECT floorId 
             FROM   deterioration 
