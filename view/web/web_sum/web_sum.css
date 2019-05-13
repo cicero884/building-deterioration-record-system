@@ -1,0 +1,258 @@
+/* initialize */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* body > header */
+.header {
+    /* [ layout ] */
+    display: grid;
+    grid-template-areas: "logo title link";
+    grid-template-columns: 2fr 3fr 2fr;
+
+    /* [ position ] */ 
+    height: 15vh;
+    width: 100%;
+
+    /* [ skin ] */
+    background-image: url('../image/bar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .header > .header__logo */
+.header > .header__logo{
+    /* [ position ] */
+    grid-area: logo;
+    height: 12vh;
+    position: absolute;
+    top:1vh;
+    left:2vw;
+}
+
+
+.header > .header__word{
+    /* layout */
+    display: flex;
+    align-self: center;
+
+    /* position */
+    grid-area: title;
+    position: relative;
+    top:1vh;
+    left:-8vw;
+    /* skin */
+    color: #ffffff;
+    font-size: 4vh;
+    font-family:Agency FB;
+}
+
+.header > .header__link {
+    /* position */
+    display: flex;
+    grid-area: link;
+    width: auto;
+    align-items: center
+}
+
+.header__link > .link__item {
+    /* layout */
+    display: inline-block;
+
+    /* skin */
+    color: #ffffff;
+    font-size: 2.5vh;
+    font-family:微軟正黑體;
+}
+
+#link__login{
+    position: relative;
+    left:20vw;
+    top:1vh;
+}
+
+#link__about{
+    position: relative;
+    left:8vw;
+    top:1vh;
+}
+
+#link__design{
+    position: relative;
+    left:-4vw;
+    top:1vh;
+}
+
+.main {
+    /* layout */
+    display: block;
+
+    /* position */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.main__form > .form__title {
+    /* layout */
+    display: block;
+    height: 2rem;
+    width: auto;
+}
+
+.main__form > .form__question {
+    /* layout */
+    display: inline-block;
+    /* skin */
+    color:#595959;
+    font-family:微軟正黑體;
+    font-size: 1.2rem;
+}
+
+#question1{
+    position: relative;
+    top:2vh;
+    
+}
+
+#question2{
+    position: relative;
+    top:4vh;
+    
+}
+
+#question3{
+    position: relative;
+    top:6vh;
+    
+}
+
+#question4{
+    position: relative;
+    top:6vh;
+    left:2vw;
+}
+
+.main__form > .form__option {
+    /* layout */
+    display: inline-block;
+}
+
+.main__form > .form__option > .option__item {
+    /* layout */
+    display: inline-block;
+}
+  .left_1 {
+    grid-area:left_1;
+    background-image: url("logo.png");
+    background-repeat:no-repeat;
+    position: absolute;
+    top:10%;
+    left:10%;
+  }
+
+  .main_1 {
+    grid-area: main_1;
+    color: #ffffff;
+    display: flex;
+    font-size: 2em;
+    font-family:Agency FB;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+ }
+  .main{
+    grid-area: main;
+    color: #595959;
+    display: flex;
+    font-family:微軟正黑體;
+    
+ }
+ .main_11{
+    grid-area: main_11;
+    color: #595959;
+    display: flex; 
+    font-family:微軟正黑體;
+    
+ }
+ .main_12{
+    grid-area: main_12;
+    color: #595959;
+    display: flex; 
+    font-family:微軟正黑體;
+ }
+ .table_{
+     grid-area: table_;
+     position: relative;
+     left:5vw;
+ }
+ .tilte{
+     position: relative;
+     top:2vh;
+     size:80%;
+ }
+
+ .table_1{
+    grid-area: table_;
+    display: flex; 
+    font-family:微軟正黑體;
+    font-size:3vh; 
+    position: relative;
+    top:8vh;
+    left:5vw;
+ }
+
+table {  
+        font-family: 微軟正黑體; 
+        font-size:3vh; 
+        height:15vh;
+        width:90vw;
+        text-align:center;
+        overflow:auto;
+        border-collapse:collapse;
+        position: relative;
+        top:10vh;
+        border-top: 0.8vh solid #8c8c8c;  
+        border-bottom: 0.8vh solid #8c8c8c; 
+}
+
+#table_location{
+    height:40vh;
+    width:100vw;
+    overflow-x:hidden;
+    overflow-y:auto;
+    position: relative;
+    top:5vh;
+}
+
+#table_border{
+    border-top: 0.5vh solid #b5b5b5;  
+    border-bottom: 0.5vh solid #b5b5b5; 
+    
+}
+
+.b{
+    margin: 0%;
+}
+
+a {
+    text-decoration:none;
+    color: #ffffff;
+} 
