@@ -13,8 +13,8 @@ class DeteriorationController {
         // unfinished
         $deterioration = array(
             ':floorId'      => $_POST['floorId'], 
-            ':column'       => 0, 
-            ':beam'         => 1, 
+            ':column'       => $_POST['column'], 
+            ':beam'         => $_POST['beam'], 
             ':wall'         => 0, 
             ':hole'         => 0, 
             ':floor'        => 0, 
