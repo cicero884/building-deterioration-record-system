@@ -1,12 +1,13 @@
 .test1 {
     height: 100vh;
+    width: 100vw;
     background-image:  url("./image/background1.jpg");
     display: grid;
     grid-template-columns: 0.15fr 0.45fr 0.1fr 0.3fr ;
     grid-template-rows: 0.3fr 0.4fr 0.3fr ;
     grid-template-areas: "left_1  . . login"
                          "main_1 main_1 main_1 main_1 "
-                         ". . . sidebar"
+                         "sidebar sidebar sidebar sidebar"
  }
 
 
@@ -16,15 +17,15 @@
     background-repeat:no-repeat;
     background-size: 90%;
     position:relative;
-    left:30px;
-    top:40px;
+    left:3vw;
+    top:5vh;
   }
 
   .main_1 {
     grid-area: main_1;
     color: #ffffff;
     display: flex;
-    font-size: 2em;
+    font-size: 5vh;
     font-family:Agency FB;
     justify-content: center;
     align-items: center;
@@ -33,39 +34,43 @@
   
   .sidebar {
     grid-area: sidebar;
-    background-image: url("./image/house_pic.PNG");
-    background-repeat:no-repeat;
-    background-size: 80%;
-   
+    width:25vw;
+    position: absolute;
+    left:71vw;
+    top:68.5vh;
+    z-index: 2;
   }
   
 
 
   .footer {
-    grid-area: footer;
-    background-image: url("./image/line.PNG");
-    background-repeat:no-repeat;
+    grid-area: sidebar;
+    position: absolute;
+    width:100vw;
+    height:3vh;
+    top:97vh;
+    z-index: 1;
   }
 
   .login{
     grid-area:login;
     color: #ffffff;
     display: flex;
-    font-size: 1em;
+    font-size: 2.5vh;
     font-family:微軟正黑體;
-    position: relative;
-    left:70%;
-    top:15%;
+    position: absolute;
+    left:90vw;
+    top:5vh;
   }
   .about{
     grid-area:login;
     color: #ffffff;
      display: flex;
-  font-size: 1em;
+  font-size: 2.5vh;
   font-family:微軟正黑體;
-  position: relative;
-  left:45%;
-  top:15%;
+  position: absolute;
+  left:83vw;
+   top:5vh;
   
  }
 
@@ -73,11 +78,11 @@
   grid-area:login;
   color: #ffffff;
   display: flex;
-  font-size: 1em;
+  font-size: 2.5vh;
   font-family:微軟正黑體;
-  position: relative;
-  left:20%;
-  top:15%;
+  position: absolute;
+  left:76vw;
+   top:5vh;
 }
 
 a {
@@ -90,6 +95,7 @@ a {
 
 .test2{
     height: 100vh;
+    width:100vw;
     background-color:#ffffff;
     display: grid;
     grid-template-columns: 0.33fr 0.34fr 0.33fr ;
@@ -104,31 +110,32 @@ a {
     grid-area: header;
     background-image: url("./image/logo2.PNG");
     background-repeat:no-repeat;
-    background-size: 50%;
+    background-size: 35vh;
     position: relative;
-    left:27%;
+    top:1vh;
+    left:10vw;
     
  }
  .main_11 {
     grid-area: main_11;
     background-image: url("./image/pic1.jpg");
     background-repeat:no-repeat;
-    background-size: 40%;
+    background-size: 25vh;
     position: relative;
-    left:50%;
-    top:40%;
+    left:15vw;
+    top:15vh;
  }
  .left_11 {
     grid-area: left_11;
-    width: 60%;
-    height: 20%;
+    width: 17vw;
+    height: 5vh;
     background: #3bc7aa;
     position:relative;
-    top:45%;
-    left:35%;
+    top:10vh;
+    left:12vw;
     color: #ffffff;
     display: flex;
-    font-size: 1.5em;
+    font-size: 3.5vh;
     font-family:微軟正黑體;
     justify-content: center;
     align-items: center;
@@ -136,81 +143,88 @@ a {
 
  .left_111{
     grid-area: left_111;
-    
     color: #878686;
     display: flex;
-    font-size: 1.5em;
+    font-size: 3.5vh;
     font-family:微軟正黑體;
+    position:relative;
+    top:-2vh;
+    left:9vw;
  }
 
  .main_12 {
     grid-area: main_12;
     background-image: url("./image/pic2.jpg");
     background-repeat:no-repeat;
-    background-size: 40%;
+    background-size: 25vh;
     position: relative;
-    left:30%;
-    top:40%;
+    left:12vw;
+    top:15vh;
  }
  .left_12 {
     grid-area: left_12;
-    width: 60%;
-    height: 20%;
+    width: 17vw;
+    height: 5vh;
     background: #3bc7aa;
     position:relative;
-    top:45%;
-    left:20%;
+    top:10vh;
+    left:10vw;
     color: #ffffff;
     display: flex;
-    font-size: 1.5em;
+    font-size: 3.5vh;
     font-family:微軟正黑體;
     justify-content: center;
     align-items: center;
  } 
  .left_112{
     grid-area: left_112;
-    
     color: #878686;
     display: flex;
-    font-size: 1.5em;
+    font-size: 3.5vh;
     font-family:微軟正黑體;
+    position:relative;
+    top:-2vh;
+    left:3vw;
  }
  .main_13 {
     grid-area: main_13;
     background-image: url("./image/pic3.jpg");
     background-repeat:no-repeat;
-    background-size: 40%;
+    background-size: 25vh;
     position: relative;
-    left:30%;
-    top:40%;
+    left:10vw;
+    top:15vh;
  }
  .left_13 {
     grid-area: left_13;
-    width: 60%;
-    height: 20%;
+    width: 17vw;
+    height: 5vh;
     background: #3bc7aa;
     position:relative;
-    top:45%;
-    left:20%;
+    top:10vh;
+    left:8vw;
     color: #ffffff;
     display: flex;
-    font-size: 1.5em;
+    font-size: 3.5vh;
     font-family:微軟正黑體;
     justify-content: center;
     align-items: center;
  } 
  .left_113{
     grid-area: left_113;
-    
     color: #878686;
     display: flex;
-    font-size: 1.5em;
+    font-size: 3.5vh;
     font-family:微軟正黑體;
+    position:relative;
+    top:-2vh;
+    left:3vw;
 }
 
 
 .test3{
     height: 100vh;
+    width:100vw;
     background-color:#ffffff;
     display: grid;
     grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr ;

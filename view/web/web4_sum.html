@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8">
+    <title>building-deterioration-record-system</title>
+    <link rel="stylesheet" type="text/css" href="web4.css">
+</head>
+ <body> 
+
+    <header class="header">
+        <img class="header__logo" src="./image/logo.png" >
+        <h1  class="header__word"> Save every detail. Check building safety.</h1> 
+        <section class="header__link">
+            <a id="link__login" class="link__item" href=" ">會員登入</a>
+            <a id="link__about" class="link__item" href=" ">關於我們</a>
+            <a id="link__design" class="link__item" href=" ">設計理念</a>
+        </section>
+    </header>
+
+    <main class="main">
+        <form class="main__form">
+            <img class="form__title" src="./image/title.png">
+
+            <h3 id="question1" class="form__question" >1.路名：</h3>
+            <section class="form__option" >
+                <input  id="question1" class="option__item" name="location" > 
+            </section>
+            <br>
+        
+            <h3 id="question2" class="form__question">2.劣化程度(可複選)：</h3>
+            <section class="form__option" id="question2">
+                <input  class="option__item" type="radio" name="action"  id="pc"/>鋼筋外露  
+                <input  class="option__item" type="radio"  id="flake"/>碎片2.5cm、長1.5cm  
+                <input  class="option__item" type="radio"  id="crack"/>裂縫長30cm、寬3mm
+            </section>
+            <br>
+
+            <h3 id="question3" class="form__question">3.時間：</h3>
+            <section class="form__option" id="question3" >
+                <input class="option__item" type="radio" name="time" id="month" />1個月內  
+                <input class="option__item" type="radio" name="time" id="dmonth"/>3個月內  
+                <input class="option__item" type="radio" name="time" id="year"/>半年內<br>
+            </section>
+            <button type="submit" id="question4">submit</button> 
+        </form>
+    </main>
+    <article>
+        <h2 class=table_1>共有幾筆</h2>   
+        <table class="table_"> 
+            <th>編號</th> 
+            <th>地址</th>
+            <th>屋主姓名</th>
+            <th>屋主電話</th>
+            <th>新增日期</th>
+            <th>勾選</th>
+            <tr> 
+            <td>1</td>
+            <td>台南市東區大學路一號</td>
+            <td>王小明</td>
+            <td>0987487587</td>
+            <td>2019-02-30</td>
+            <td></td>
+        </table> 
+    </article>
+
+
+
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        ntegrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script
+        src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+        ntegrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+        crossorigin="anonymous"></script>
+    <script src="search.js"></script>
+</body>
+</html>
