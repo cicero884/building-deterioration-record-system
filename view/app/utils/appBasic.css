@@ -36,7 +36,9 @@
 	left:0;
 	top:0;
 }
-
+.image-upload>input {
+  display: none;
+}
 body{
 	margin:0;
 	box-sizing: border-box;
