@@ -13,3 +13,15 @@ function getAbsolutePos(element) {
         left: left
     };
 };
+function previewPhoto(element){
+	$(element).change(function(){                                                                                                                     
+		if (this.files && this.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				console.log(e);
+				$(element).parent(".image-upload").children().children(".preview").attr("src",e.target.result);
+			}   
+			reader.readAsDataURL(this.files[0]);
+		}   
+	})
+}

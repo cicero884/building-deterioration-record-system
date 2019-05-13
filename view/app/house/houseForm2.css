@@ -1,24 +1,3 @@
-body {
-    /* position */
-    display: grid;
-    height: 100vh;
-    width: 100vw;
-    /* layout */
-    grid-template-columns: 0.5fr 0.5fr;
-    grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr 0.01fr 0.1fr 0.2fr;
-    grid-template-areas: "header header" "BuildingType BuildingType" "BuildingUsage BuildingUsage" "BuildingStruc BuildingStruc" "BuildingScale BuildingScale" "BuildingScaleUp BuildingScaleDown" "Button Button";
-    grid-column-gap: 10px;
-    grid-row-gap: 15px;
-    /* skin */
-    font-family: Microsoft JhengHei;
-    justify-content: center;
-    align-items: center;
-    background-image: url(./background.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    margin: 0;
-}
-
 .header {
     /*  background-color: #8BC574;*/
     display: block;

@@ -7,7 +7,7 @@ $('#addHouse').click(function(){
 		},
 		success:function(responce){
 			$('.content').remove();
-			$('body').append("<div class='content'></content>");
+			$('body').append("<form class='content'></form>");
 			$('.content').html(responce);
 			var flky = new Flickity( '.content', {
 				cellSelector: ".page"
