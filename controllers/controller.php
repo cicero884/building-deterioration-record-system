@@ -16,7 +16,7 @@ class Controller{
 		$page_content=array();
 		$this->page_js=array();
 
-		if($page==='login'||!isset($_SESSION['userId'])||$_SESSION['userId']==''||!set($_SESSION['userType'])||$_SESSION['userType']==''){
+		if($page==='login'||!isset($_SESSION['userId'])||$_SESSION['userId']==''||!isset($_SESSION['userType'])||$_SESSION['userType']==''){
 			$this->cur_path.='app/';
 			$this->getFiles($this->cur_path.'login/');
 		}
@@ -34,6 +34,13 @@ class Controller{
 			}
 			elseif($page==="app_floor"){
 				$this->page_content[]=$this->cur_path.'floor';
+			}
+		}
+		elseif(substr($page,0,3)==='web') {
+			$this->cur_path.='web/';
+
+			if($page==="web_sum") {
+				$this->getFiles($this->cur_path.'web_sum');	
 			}
 		}
 		require realpath('view/structure.php');

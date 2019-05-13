@@ -31,7 +31,7 @@ time, mark, audio, video {
     width: 100%;
 
     /* [ skin ] */
-    background-image: url("./image/bar.jpg");
+    background-image: url('../image/bar.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }

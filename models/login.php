@@ -8,7 +8,7 @@ class ModuleLogin
 			$sqlSearch = 'SELECT userId, type FROM user WHERE account=:account AND password=:password';
 			$search    = $GLOBALS['conn']->prepare($sqlSearch);
 			$search->execute([':account'=>$_REQUEST['account'], ':password'=>$_REQUEST['password']]);
-			$result = $select->fetch(PDO::FETCH_OBJ);
+			$result = $search->fetch(PDO::FETCH_OBJ);
 			if(empty($result)) return 'wrong account or password!';
 			else{
 				$_SESSION['userId']=$result->userId;
