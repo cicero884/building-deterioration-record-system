@@ -31,7 +31,7 @@ time, mark, audio, video {
     width: 100%;
 
     /* [ skin ] */
-    background-image: url('../image/bar.jpg');
+    background-image: url('./image/bar.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -59,7 +59,7 @@ time, mark, audio, video {
     left:-8vw;
     /* skin */
     color: #ffffff;
-    font-size: 4vh;
+    font-size: 2rem;
     font-family:Agency FB;
 }
 
@@ -81,7 +81,7 @@ time, mark, audio, video {
 
     /* skin */
     color: #ffffff;
-    font-size: 2.5vh;
+    font-size: 1rem;
     font-family:微軟正黑體;
 }
 
@@ -128,11 +128,23 @@ time, mark, audio, video {
 .main__form > .form__option > .option__item {
     /* layout */
     display: inline-block;
+    margin-left:1vw;
+    font-size: 1.2rem;
 }
 
-#form__submit {
-    display: block;
-    margin-top:2vh;
+.location{
+    display: inline-block;
+}
+
+.main__form > .form__submit {
+    display: inline-block;
+    font-family: 微軟正黑體;
+    position: absolute;
+    left:85%;
+    border-width:0px;
+    background: #48e195;
+    font-size:1.2rem;
+    border-radius:5px;
 }
   .left_1 {
     grid-area:left_1;
