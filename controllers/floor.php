@@ -11,7 +11,7 @@ class FloorController {
 
     public function insertFloor() {
         $floorInfo = array(
-            ':buildingId' => htmlspecialchars( $_POST['buildingId'] ),
+            ':buildingId' => htmlspecialchars( $_SESSION['buildingId'] ),
             ':floor'      => htmlspecialchars( $_POST['floor'] ),
             ':image'      => htmlspecialchars( 'test.svg' ) 
         );

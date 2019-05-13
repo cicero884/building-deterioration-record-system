@@ -1,6 +1,8 @@
 <?php
+session_start();
 require_once("models/building.php");
 require_once("controllers/image.php");
+require_once("models/floor.php");
 
 class BuildingController {
 
@@ -14,12 +16,12 @@ class BuildingController {
 
     // call it to insert building information to the database
     public function insertBuilding() {
-        $imageUpload = $this->controllers['image']->imageUpload();
+        $imageUpload = $this->controllers['image']->imageUpload( /* input file name */ );
         
         // upload Image sucess
         if( $imageUpload != false ) {
             $buildingInfo = array(
-                ':userId'     => htmlspecialchars( $_POST['userId'] ),
+                ':userId'     => htmlspecialchars( $_SESSION['userId'] ),
                 ':address'    => htmlspecialchars( $_POST['address'] ),
                 ':ownerName'  => htmlspecialchars( $_POST['name'] ),
                 ':ownerPhone' => htmlspecialchars( $_POST['phone'] ),
