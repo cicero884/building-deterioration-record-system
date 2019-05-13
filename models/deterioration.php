@@ -7,12 +7,12 @@ class ModelDeterioration {
                 ( floorId, `column`, beam, wall, hole, `floor`, 
                   rebarExposed, addOn,
                   exfoliation, exfoliationDepth, exfoliationScrap, 
-                  crack, crackLength, crackWidth, ps)
+                  crack, crackLength, crackWidth, ps, x, y)
                 VALUES
                 ( :floorId, :column, :beam, :wall, :hole, :floor, 
                   :rebarExposed, :addOn,
                   :exfoliation, :exfoliationDepth, :exfoliationScrap, 
-                  :crack, :crackLength, :crackWidth, :ps); ";
+                  :crack, :crackLength, :crackWidth, :ps, :x, :y); ";
         $insert = $GLOBALS['conn']->prepare( $sql ); 
         $insert->bindValue(':wall', $deterioration[':wall'] , PDO::PARAM_INT );
         $insert->bindValue(':column', $deterioration[':column'] , PDO::PARAM_INT );

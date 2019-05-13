@@ -1,12 +1,12 @@
 <?php
 class ImageController {
 
-    function imageUpload( $name ) {
+    function imageUpload( $name, $num ) {
         $target_dir = "image/";
 
         // rename
         $extension=end(explode(".", $_FILES[$name]["name"]));
-        $newfilename= date_format(date_create(),"Y-m-d_H:i:s") .".".$extension;
+        $newfilename= date_format(date_create(),"Y-m-d_H:i:s").$num .".".$extension;
         $target_file = $target_dir . $newfilename;
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

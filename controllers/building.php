@@ -16,7 +16,7 @@ class BuildingController {
 
     // call it to insert building information to the database
     public function insertBuilding() {
-        $imageUpload = $this->controllers['image']->imageUpload( /* input file name */ );
+        $imageUpload = $this->controllers['image']->imageUpload( "image", 0 );
         
         // upload Image sucess
         if( $imageUpload != false ) {
