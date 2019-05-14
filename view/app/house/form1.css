@@ -7,6 +7,50 @@
 }
 
 .page > .page__title {
+    /* layout */
+    display: block;
+
+    /* position */
+    height: auto;
+    margin: 0;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+
     /* skin */
-    font-size: 1.5em;
+    font-size: 3rem;
+}
+
+.page > .page__input {
+    /* layout */
+    display: block;
+
+    /* position */
+    width: 100%;
+    height: 8rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+
+    /* skin */
+    border-radius: 1rem;
+    font-size: 5rem;
+    
+}
+
+.page > .image__upload {
+    /* layout */
+    display: flex;
+    align-items: center;
+    justify-items: center;
+
+    /* position */
+    width: 98%;
+    height: 20rem;
+    margin-left: 2rem;
+
+    /* skin */
+    border: 1rem solid white;
+
+}
+
+.image__upload > .image__logo {
 }
