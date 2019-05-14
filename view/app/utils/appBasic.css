@@ -3,6 +3,20 @@
     src: local("3ds Regular"),
     url('../../fonts/3ds/3ds Regular.ttf');
 }
+
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 100%;
+	width: 100%;
+}
+
+body{
+	margin:0;
+	box-sizing: border-box;
+}
+
 .roundBorder{
     border-radius: 10vmin;
 }
@@ -31,15 +45,11 @@
 }
 .ground{
 	position:fixed;
-	width:100vw;
-	height:100vh;
+	width:100%;
+	height:100%;
 	left:0;
 	top:0;
 }
 .image-upload>input {
   display: none;
-}
-body{
-	margin:0;
-	box-sizing: border-box;
 }

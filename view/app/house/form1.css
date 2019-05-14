@@ -1,0 +1,12 @@
+.page {
+    /* position */
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+}
+
+.page > .page__title {
+    /* skin */
+    font-size: 1.5em;
+}
