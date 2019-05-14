@@ -23,14 +23,51 @@ time, mark, audio, video {
     border: 0;
     font: inherit;
     vertical-align: baseline;
+} 
+html, body {
+    margin: 0;
+    height: 100%;
+}
+a {
+    text-decoration:none;
+}
+
+@media screen and (max-width: 1000px) {
+    html {
+        font-size: 28px;
+    }
+}
+
+.index {
+    /* layout */
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "main";
+    grid-template-rows: 1fr 4fr;
+
+}
+
+@media screen and (max-width: 1000px) {
+    .index {
+        grid-template-areas: 
+            "main";
+        grid-template-rows: 1fr;
+        background-image: url('../../image/backgrounds/app-background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
 
 /* body > header */
 .header {
     /* [ layout ] */
+    grid-area: header;
     display: grid;
     grid-template-areas: "logo title link";
-    grid-template-columns: auto 2fr 23rem;
+    grid-template-columns: auto 2fr 30vw;
 
     /* [ position ] */ 
     height: 15vh;
@@ -40,6 +77,12 @@ time, mark, audio, video {
     background-image: url('../../image/backgrounds/bar.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+@media screen and (max-width: 1000px) {
+    .header {
+        display: none;
+    }
 }
 
 /* .header > .header__logo */
@@ -67,7 +110,7 @@ time, mark, audio, video {
 
     /* skin */
     color: #ffffff;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-family:AgencyFB;
 }
 
@@ -75,7 +118,9 @@ time, mark, audio, video {
 .header > .header__link {
     /* position */
     grid-area: link;
-    margin-right: 2rem;
+    position: absolute;
+    right: 2rem;
+    top: 3.3vh;
 
     /* layout */
     display: flex;
@@ -88,7 +133,7 @@ time, mark, audio, video {
     display: inline-block;
 
     /*position*/
-    margin-left:2rem;
+    margin-left:2vw;
     margin-top:2vh;
 
     /* skin */
@@ -97,13 +142,64 @@ time, mark, audio, video {
     font-family: Microsoft JhengHei;
 }
 
+.main {
+    /* layout */
+    grid-area: main;
+
+    /* skin */
+    border-bottom: 2vh solid #59ccb2;
+}
+
+@media screen and (max-width: 1000px) {
+    .main {
+        /* layout */
+        display: grid;
+        grid-template-areas: 
+            "content"
+            "building";
+        grid-template-rows: auto 30vh;
+
+        /* position */
+        border-bottom: none;
+    }
+}
+
+.main > .main__building {
+    /* position */
+    position: absolute;
+    bottom: 0;
+    right: 3vw;
+    height: 23vh;
+    width: auto;
+}
+
+@media screen and (max-width: 1000px) {
+    .main > .main__building {
+        /* position */
+        grid-area: building;
+        position: static;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 2rem;
+        height: 90%;
+        width: 80%;
+    }
+}
+
 /* .content */
 .content {
     /* position */
-    width: 30rem;
+    width: 22rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2rem;
+    margin-top: 10vh;
+}
+
+@media screen and (max-width: 1000px) {
+    .content {
+        grid-area: content;
+        width: 90%;
+    }
 }
 
 /* .content > .content__logo */
@@ -113,13 +209,67 @@ time, mark, audio, video {
     justify-self: center;
 
     /* position */
-    width: 17rem;
+    width: 70%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
-
+    margin-bottom: 1rem;
 }
 
+@media screen and (max-width: 1000px) {
+    .content > .content__logo {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+
+.content > .content__signup {
+    /* position */
+    margin-bottom: 1.2rem;
+    width: 5rem;
+    height: 2rem;
+
+    /* skin */
+    background-color: #31ad9a;
+    border-radius: 8px;
+    color: white;
+}
+
+@media screen and (max-width: 1000px) {
+    .content > .content__signup {
+        /* position */
+        margin-left: 10%;
+        width: auto;
+        height: auto;
+        padding: .3rem;
+
+        /* skin */
+        font-size: 1.2rem;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 12px;
+        border: 8px solid white;
+        color: white;
+    }
+}
+
+.content  > .content__errMsg {
+    /* position */
+    margin-left: 0;
+
+    /* skin */
+    font-family: Microsoft JhengHei;
+    color: gray;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .content > .content__errMsg {
+        margin-left: 10%;
+    }
+}
+
+/* .content > .app__login > .login__session */
 .login__session {
     /* layout */
     display: flex;
@@ -128,9 +278,9 @@ time, mark, audio, video {
     /* position */
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     height: 2.8rem;
-    width: 21rem;
+    width: 100%;
 
     /* skin */
     border: 3px solid;
@@ -138,10 +288,23 @@ time, mark, audio, video {
     border-color: lightgrey;
 }
 
+@media screen and (max-width: 1000px) {
+    .login__session {
+        /* position */
+        width: 80%;
+        height: 4rem;
+        margin-bottom: 2rem;
+
+        /* skin */
+        background: white;
+        border-radius: 1rem;
+    }
+}
+
 .login__session > .session__logo {
     /* position */
-    height: 1.7rem;
-    width: auto;
+    height: auto;
+    width: 1.7rem;
     margin-left: 1rem;
 }
 
@@ -153,5 +316,43 @@ time, mark, audio, video {
     border: none;
 
     /* skin */
-    font-size: 1rem;
+    font-size: 1.2rem;
+    color: gray;
+}
+@media screen and (max-width: 1000px) {
+    .login__session > .session__input {
+        /* skin */
+        font-size: 1.8rem;
+    }
+}
+
+.login__button {
+    /* layout */
+    display: block;
+
+    /*  position */
+    width: 100%;
+    height: 2.8rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.2rem;
+    
+    /* skin */
+    border-radius: 12px;
+    background-color: #e6842c;
+    color: white;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .login__button {
+        /* position */
+        width: 80%;
+        height: 4rem;
+        margin-bottom: 2rem;
+
+        /* skin */
+        font-size: 1.5rem;
+        border-radius: 1rem;
+    }
 }
