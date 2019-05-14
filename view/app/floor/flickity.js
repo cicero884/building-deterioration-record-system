@@ -24,6 +24,7 @@ $carousel.on( 'change.flickity', function( event, index ) {
 			pos=getAbsolutePos($('#floorElement')[0]);
 			flkty.options.draggable =true;
 			flkty.updateDraggable();
+			initCanvas("#prevCanvas");
 			initCanvas("#floorElement");
 			initCanvasEvent(Move);
 			$element_carousel.on('staticClick.flickity',function(event,pointer,cellElement,cellIndex){
@@ -36,7 +37,9 @@ $carousel.on( 'change.flickity', function( event, index ) {
 			break;
 		case 3:
 			closePointerEvent();
-			$('d_map').attr("src",$('#prevCanvas')[0].toDataURL());
+			$('#d_map')[0].width=window.innerWidth*0.8;
+			$('#d_map')[0].height=window.innerHeight*0.8;
+			$('#d_map').attr("src",$('#prevCanvas')[0].toDataURL());
 			break;
 	}
 });
