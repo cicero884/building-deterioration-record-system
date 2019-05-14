@@ -1,27 +1,59 @@
 <div class="page">
 
-    <div class="first">
-        <b>是否為加蓋處</b>
-        <form>
-            <div class="left"><input type="radio" name="addOns" value="1" checked> 是<br></div>
-            <div class="right"><input type="radio" name="addOns" value="2"> 否<br></div>
-        </form>
-    </div>
-
-    <div class="second">
-        <b>是否鋼筋外露</b>
-        <form>
-            <div class="left"><input type="radio" name="reinforcementUncover" value="1" checked> 是<br></div>
-            <div class="right"><input type="radio" name="reinforcementUncover" value="2"> 否<br></div>
-        </form>
-    </div>
-
-    <div class="third">
-        <b>備註</b><br>
+    <div class="Title">
+        <b>此劣化位置是否鋼筋外露？</b>
         <br>
-        <TEXTAREA type=text COLS=50 ROWS=5 style="width:300px;height:60px;font-size:14px;"></TEXTAREA>
     </div>
-    <div class="button">
-        <input type="submit" value="送出資料 " style="width:200px;height:40px;font-size:14px;"></input>
+    <div class="first">
+        <form>
+            <div class="left">
+                <label for="test"></label>
+                <label class="myCheckbox">
+                                <input class="button2" type="radio" name="RCUncover"/>
+                                <span class="text" align=center>是</span>
+                            </label>
+                <br></div>
+            <div class="right">
+                <label for="test"></label>
+                <label class="myCheckbox">
+                                <input class="button2" type="radio" name="RCUncover"/>
+                                <span class="text" align=center>否</span>
+                            </label>
+                <br></div>
+        </form>
+    </div>
+    <div class="Title">
+        <b>此劣化位置是否為加蓋處？</b>
+        <br>
+    </div>
+    <div class="second">
+        <form>
+            <div class="left">
+                <label for="test"></label>
+                <label class="myCheckbox">
+                                    <input class="button2" type="radio" name="addOnes"/>
+                                    <span class="text" align=center>是</span>
+                                </label>
+                <br></div>
+            <div class="right">
+                <label for="test"></label>
+                <label class="myCheckbox">
+                                    <input class="button2" type="radio" name="addOnes"/>
+                                    <span class="text" align=center>否</span>
+                                </label>
+            </div>
+        </form>
+    </div>
+
+    <b id="psLeft" style="font-size: 40px;
+    position: relative;
+    float: left;margin-left: 8%;">備註</b>
+    <div class="Title">
+        <TEXTAREA id="ps" type=text COLS=50 ROWS=5 style="width:700px;height:200px;"></TEXTAREA>
+    </div>
+    <div class="third">
+        <div class="button" id="final">
+            <input type="submit" value="送出資料 " style="width:200px;height:40px;font-size:14px;"></input>
+        </div>
     </div>
 </div>
