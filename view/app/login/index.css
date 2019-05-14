@@ -1,0 +1,358 @@
+@font-face {
+	font-family: AgencyFB;
+	src: local("Agency FB"),
+	url('../../fonts/AGENCYR_0.TTF');
+}
+
+/* initialize */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+} 
+html, body {
+    margin: 0;
+    height: 100%;
+}
+a {
+    text-decoration:none;
+}
+
+html {
+    font-size: 28px;
+}
+
+.index {
+    /* layout */
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "main";
+    grid-template-rows: 1fr 4fr;
+
+}
+
+@media screen and (max-width: 1000px) {
+    .index {
+        grid-template-areas: 
+            "main";
+        grid-template-rows: 1fr;
+        background-image: url('../../image/backgrounds/app-background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+/* body > header */
+.header {
+    /* [ layout ] */
+    grid-area: header;
+    display: grid;
+    grid-template-areas: "logo title link";
+    grid-template-columns: auto 2fr 30vw;
+
+    /* [ position ] */ 
+    height: 15vh;
+    width: 100%;
+
+    /* [ skin ] */
+    background-image: url('../../image/backgrounds/bar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width: 1000px) {
+    .header {
+        display: none;
+    }
+}
+
+/* .header > .header__logo */
+.header > .header__logo{
+    /* [ position ] */
+    grid-area: logo;
+    height: 12vh;
+    margin-left: 1.2rem;
+
+    /* [ layout ] */
+    display: flex;
+    align-self: center;
+
+}
+
+/* .header > .header__title */
+.header > .header__title{
+    /* layout */
+    display: flex;
+    align-self: center;
+
+    /* position */
+    grid-area: title;
+    margin-left: 5vw;
+
+    /* skin */
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-family:AgencyFB;
+}
+
+/* .header > .header__link */
+.header > .header__link {
+    /* position */
+    grid-area: link;
+    position: absolute;
+    right: 1.2rem;
+    top: 3.3vh;
+
+    /* layout */
+    display: flex;
+    align-self: center;
+}
+
+/* .header > .header__link > .link__item */
+.header__link > .link__item {
+    /* layout */
+    display: inline-block;
+
+    /*position*/
+    margin-left:2vw;
+    margin-top:2vh;
+
+    /* skin */
+    color: #ffffff;
+    font-size: 2.5vh;
+    font-family: Microsoft JhengHei;
+}
+
+.main {
+    /* layout */
+    grid-area: main;
+
+    /* skin */
+    border-bottom: 2vh solid #59ccb2;
+}
+
+@media screen and (max-width: 1000px) {
+    .main {
+        /* layout */
+        display: grid;
+        grid-template-areas: 
+            "content"
+            "building";
+        grid-template-rows: auto 30vh;
+
+        /* position */
+        border-bottom: none;
+    }
+}
+
+.main > .main__building {
+    /* position */
+    position: absolute;
+    bottom: 0;
+    right: 3vw;
+    height: 23vh;
+    width: auto;
+}
+
+@media screen and (max-width: 1000px) {
+    .main > .main__building {
+        /* position */
+        grid-area: building;
+        position: static;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 1.2rem;
+        height: 90%;
+        width: 80%;
+    }
+}
+
+/* .content */
+.content {
+    /* position */
+    width: 12rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+}
+
+@media screen and (max-width: 1000px) {
+    .content {
+        grid-area: content;
+        width: 95%;
+    }
+}
+
+/* .content > .content__logo */
+.content > .content__logo {
+    /* layout */
+    display: flex;
+    justify-self: center;
+
+    /* position */
+    width: 70%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .6rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .content > .content__logo {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+
+.content > .content__signup {
+    /* position */
+    margin-bottom: .7rem;
+    width: auto;
+    height: auto;
+
+    /* skin */
+    background-color: #31ad9a;
+    border-radius: 8px;
+    color: white;
+    font-size: .56rem;
+    padding: .2rem .4rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .content > .content__signup {
+        /* position */
+        margin-left: 10%;
+        width: auto;
+        height: auto;
+        padding: .3rem;
+
+        /* skin */
+        font-size: 1.3rem;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 12px;
+        border: 8px solid white;
+        color: white;
+    }
+}
+
+.content  > .content__errMsg {
+    /* position */
+    margin-left: 0;
+
+    /* skin */
+    font-family: Microsoft JhengHei;
+    color: gray;
+    font-size: .7rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .content > .content__errMsg {
+        margin-left: 10%;
+    }
+}
+
+/* .content > .app__login > .login__session */
+.login__session {
+    /* layout */
+    display: flex;
+    align-items: center;
+
+    /* position */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .85rem;
+    height: 1.5rem;
+    width: 100%;
+
+    /* skin */
+    border: 3px solid;
+    border-radius: 12px;
+    border-color: lightgrey;
+}
+
+@media screen and (max-width: 1000px) {
+    .login__session {
+        /* position */
+        width: 80%;
+        height: 4.5rem;
+        margin-bottom: 2rem;
+
+        /* skin */
+        background: white;
+        border-radius: 1rem;
+    }
+}
+
+.login__session > .session__logo {
+    /* position */
+    height: auto;
+    width: 1rem;
+    margin-left: 1rem;
+}
+
+.login__session > .session__input {
+    /* position */
+    width: 70%;
+    height: 75%;
+    margin-left: 1rem;
+    border: none;
+
+    /* skin */
+    font-size: .7rem;
+    color: gray;
+}
+@media screen and (max-width: 1000px) {
+    .login__session > .session__input {
+        /* skin */
+        font-size: 1.8rem;
+    }
+}
+
+.login__button {
+    /* layout */
+    display: block;
+
+    /*  position */
+    width: 100%;
+    height: 1.6rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .6rem;
+    
+    /* skin */
+    border-radius: 12px;
+    background-color: #e6842c;
+    color: white;
+    font-size: .7rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .login__button {
+        /* position */
+        width: 80%;
+        height: 4.5rem;
+        margin-bottom: 2rem;
+
+        /* skin */
+        font-size: 1.8rem;
+        border-radius: 1rem;
+    }
+}

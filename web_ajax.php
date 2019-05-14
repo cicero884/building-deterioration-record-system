@@ -12,11 +12,11 @@ switch( $_POST['action'] ) {
         $items = array();
 
         if( htmlspecialchars( $_POST['pc']) == 1 )
-            array_push( $items, 'rebarExposed' );
+            array_push( $items, '(rebarExposed=1)' );
         if( htmlspecialchars( $_POST['crack']) == 1)
-            array_push( $items, 'crackLength', 'crackWidth');
+            array_push( $items, '(crackLength=1 AND crackWidth=1)');
         if( htmlspecialchars( $_POST['flake'] )== 1)
-            array_push( $items, 'exfoliationDepth', 'exfoliationScrap');
+            array_push( $items, 'exfoliationDepth=1 AND exfoliationScrap=1');
 
         $buildingIds = $models['deterioration']->selectDeterioration( $items );
         $buildingInfo = $models['building']->getBuildingInfos($buildingIds, $_POST['date']);

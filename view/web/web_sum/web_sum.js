@@ -51,11 +51,15 @@ function makeTable( items ) {
 
 	content.forEach(( item ) => {
 		let row = table.insertRow( table.length );
+		let x = document.createElement("INPUT");
+		x.setAttribute("type", "checkbox");
+		x.setAttribute("name", "select");
+		x.setAttribute("value", item.buildingId);
 		row.insertCell(0).appendChild( document.createTextNode( item.buildingId ));
 		row.insertCell(1).appendChild( document.createTextNode( item.address ) );
 		row.insertCell(2).appendChild( document.createTextNode( item.name ) );
 		row.insertCell(3).appendChild( document.createTextNode( item.phone ) );
 		row.insertCell(4).appendChild( document.createTextNode( item.date.substring(0,10) ) );
-		row.insertCell(5).appendChild( document.createTextNode( "口" ) );
+		row.insertCell(5).appendChild( x );
 	});
 }
