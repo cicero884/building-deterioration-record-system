@@ -12,6 +12,7 @@ class ModuleLogin
 			if(empty($result)) return 'wrong account or password!';
 			else{
 				$_SESSION['userId']=$result->userId;
+				$_SESSION['account']=$_POST['account'];
 				$_SESSION['userType']=$result->type;
 				return;
 			}

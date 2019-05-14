@@ -1,4 +1,5 @@
 <?php
+require_once('building.php');
 class Controller{
 	protected $recentHouses=array();
 	protected $cur_path='view/';
@@ -25,8 +26,9 @@ class Controller{
 			$this->getFiles($this->cur_path.'utils');
 			
 			if($page==="app_main"){
+				$this->models['building']=new ModelBuilding();
 				//load recent house
-				$recentHouses=array();
+				$this->recentHouses=$this->models['building']->getLatestThreeBuildings($_SESSION['userId']);
 				$this->page_content[]=$this->cur_path.'main';
 			}
 			elseif($page==="app_house"){
