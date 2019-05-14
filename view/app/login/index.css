@@ -32,10 +32,8 @@ a {
     text-decoration:none;
 }
 
-@media screen and (max-width: 1000px) {
-    html {
-        font-size: 28px;
-    }
+html {
+    font-size: 28px;
 }
 
 .index {
@@ -90,7 +88,7 @@ a {
     /* [ position ] */
     grid-area: logo;
     height: 12vh;
-    margin-left: 2rem;
+    margin-left: 1.2rem;
 
     /* [ layout ] */
     display: flex;
@@ -110,7 +108,7 @@ a {
 
     /* skin */
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-family:AgencyFB;
 }
 
@@ -119,7 +117,7 @@ a {
     /* position */
     grid-area: link;
     position: absolute;
-    right: 2rem;
+    right: 1.2rem;
     top: 3.3vh;
 
     /* layout */
@@ -180,7 +178,7 @@ a {
         position: static;
         margin-left: auto;
         margin-right: auto;
-        padding-bottom: 2rem;
+        padding-bottom: 1.2rem;
         height: 90%;
         width: 80%;
     }
@@ -189,7 +187,7 @@ a {
 /* .content */
 .content {
     /* position */
-    width: 22rem;
+    width: 12rem;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10vh;
@@ -198,7 +196,7 @@ a {
 @media screen and (max-width: 1000px) {
     .content {
         grid-area: content;
-        width: 90%;
+        width: 95%;
     }
 }
 
@@ -213,7 +211,7 @@ a {
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1rem;
+    margin-bottom: .6rem;
 }
 
 @media screen and (max-width: 1000px) {
@@ -226,14 +224,16 @@ a {
 
 .content > .content__signup {
     /* position */
-    margin-bottom: 1.2rem;
-    width: 5rem;
-    height: 2rem;
+    margin-bottom: .7rem;
+    width: auto;
+    height: auto;
 
     /* skin */
     background-color: #31ad9a;
     border-radius: 8px;
     color: white;
+    font-size: .56rem;
+    padding: .2rem .4rem;
 }
 
 @media screen and (max-width: 1000px) {
@@ -245,7 +245,7 @@ a {
         padding: .3rem;
 
         /* skin */
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         background-color: rgba(0, 0, 0, 0);
         border-radius: 12px;
         border: 8px solid white;
@@ -260,7 +260,7 @@ a {
     /* skin */
     font-family: Microsoft JhengHei;
     color: gray;
-    font-size: 1.2rem;
+    font-size: .7rem;
 }
 
 @media screen and (max-width: 1000px) {
@@ -278,8 +278,8 @@ a {
     /* position */
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1.5rem;
-    height: 2.8rem;
+    margin-bottom: .85rem;
+    height: 1.5rem;
     width: 100%;
 
     /* skin */
@@ -292,7 +292,7 @@ a {
     .login__session {
         /* position */
         width: 80%;
-        height: 4rem;
+        height: 4.5rem;
         margin-bottom: 2rem;
 
         /* skin */
@@ -304,7 +304,7 @@ a {
 .login__session > .session__logo {
     /* position */
     height: auto;
-    width: 1.7rem;
+    width: 1rem;
     margin-left: 1rem;
 }
 
@@ -316,7 +316,7 @@ a {
     border: none;
 
     /* skin */
-    font-size: 1.2rem;
+    font-size: .7rem;
     color: gray;
 }
 @media screen and (max-width: 1000px) {
@@ -332,27 +332,27 @@ a {
 
     /*  position */
     width: 100%;
-    height: 2.8rem;
+    height: 1.6rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1.2rem;
+    margin-bottom: .6rem;
     
     /* skin */
     border-radius: 12px;
     background-color: #e6842c;
     color: white;
-    font-size: 1.2rem;
+    font-size: .7rem;
 }
 
 @media screen and (max-width: 1000px) {
     .login__button {
         /* position */
         width: 80%;
-        height: 4rem;
+        height: 4.5rem;
         margin-bottom: 2rem;
 
         /* skin */
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         border-radius: 1rem;
     }
 }
