@@ -3,8 +3,8 @@
 	<div id="homeList">
 <?php foreach($this->recentHouses as $house):?>
 		<div id='house'>
-			<img id='houseImage' src='<?php echo "$house->img";?>'></img>
-			<p id='houseAddress'><?php echo "$house->address";?></p>
+			<img id='houseImage' src='<?php echo $house['image'];?>'></img>
+			<p id='houseAddress'><?php echo $house['address'];?></p>
 		</div>
 <?php endforeach;?>
 	</div>

@@ -1,0 +1,10 @@
+canvas,#d_map{
+	position:absolute;
+	top:10%;
+	left:10%;
+}
+#elementList{
+	width:100%;
+	position:absolute;
+	bottom:0;
+}

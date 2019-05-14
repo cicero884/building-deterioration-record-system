@@ -4,6 +4,8 @@ var ctx,pos,angle=0,prev_ctx;
 var selectImage;
 
 function initCanvas(canvas) {
+	$(canvas)[0].width=window.innerWidth*0.8;
+	$(canvas)[0].height=window.innerHeight*0.8;
     ctx = $(canvas)[0].getContext("2d");
 }
 function initCanvasEvent(func){
