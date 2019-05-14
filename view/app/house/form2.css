@@ -1,0 +1,71 @@
+.page {
+    /* position */
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+}
+
+.page > .page__title {
+    /* layout */
+    display: block;
+
+    /* position */
+    height: auto;
+    margin: 0;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+
+    /* skin */
+    font-size: 3rem;
+}
+
+.page > .page__floor {
+    /* position */
+    margin-left: 2rem;
+}
+
+.page__input {
+    /* layout */
+    display: block;
+
+    /* position */
+    width: 100%;
+    height: 6rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+
+    /* skin */
+    border-radius: 1rem;
+    font-size: 5rem;
+    
+}
+
+.page__input > .input__item {
+    /* skin */
+    font-size: 3rem;
+}
+
+.floor__content--word {
+    /* layout */
+    display: inline-block;
+
+    /* position */
+    margin-left: .5rem;
+    margin-right: .5rem;
+
+    /* skin */
+    font-size: 4rem;
+}
+
+.page__floor > .floor__content--input {
+    /* layout */
+    display: inline-block;
+
+    /* position */
+    width: 5rem;
+    height: auto;
+
+    /* skin */
+    font-size: 3.5rem;
+}
