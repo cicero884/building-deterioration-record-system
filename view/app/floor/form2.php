@@ -3,7 +3,7 @@
 	<div>
 		<canvas id="floorDraw"></canvas>
 
-		<figure id='clearCanvas'>
+		<figure class='clearCanvas'>
 			<img src="view/app/image/buttons/clean.png">
 			<figcaption>清除</figcaption>
 		</figure>

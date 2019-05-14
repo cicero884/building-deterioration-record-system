@@ -9,12 +9,12 @@ $floorElement=array(
 <div class='page'>
 	<div id='floorImage'>
 		<canvas id='floorElement'></canvas>
-		<img id='prevCanvas'></img>
+		<canvas id='prevCanvas'></canvas>
 		<figure id='rotateIcon'>
 			<img src="view/app/image/buttons/rotate.png">
-			<figcaption>清除</figcaption>
+			<figcaption>旋轉</figcaption>
 		</figure>
-		<figure id='clearCanvas'>
+		<figure class='clearCanvas'>
 			<img src="view/app/image/buttons/clean.png">
 			<figcaption>清除</figcaption>
 		</figure>
@@ -23,10 +23,10 @@ $floorElement=array(
 			<figcaption>完成</figcaption>
 		</figure>
 	</div>
-	<div id='iconList'>
+	<div id='elementList'>
 <?php foreach($floorElement as $name => $chName):?>
 		<figure class='floorElement' id='<?php echo $name;?>'>
-		<figcaption><?php echo $chName;?></figcaption>
+			<figcaption><?php echo $chName;?></figcaption>
 			<img src='view/app/image/floorElement/<?php echo $name;?>.png'>
 		</figure>
 <?php endforeach;?>

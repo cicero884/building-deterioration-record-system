@@ -1,7 +1,8 @@
-$('#clearCanvas').click(function(){
+$('.clearCanvas').click(function(){
 	clearCanvas();
 });
 $('#finishDraw').click(function(){
 	$carousel.flickity('next');
-	$('#prevCanvas').attr('src',$('#floorDraw')[0].toDataURL());
+	prev_ctx=$('#prevCanvas')[0].getContext("2d");
+	prev_ctx.drawImage($('#floorDraw')[0],0,0);
 })
