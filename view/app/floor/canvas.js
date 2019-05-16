@@ -15,6 +15,7 @@ function initCanvasEvent(func){
     });
 
 	$carousel.on( 'pointerMove.flickity', function(e,p,m) {
+		e.preventDefault();
         if (mousePressed) {
             func(p.pageX - pos.left, p.pageY - pos.top, true);
         }

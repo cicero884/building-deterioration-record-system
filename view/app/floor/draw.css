@@ -1,4 +1,5 @@
 canvas,#d_map{
+	touch-action:none;
 	position:absolute;
 	top:10%;
 	left:10%;
