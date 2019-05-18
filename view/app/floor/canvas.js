@@ -32,11 +32,13 @@ function stampDraw(pointer){
 			x=between(pointer.offsetX,0,pointer.srcElement.width-selectImage.width);
 			y=between(pointer.offsetY,0,pointer.srcElement.height-selectImage.height);
 		}
+		let mid_x=x+selectImage.width/2;
+		let mid_y=y+selectImage.height/2;
 		cur_ctx.clearRect(0,0,cur_ctx.canvas.width,cur_ctx.canvas.height);
 		cur_ctx.save();
-		cur_ctx.translate(x,y);
+		cur_ctx.translate(mid_x,mid_y);
 		cur_ctx.rotate(angle);
-		cur_ctx.translate(-x,-y);
+		cur_ctx.translate(-mid_x,-mid_y);
 		cur_ctx.drawImage(selectImage,x,y);
 		cur_ctx.restore();
 		lastX = x; lastY = y;
