@@ -9,12 +9,12 @@ $element_carousel.on('staticClick.flickity',function( event, pointer, cellElemen
 	flkty.updateDraggable();
 
 	selectImage=$(cellElement).children('img')[0];
-	angle=0;
-	stampDraw(0,0,true);
+	angle=lastX=lastY=0;
+	stampDraw();
 });
 $('#rotateIcon').click(function(){
 	angle+=Math.PI/2;
-	stampDraw(lastX,lastY,true);
+	stampDraw();
 });
 $('#finishCanvas').click(function(){
 	flkty.options.draggable=true;

@@ -8,8 +8,8 @@ $floorElement=array(
 ?>
 <div class='page'>
 	<div id='floorImage'>
-		<canvas id='floorElement'></canvas>
 		<canvas id='baseCanvas'></canvas>
+		<canvas id='floorElement'></canvas>
 		<figure id='rotateIcon'>
 			<img src="view/app/image/buttons/rotate.png">
 			<figcaption>旋轉</figcaption>

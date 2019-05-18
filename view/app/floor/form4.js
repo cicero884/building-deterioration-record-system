@@ -11,7 +11,8 @@ $('#new').click(function(){
 	new_elem.draggable();
 })
 function record_deterioration(){
+	console.log('record');
 	$carousel.on('staticClick.flickity',function(event,pointer,cellElement,cellIndex){
-		
+		//ajax
 	});
 }

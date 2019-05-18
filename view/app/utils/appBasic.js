@@ -1,3 +1,8 @@
+function between(value,small,big){
+	if(value<small) return small;
+	if(value>big) return big;
+	return value;
+}
 function getAbsolutePos(element) {
     var top = 0, left = 0;
     do {
@@ -12,7 +17,7 @@ function getAbsolutePos(element) {
         top: top,
         left: left
     };
-};
+}
 function setSize(element,width,height){
 	element.width=width;
 	element.height=height;
