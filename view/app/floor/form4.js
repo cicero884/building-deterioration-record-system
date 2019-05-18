@@ -1,4 +1,7 @@
 let d_array=[],current_elem;
+
+setSize($("#d_map")[0],vw(80),vh(80));
+
 $('#new').click(function(){
 	new_elem=$("<div class='not-record'>"+(d_array.length+1)+"</div>");
 	d_array.push(new_elem);
@@ -8,7 +11,7 @@ $('#new').click(function(){
 	new_elem.draggable();
 })
 function record_deterioration(){
-	$carousel.on('pointerDown.flickity',function(event,pointer){
+	$carousel.on('staticClick.flickity',function(event,pointer,cellElement,cellIndex){
 		
 	});
 }

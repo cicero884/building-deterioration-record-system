@@ -1,21 +1,22 @@
-var mousePressed = false;
-var lastX, lastY;
-var ctx,pos,angle=0,prev_ctx;
-var selectImage;
+let mousePressed = false;
+let lastX, lastY,pos;
+let cur_ctx,angle=0;
+let selectImage;
 
-function initCanvas(canvas) {
-	$(canvas)[0].width=window.innerWidth*0.8;
-	$(canvas)[0].height=window.innerHeight*0.8;
-    ctx = $(canvas)[0].getContext("2d");
+function setCanvasVar(canvas){
+    cur_ctx=canvas.getContext("2d");
+	pos=getAbsolutePos($('#floorDraw')[0]);
 }
 function initCanvasEvent(func){
+	$carousel.off('pointerDown.flickity');
+	$carousel.off('pointerMove.flickity');
+	$carousel.off('pointerUp.flickity');
 	$carousel.on( 'pointerDown.flickity', function(e,p,m) {
         mousePressed = true;
         func(p.pageX - pos.left, p.pageY - pos.top, false);
     });
 
 	$carousel.on( 'pointerMove.flickity', function(e,p,m) {
-		e.preventDefault();
         if (mousePressed) {
             func(p.pageX - pos.left, p.pageY - pos.top, true);
         }
@@ -23,37 +24,34 @@ function initCanvasEvent(func){
 	$carousel.on( 'pointerUp.flickity', function(e,p,m) {
         mousePressed = false;
     });
-	$('#floorDraw').mouseleave(function (e) {
-        mousePressed = false;
-    });
 }
-function Move(x,y, isDown){
-	if (isDown&&selectImage) {
-		let mid_x=lastX+selectImage.width/2,mid_y=lastY+selectImage.height/2;
-		ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
-		ctx.save();
-		ctx.translate(mid_x,mid_y);
-		ctx.rotate(angle);
-		ctx.translate(-mid_x,-mid_y);
-		ctx.drawImage(selectImage,x,y);
-		ctx.restore();
-		lastX = x; lastY = y;
-	}
-}
-function Draw(x,y,isDown){
+function brushDraw(x,y,isDown){
 	if (isDown) {
-		ctx.beginPath();
-		ctx.strokeStyle = $('#selColor').val();
-		ctx.lineWidth = $('#selWidth').val();
-		ctx.lineJoin = "round";
-		ctx.moveTo(lastX, lastY);
-		ctx.lineTo(x, y);
-		ctx.closePath();
-		ctx.stroke();
+		cur_ctx.beginPath();
+		cur_ctx.strokeStyle = "#000";// $('#selColor').val();
+		cur_ctx.lineWidth = vmin(1);// $('#selWidth').val();
+		cur_ctx.lineJoin = "round";
+		cur_ctx.moveTo(lastX,lastY);
+		cur_ctx.lineTo(x,y);
+		cur_ctx.closePath();
+		cur_ctx.stroke();
 	}
 	lastX = x; lastY = y;
 }
-function clearCanvas(){
+function stampDraw(x,y, isDown){
+	if (isDown&&selectImage) {
+		let mid_x=lastX+selectImage.width/2,mid_y=lastY+selectImage.height/2;
+		cur_ctx.clearRect(0,0,cur_ctx.canvas.width,cur_ctx.canvas.height);
+		cur_ctx.save();
+		cur_ctx.translate(mid_x,mid_y);
+		cur_ctx.rotate(angle);
+		cur_ctx.translate(-mid_x,-mid_y);
+		cur_ctx.drawImage(selectImage,x,y);
+		cur_ctx.restore();
+		lastX = x; lastY = y;
+	}
+}
+function clearCanvas(ctx=cur_ctx){
 	ctx.setTransform(1, 0, 0, 1, 0, 0);
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }

@@ -1,51 +1,39 @@
-var $element_carousel = $('#elementList').flickity({
+let $element_carousel = $('#elementList').flickity({
 	cellSelector: '.floorElement',
 	freeScroll: true,
 	prevNextButtons: false,
 	pageDots: false
 });
-var $carousel = $('.content').flickity({
+let $carousel = $('.content').flickity({
 	cellSelector: '.page',
 	prevNextButtons: false,
 });
-var flkty = $carousel.data('flickity');
+let flkty = $carousel.data('flickity');
+let prev_index=0;
 $carousel.on( 'change.flickity', function( event, index ) {
-	console.log(index);
 	switch(index){
 		case 1:
-			pos=getAbsolutePos($('#floorDraw')[0]);
-			flkty.options.draggable =false;
+			flkty.options.draggable=false;
 			flkty.updateDraggable();
-			initCanvas("#floorDraw");
-			initCanvasEvent(Draw);
+
+			setCanvasVar($("#floorDraw")[0]);
+			initCanvasEvent(brushDraw);
 			break;
 		case 2:
-			closePointerEvent();
-			pos=getAbsolutePos($('#floorElement')[0]);
 			flkty.options.draggable =true;
 			flkty.updateDraggable();
-			initCanvas("#prevCanvas");
-			initCanvas("#floorElement");
-			initCanvasEvent(Move);
-			$element_carousel.on('staticClick.flickity',function(event,pointer,cellElement,cellIndex){
-				ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
-				selectImage=$(cellElement).children('img')[0];
-				ctx.drawImage(selectImage,0,0);
-				flkty.options.draggable =false;
-				flkty.updateDraggable();
-			});
+
+			setCanvasVar($("#floorElement")[0]);
+			if(prev_index<index){
+				clearCanvas(base_ctx);
+				base_ctx.drawImage($('#floorDraw')[0],0,0);
+			}
+			initCanvasEvent(stampDraw);
 			break;
 		case 3:
-			closePointerEvent();
-			$('#d_map')[0].width=window.innerWidth*0.8;
-			$('#d_map')[0].height=window.innerHeight*0.8;
-			$('#d_map').attr("src",$('#prevCanvas')[0].toDataURL());
+			$('#d_map').attr("src",$('#baseCanvas')[0].toDataURL());
 			break;
 	}
+	prev_index=index;
 });
 
-function closePointerEvent(){
-	$carousel.off('pointerDown.flickity');
-	$carousel.off('pointerMove.flickity');
-	$carousel.off('pointerUp.flickity');
-}

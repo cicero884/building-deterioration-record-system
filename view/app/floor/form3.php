@@ -9,7 +9,7 @@ $floorElement=array(
 <div class='page'>
 	<div id='floorImage'>
 		<canvas id='floorElement'></canvas>
-		<canvas id='prevCanvas'></canvas>
+		<canvas id='baseCanvas'></canvas>
 		<figure id='rotateIcon'>
 			<img src="view/app/image/buttons/rotate.png">
 			<figcaption>旋轉</figcaption>
