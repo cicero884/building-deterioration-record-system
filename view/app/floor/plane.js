@@ -31,14 +31,19 @@ function angleWH(){
 function stampDraw(pointer=null){
 	if(selectImage) {
 		let x,y,rotateAdjust=angleWH();
-		if(pointer && (pointer.srcElement.tagName.toLowerCase()==="canvas")){
-			x=between(pointer.offsetX,rotateAdjust[0],pointer.srcElement.width-rotateAdjust[0]);
-			y=between(pointer.offsetY,rotateAdjust[1],pointer.srcElement.height-rotateAdjust[1]);
-		}
-		else{
+		if(!pointer || (pointer.srcElement.tagName.toLowerCase()!=="canvas")){
 			x=lastX;
 			y=lastY;
 		}
+		else{
+			x=pointer.offsetX;
+			y=pointer.offsetY;
+		}
+		x=between(x,rotateAdjust[0],ctx.canvas.width-rotateAdjust[0]);
+		y=between(y,rotateAdjust[1],ctx.canvas.height-rotateAdjust[1]);
+		console.log(x);
+		console.log(y);
+
 		cur_ctx.clearRect(0,0,cur_ctx.canvas.width,cur_ctx.canvas.height);
 		cur_ctx.save();
 		cur_ctx.translate(x,y);
