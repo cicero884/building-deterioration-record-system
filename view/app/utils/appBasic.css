@@ -3,7 +3,18 @@
     src: local("3ds Regular"),
     url('../../fonts/3ds/3ds Regular.ttf');
 }
-
+.large{
+	font-size:4.5vmin;
+}
+.midium{
+	font-size:4vmin;
+}
+.small{
+	font-size:3.5vmin;
+}
+.white{
+	color:#FFF;
+}
 html, body {
 	overflow: hidden;
 	margin: 0;
@@ -22,7 +33,7 @@ body{
 .content{
 	position:absolute;
 	box-sizing:border-box;
-	font-family:'3ds', Microsoft JhengHei;
+	font-family:Microsoft JhengHei,'3ds';
 	padding:3vmin;
 	width:100%;
 	height:90%;
@@ -34,13 +45,13 @@ body{
 	height:100%;
 }
 .input_text{
-    font-size:5vmin;
-    line-height: 10vmin;
+	font-size:5vmin;
+	line-height: 10vmin;
 }
 .next_button{
-    border-radius: 10vmin;
-    background-color:#ff9c00;
-    font-size: 6vmin;
+	border-radius: 10vmin;
+	background-color:#ff9c00;
+	font-size: 6vmin;
 }
 .ground{
 	position:fixed;
@@ -50,5 +61,5 @@ body{
 	top:0;
 }
 .image-upload>input {
-  display: none;
+	display: none;
 }

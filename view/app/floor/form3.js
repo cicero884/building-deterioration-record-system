@@ -1,8 +1,14 @@
 let baseCanvas=$('#baseCanvas')[0],
 	base_ctx=baseCanvas.getContext("2d");
 
-setSize(canvas=$("#floorElement")[0],vw(80),vh(80));
-setSize(baseCanvas,vw(80),vh(80));
+(function(){
+	let ratio=$("#f3_plane").height()/9/40;//40 is image size
+	console.log($("#floorElement").height());
+	$(".floorElement").children('img').each(function(){
+		this.height=$(this).height()*ratio;
+	});
+	$element_carousel.data('flickity').reloadCells();
+})();
 
 $element_carousel.on('staticClick.flickity',function( event, pointer, cellElement, cellIndex ){
 	flkty.options.draggable =false;

@@ -1,0 +1,26 @@
+canvas,#d_map{
+	touch-action:none;
+	position:absolute;
+}
+.plane{
+	background-color:#FFF;
+	padding:2vmin;
+}
+.plane>div{
+	position:absolute;
+	width:8%;
+	height:inherit;
+	right:1vmin;
+	display:flex;
+	flex-direction:column;
+	flex-wrap: nowrap;
+	justify-content:space-between;
+}
+.plane>div>figure{
+	width:100%;
+	margin:0;
+}
+.plane>div>figure>img{
+	width:100%;
+	height:auto;
+}

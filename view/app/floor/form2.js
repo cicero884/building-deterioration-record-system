@@ -1,5 +1,3 @@
-setSize($("#floorDraw")[0],vw(80),vh(80));
-
 $('.clearCanvas').click(function(){
 	clearCanvas();
 });

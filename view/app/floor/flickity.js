@@ -1,6 +1,6 @@
 let $element_carousel = $('#elementList').flickity({
 	cellSelector: '.floorElement',
-	freeScroll: true,
+	groupCells: true,
 	prevNextButtons: false,
 	pageDots: false
 });
@@ -10,8 +10,16 @@ let $carousel = $('.content').flickity({
 });
 let flkty = $carousel.data('flickity');
 let prev_index=0;
-let mousePressed = false;
+$element_carousel.on('pointerDown.flickity',function(){
+	flkty.options.draggable=false;
+	flkty.updateDraggable();
+});
+$element_carousel.on('pointerUp.flickity',function(){
+	flkty.options.draggable=true;
+	flkty.updateDraggable();
+});
 $carousel.on( 'change.flickity', function( event, index ) {
+	if(event.target.tagName.toLowerCase()!=="form") return;//prevent element_carousel change event
 	switch(index){
 		case 1:
 			flkty.options.draggable=false;
@@ -27,7 +35,7 @@ $carousel.on( 'change.flickity', function( event, index ) {
 			setCanvasVar($("#floorElement")[0]);
 			if(prev_index<index){
 				clearCanvas(base_ctx);
-				base_ctx.drawImage($('#floorDraw')[0],0,0);
+				base_ctx.drawImage($('#floorDraw')[0],0,0,baseCanvas.width,baseCanvas.height);
 			}
 			initEvent(stampDraw);
 			break;
@@ -39,6 +47,7 @@ $carousel.on( 'change.flickity', function( event, index ) {
 });
 
 function initEvent(func){
+	let mousePressed = false;
 	$carousel.off('pointerDown.flickity');
 	$carousel.off('pointerMove.flickity');
 	$carousel.off('pointerUp.flickity');

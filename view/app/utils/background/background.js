@@ -1,4 +1,4 @@
-function drawBackground(){
+(function(){
 	let background=$('#background')[0];
 	let ctx=background.getContext('2d');
 	let grd=ctx.createLinearGradient(0,0,0,background.height);
@@ -8,5 +8,4 @@ function drawBackground(){
 	ctx.fillRect(0,0,background.width,background.height);
 	ctx.stroke();
 	console.log('draw_background!');
-}
-drawBackground();
+})()
