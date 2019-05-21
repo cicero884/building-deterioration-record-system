@@ -39,10 +39,8 @@ function stampDraw(pointer=null){
 			x=pointer.offsetX;
 			y=pointer.offsetY;
 		}
-		x=between(x,rotateAdjust[0],ctx.canvas.width-rotateAdjust[0]);
-		y=between(y,rotateAdjust[1],ctx.canvas.height-rotateAdjust[1]);
-		console.log(x);
-		console.log(y);
+		x=between(x,rotateAdjust[0],cur_ctx.canvas.width-rotateAdjust[0]);
+		y=between(y,rotateAdjust[1],cur_ctx.canvas.height-rotateAdjust[1]);
 
 		cur_ctx.clearRect(0,0,cur_ctx.canvas.width,cur_ctx.canvas.height);
 		cur_ctx.save();
@@ -54,8 +52,17 @@ function stampDraw(pointer=null){
 		lastX = x; lastY = y;
 	}
 }
-function deteriorationPos(pointer){
-
+function deteriorationPos(pointer,moving){
+	e=pointer.srcElement;
+	if(e.classList.contains('record')){
+		if(flkty.options.draggable!=moving){
+			flkty.options.draggable=moving;
+			flkty.updateDraggable();
+		}
+		console.log(pointer);
+		e.style.left=pointer.pageX+"px";
+		e.style.top=pointer.pageY+"px";
+	}
 }
 function clearCanvas(ctx=cur_ctx){
 	ctx.setTransform(1, 0, 0, 1, 0, 0);

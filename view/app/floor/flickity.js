@@ -40,7 +40,10 @@ $carousel.on( 'change.flickity', function( event, index ) {
 			initEvent(stampDraw);
 			break;
 		case 3:
-			$('#d_map').attr("src",$('#baseCanvas')[0].toDataURL());
+			let final_ctx=$("#floor")[0].getContext("2d");
+			clearCanvas(final_ctx);
+			final_ctx.drawImage(base_ctx.canvas,0,0,$("#floor")[0].width,$("#floor")[0].height);
+			initEvent(deteriorationPos);
 			break;
 	}
 	prev_index=index;
@@ -62,6 +65,7 @@ function initEvent(func){
         }
     });
 	$carousel.on( 'pointerUp.flickity', function(e,p,m) {
+        func(p, false);
         mousePressed = false;
     });
 }

@@ -6,14 +6,16 @@ $icons=array(
 )
 ?>
 <div class="page">
-	<div id='map_back'>
-		<img id="d_map">
+	<div id='f4_plane' class="plane">
+		<canvas class="grid" align=center></canvas>
+		<canvas id="floor"></canvas>
+		<div id="d_tags"></div>
 	</div>
-	<div id=recordList>
+	<div id="recordList">
 <?php foreach($icons as $name => $chName):?>
 		<figure class='recordIcon' id='<?php echo $name;?>'>
-			<figcaption><?php echo $chName;?></figcaption>
 			<img src='view/app/image/icons/<?php echo $name;?>.png'>
+			<figcaption><?php echo $chName;?></figcaption>
 		</figure>
 <?php endforeach;?>
 	</div>
