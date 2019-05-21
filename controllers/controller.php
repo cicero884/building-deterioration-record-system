@@ -1,13 +1,16 @@
 <?php
 require_once('building.php');
+require_once('controllers/building.php');
 class Controller{
 	protected $recentHouses=array();
+	protected $buildingDetail;
 	protected $cur_path='view/';
 	protected $page_css=array();
 	protected $page_html=array();
 	protected $page_content=array();
 	protected $page_js=array();
 	private $models;
+	private $controllers;
 	public function __construct(){
 	}
 	public function redirect($page='app_main'){
@@ -46,6 +49,11 @@ class Controller{
 
 			if( $page==="web_sum" ) {
 				$this->getFiles($this->cur_path.'web_sum');	
+			}
+			elseif( $page==="web_building" ) {
+				$this->controllers['building']=new BuildingController();
+				$this->buildingDetail = $this->controllers['building']->getBuildingDetail( $_GET['buildingId'] );
+				$this->getFiles($this->cur_path.'web_building');
 			}
 		}
 		require realpath('view/structure.php');

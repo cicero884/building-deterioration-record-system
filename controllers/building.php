@@ -39,5 +39,59 @@ class BuildingController {
 
         }
     }
+
+    public function getBuildingDetail( $buildingId ) {
+        $buildingDetail = $this->models['building']->getBuildingDetail( $buildingId );
+        switch( $buildingDetail['type'] ) {
+            case '0':
+                $buildingDetail['type'] = "透天" ;
+                break;
+            case '1':
+                $buildingDetail['type'] = "公寓" ;
+                break;
+            case '2':
+                $buildingDetail['type'] = "大廈" ;
+                break;
+            case '3':
+                $buildingDetail['type'] = "三合院" ;
+                break;
+            case '4':
+                $buildingDetail['type'] = "其他" ;
+                break;
+        }
+        switch( $buildingDetail['usage'] ) {
+            case '0':
+                $buildingDetail['usage'] = "住家" ;
+                break;
+            case '1':
+                $buildingDetail['usage'] = "商店" ;
+                break;
+            case '2':
+                $buildingDetail['usage'] = "住商混合" ;
+                break;
+            case '3':
+                $buildingDetail['usage'] = "其他" ;
+                break;
+        }
+        switch( $buildingDetail['structure'] ) {
+            case '0':
+                $buildingDetail['structure'] = "鋼筋混泥土" ;
+                break;
+            case '1':
+                $buildingDetail['structure'] = "鋼骨" ;
+                break;
+            case '2':
+                $buildingDetail['structure'] = "木造" ;
+                break;
+            case '3':
+                $buildingDetail['structure'] = "磚造" ;
+                break;
+            case '4':
+                $buildingDetail['structure'] = "其他" ;
+                break;
+        }
+        
+        return $buildingDetail;
+    }
 }
 ?>
