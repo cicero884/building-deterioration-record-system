@@ -19,7 +19,7 @@ class ModelBuilding {
             $buildingInfo[$count] = array(
                 'buildingId' => $row->buildingId,
                 'address' => $row->address,
-                'image' => $row->image
+                'image' => 'image/'.$row->image
             );
             $count = $count + 1;
         }
@@ -72,6 +72,29 @@ class ModelBuilding {
             }
         }
         return $items;
+    }
+
+    public function getBuildingDetail( $buildingId ) {
+        $sqlSearch = "SELECT `address`,  ownerName, ownerPhone, type, used, structure, image, floorUpper, floorDown
+                      FROM   building
+                      WHERE  buildingId = :buildingId";
+        $search     = $GLOBALS['conn']->prepare( $sqlSearch );
+        $search->execute([':buildingId'=>$buildingId]);
+        $row=$search->fetch(PDO::FETCH_OBJ);   
+        $buildingInfo = array(
+            'name'       => $row->ownerName, 
+            'phone'      => $row->ownerPhone, 
+            'type'       => $row->type, 
+            'usage'      => $row->used, 
+            'structure'  => $row->structure, 
+            'floorUpper' => $row->floorUpper, 
+            'floorDown'  => $row->floorDown,
+            'buildingId' => $row->buildingId,
+            'address'    => $row->address,
+            'image'      => "image/".$row->image
+        );
+
+        return $buildingInfo;
     }
 }
 ?>
