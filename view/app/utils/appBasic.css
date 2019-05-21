@@ -16,6 +16,7 @@
 	color:#FFF;
 }
 html, body {
+	touch-action:none;
 	overflow: hidden;
 	margin: 0;
 	padding: 0;

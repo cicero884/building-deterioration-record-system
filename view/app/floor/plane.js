@@ -52,16 +52,14 @@ function stampDraw(pointer=null){
 		lastX = x; lastY = y;
 	}
 }
-function deteriorationPos(pointer,moving){
+function deteriorationPos(pointer){
 	e=pointer.srcElement;
 	if(e.classList.contains('record')){
-		if(flkty.options.draggable!=moving){
-			flkty.options.draggable=moving;
-			flkty.updateDraggable();
-		}
+		flkty.options.draggable=!pointer.pressure;
+		flkty.updateDraggable();
 		console.log(pointer);
-		e.style.left=pointer.pageX+"px";
-		e.style.top=pointer.pageY+"px";
+		e.style.left=e.offsetLeft+pointer.offsetX+"px";
+		e.style.top=e.offsetTop+pointer.offsetY+"px";
 	}
 }
 function clearCanvas(ctx=cur_ctx){
@@ -77,6 +75,8 @@ $(".plane").each(function(){
 		setSize($(this)[0],width,height);
 	});
 });
+$("#d_tags").width($("#floor").width());
+$("#d_tags").height($("#floor").height());
 
 //draw grid
 $(".grid").each(function(){
