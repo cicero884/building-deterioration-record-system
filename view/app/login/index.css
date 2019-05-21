@@ -27,6 +27,7 @@ time, mark, audio, video {
 html, body {
     margin: 0;
     height: 100%;
+    overflow: hidden;
 }
 a {
     text-decoration:none;
@@ -50,9 +51,12 @@ html {
 
 @media screen and (max-width: 1000px) {
     .index {
+        /* layout */
         grid-template-areas: 
             "main";
         grid-template-rows: 1fr;
+
+        /* skin */
         background-image: url('../../image/backgrounds/app-background.jpg');
         background-repeat: no-repeat;
         background-size: cover;
