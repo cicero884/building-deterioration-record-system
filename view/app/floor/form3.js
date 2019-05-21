@@ -1,16 +1,32 @@
-let newElement;
+let baseCanvas=$('#baseCanvas')[0],
+	base_ctx=baseCanvas.getContext("2d");
+
+(function(){
+	let ratio=$("#f3_plane").height()/9/40;//40 is image size
+	console.log($("#floorElement").height());
+	$(".floorElement").children('img').each(function(){
+		this.height=$(this).height()*ratio;
+	});
+	$element_carousel.data('flickity').reloadCells();
+})();
+
 $element_carousel.on('staticClick.flickity',function( event, pointer, cellElement, cellIndex ){
-	if(!cellElement) return;
-	let newElement=$(cellElement).children('img').clone();
+	flkty.options.draggable =false;
+	flkty.updateDraggable();
+
+	selectImage=$(cellElement).children('img')[0];
+	angle=lastX=lastY=0;
+	stampDraw();
 });
 $('#rotateIcon').click(function(){
 	angle+=Math.PI/2;
-	Move(lastX,lastY,true);
+	stampDraw();
 });
 $('#finishCanvas').click(function(){
 	flkty.options.draggable=true;
 	flkty.updateDraggable();
-	prev_ctx.drawImage($('#floorElement')[0],0,0);
-	ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+
+	base_ctx.drawImage($('#floorElement')[0],0,0);
+	clearCanvas();
 	selectImage=null;
 });

@@ -7,26 +7,29 @@ $floorElement=array(
 	"doorR"=>"房門(右開)")
 ?>
 <div class='page'>
-	<div id='floorImage'>
+	<div id='f3_plane' class="plane">
+		<canvas class="grid"></canvas>
+		<canvas id='baseCanvas'></canvas>
 		<canvas id='floorElement'></canvas>
-		<canvas id='prevCanvas'></canvas>
-		<figure id='rotateIcon'>
-			<img src="view/app/image/buttons/rotate.png">
-			<figcaption>旋轉</figcaption>
-		</figure>
-		<figure class='clearCanvas'>
-			<img src="view/app/image/buttons/clean.png">
-			<figcaption>清除</figcaption>
-		</figure>
-		<figure id='finishCanvas'>
-			<img src="view/app/image/buttons/summit.png">
-			<figcaption>完成</figcaption>
-		</figure>
+		<div class="small">
+			<figure id='rotateIcon'>
+				<img src="view/app/image/buttons/rotate.png">
+				<figcaption>旋轉</figcaption>
+			</figure>
+			<figure class='clearCanvas'>
+				<img src="view/app/image/buttons/clean.png">
+				<figcaption>清除</figcaption>
+			</figure>
+			<figure id='finishCanvas'>
+				<img src="view/app/image/buttons/summit.png">
+				<figcaption>完成</figcaption>
+			</figure>
+		</div>
 	</div>
 	<div id='elementList'>
 <?php foreach($floorElement as $name => $chName):?>
 		<figure class='floorElement' id='<?php echo $name;?>'>
-			<figcaption><?php echo $chName;?></figcaption>
+			<figcaption class="small"><?php echo $chName;?></figcaption>
 			<img src='view/app/image/floorElement/<?php echo $name;?>.png'>
 		</figure>
 <?php endforeach;?>

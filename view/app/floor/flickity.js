@@ -1,51 +1,71 @@
-var $element_carousel = $('#elementList').flickity({
+let $element_carousel = $('#elementList').flickity({
 	cellSelector: '.floorElement',
-	freeScroll: true,
+	groupCells: true,
 	prevNextButtons: false,
 	pageDots: false
 });
-var $carousel = $('.content').flickity({
+let $carousel = $('.content').flickity({
 	cellSelector: '.page',
 	prevNextButtons: false,
 });
-var flkty = $carousel.data('flickity');
+let flkty = $carousel.data('flickity');
+let prev_index=0;
+$element_carousel.on('pointerDown.flickity',function(){
+	flkty.options.draggable=false;
+	flkty.updateDraggable();
+});
+$element_carousel.on('pointerUp.flickity',function(){
+	flkty.options.draggable=true;
+	flkty.updateDraggable();
+});
 $carousel.on( 'change.flickity', function( event, index ) {
-	console.log(index);
+	if(event.target.tagName.toLowerCase()!=="form") return;//prevent element_carousel change event
 	switch(index){
 		case 1:
-			pos=getAbsolutePos($('#floorDraw')[0]);
-			flkty.options.draggable =false;
+			flkty.options.draggable=false;
 			flkty.updateDraggable();
-			initCanvas("#floorDraw");
-			initCanvasEvent(Draw);
+
+			setCanvasVar($("#floorDraw")[0]);
+			initEvent(brushDraw);
 			break;
 		case 2:
-			closePointerEvent();
-			pos=getAbsolutePos($('#floorElement')[0]);
 			flkty.options.draggable =true;
 			flkty.updateDraggable();
-			initCanvas("#prevCanvas");
-			initCanvas("#floorElement");
-			initCanvasEvent(Move);
-			$element_carousel.on('staticClick.flickity',function(event,pointer,cellElement,cellIndex){
-				ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
-				selectImage=$(cellElement).children('img')[0];
-				ctx.drawImage(selectImage,0,0);
-				flkty.options.draggable =false;
-				flkty.updateDraggable();
-			});
+
+			setCanvasVar($("#floorElement")[0]);
+			if(prev_index<index){
+				clearCanvas(base_ctx);
+				base_ctx.drawImage($('#floorDraw')[0],0,0,baseCanvas.width,baseCanvas.height);
+			}
+			initEvent(stampDraw);
 			break;
 		case 3:
-			closePointerEvent();
-			$('#d_map')[0].width=window.innerWidth*0.8;
-			$('#d_map')[0].height=window.innerHeight*0.8;
-			$('#d_map').attr("src",$('#prevCanvas')[0].toDataURL());
+			let final_ctx=$("#floor")[0].getContext("2d");
+			clearCanvas(final_ctx);
+			final_ctx.drawImage(base_ctx.canvas,0,0,$("#floor")[0].width,$("#floor")[0].height);
+			initEvent(deteriorationPos);
 			break;
 	}
+	prev_index=index;
 });
 
-function closePointerEvent(){
+function initEvent(func){
+	let mousePressed = false;
 	$carousel.off('pointerDown.flickity');
 	$carousel.off('pointerMove.flickity');
 	$carousel.off('pointerUp.flickity');
+	$carousel.on( 'pointerDown.flickity', function(e,p,m) {
+        mousePressed = true;;
+        func(p, false);
+    });
+
+	$carousel.on( 'pointerMove.flickity', function(e,p,m) {
+        if (mousePressed) {
+            func(p, true);
+        }
+    });
+	$carousel.on( 'pointerUp.flickity', function(e,p,m) {
+        func(p, false);
+        mousePressed = false;
+    });
 }

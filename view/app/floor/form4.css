@@ -1,0 +1,19 @@
+#f4_plane{
+	height:70%;
+}
+#f4_plane>canvas{
+	left: 0; 
+	right: 0; 
+	margin-left: auto; 
+	margin-right: auto; 
+}
+#d_tags{
+	left: 0; 
+	right: 0; 
+	margin-left: auto; 
+	margin-right: auto; 
+}
+.record{
+	position:absolute;
+	margin:0;
+}

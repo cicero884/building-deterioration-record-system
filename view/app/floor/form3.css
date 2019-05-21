@@ -1,3 +1,21 @@
+#f3_plane{
+	height:70%;
+}
 #elementList{
-	width:100%;
+	position:absolute;
+	width:99.5%;
+	height:15%;
+	bottom:10%;
+}
+.floorElement{
+	margin:0;
+	width:30%;
+	height:100%;
+}
+#elementList>div{
+	height:100%;
+}
+#elementList>div>div>figure>img{
+	position:absolute;
+	bottom:0;
 }
