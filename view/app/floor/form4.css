@@ -13,7 +13,12 @@
 	margin-left: auto; 
 	margin-right: auto; 
 }
+.new_tag{
+	background-color:red !important;
+}
 .record{
+	background-color:#00bdbd;
+	color:white;
 	font-size:8vmin;
 	position:absolute;
 	margin:0;

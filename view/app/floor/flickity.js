@@ -43,6 +43,7 @@ $carousel.on( 'change.flickity', function( event, index ) {
 			let final_ctx=$("#floor")[0].getContext("2d");
 			clearCanvas(final_ctx);
 			final_ctx.drawImage(base_ctx.canvas,0,0,$("#floor")[0].width,$("#floor")[0].height);
+			send_floor_data();
 			initEvent(deteriorationPos);
 			break;
 	}
@@ -68,4 +69,14 @@ function initEvent(func){
         func(p, false);
         mousePressed = false;
     });
+}
+function send_floor_data(){
+	$.ajax({
+		url:'index.php',
+		type:'GET',
+		data:{
+			type:'floor',
+
+		}
+	});
 }

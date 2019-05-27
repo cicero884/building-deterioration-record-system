@@ -52,14 +52,32 @@ function stampDraw(pointer=null){
 		lastX = x; lastY = y;
 	}
 }
-function deteriorationPos(pointer){
+function deteriorationPos(pointer,moving){
 	e=pointer.srcElement;
 	if(e.classList.contains('record')){
+		let container=$("#d_tags");
 		flkty.options.draggable=!pointer.pressure;
 		flkty.updateDraggable();
-		console.log(pointer);
-		e.style.left=e.offsetLeft+pointer.offsetX+"px";
-		e.style.top=e.offsetTop+pointer.offsetY+"px";
+		x=e.offsetLeft+pointer.offsetX-e.offsetWidth/2;
+		y=e.offsetTop+pointer.offsetY-e.offsetHeight/2;
+		x=between(x,-e.offsetWidth/2,container.width()-e.offsetWidth/2);
+		y=(y<-e.offsetHeight/2)? -e.offsetHeight/2:y;
+		let opacity=(y>container.height())? 0.3:1;
+
+		e.style.opacity=opacity;
+		e.style.left=x+"px";
+		e.style.top=y+"px";
+		if(moving==false&&opacity!=1){
+			if(e.classList.contains("new_tag")){
+				unsave_tags=unsave_tags.filter(function(a){
+					return a.id!=Number($(e).text());
+				});
+			}
+			else{
+				//ajax to remove data;
+			}
+			$(e).remove();
+		}
 	}
 }
 function clearCanvas(ctx=cur_ctx){
