@@ -1,6 +1,6 @@
 <div class="index">
     <header class="header">
-        <img class="header__logo" src="view/web/image/Logo.png" >
+        <img class="header__logo" src="view/app/image/logos/logo-white.png" >
         <h1  class="header__title"> Save every detail. Check building safety.</h1> 
         <section class="header__link">
             <a id="link__login" class="link__item" href=" ">會員登入</a>
