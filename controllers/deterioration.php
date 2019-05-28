@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("models/deterioration.php");
 require_once("controllers/image.php");
 
@@ -12,7 +11,7 @@ class DeteriorationController {
         $this->controllers['image'] = new ImageController();
     }
 
-    public function insertDeterioration() {
+    public function insertData() {
         for($n = 1; $n <= 4; $n += 1) {
             $imageUpload = $this->controllers['image']->imageUpload( "image".$n, $n );
         }

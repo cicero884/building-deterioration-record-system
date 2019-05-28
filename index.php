@@ -7,6 +7,9 @@ if(isset($_GET['action'])){
 		case 'addHouse':
 			$controller->load('view/app/house');
 			break;
+		case 'addDeterioration':
+			$controller->load('view/app/deterioration');
+			break;
 	}
 }
 elseif(!isset($_GET['page'])) {

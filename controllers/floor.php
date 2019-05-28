@@ -8,7 +8,7 @@ class FloorController {
         $this->models['floor'] = new ModelFloor();
     }
 
-    public function insertFloor() {
+    public function insertData() {
         $fileName = date_format(date_create(),"Y-m-d_H:i:s").".jpg";
         $file = "image/".$fileName;
         $img = str_replace('data:image/jpeg;base64,', '', $_POST['data']);

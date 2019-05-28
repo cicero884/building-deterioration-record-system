@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("models/building.php");
 require_once("controllers/image.php");
 require_once("models/floor.php");
@@ -15,7 +14,7 @@ class BuildingController {
     }
 
     // call it to insert building information to the database
-    public function insertBuilding() {
+    public function insertData() {
         $imageUpload = $this->controllers['image']->imageUpload( "image", 0 );
         
         // upload Image sucess

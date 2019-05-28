@@ -1,6 +1,6 @@
 <?php
-require 'controllers/controller.php';
-require 'models/login.php';
+require_once("controllers/controller.php");
+require_once("models/login.php");
 class loginController extends Controller{
 	private $models;
 	public $errMsg='';

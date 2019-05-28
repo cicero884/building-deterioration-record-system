@@ -1,7 +1,8 @@
-var unsave_tags;
-
-
 let tag_count=0;
+
+//var unsave_tags
+//this var set at main page,
+
 function tag(id, x, y) {
     this.id = id;
     this.x = x;
@@ -16,6 +17,18 @@ $('#new').click(function(){
 function record_deterioration(){
 	console.log("click");
 	$carousel.on('staticClick.flickity',function(event,pointer,cellElement,cellIndex){
-		//ajax
+		$.ajax({
+			url:'upload.php',
+			type:'POST',
+			data:{
+				img:$("#floor")[0].toDataURL(),
+				floor:($(".scale").val()=="upper")? $("#upper").val():"-"+$("#down").val(),
+			}
+		});
+		$.ajax({
+			url:'index.php',
+			type:'GET',
+			data:{action:"addDeterioration"}
+		});
 	});
 }

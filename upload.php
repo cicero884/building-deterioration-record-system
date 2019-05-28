@@ -1,17 +1,20 @@
 <?php
+require_once("controller/building.php");
+require_once("controller/floor.php");
+require_once("controller/deterioration.php");
 session_start();
-$controller=new Controller();
 if(isset($_GET['type'])){
 	switch($_GET['type']){
 		case 'building':
-			$controller->upload('/controller/building');
+			$controller=new BuildingController();
 			break;
 		case 'floor':
-			$controller->upload('/controller/floor');
+			$controller=new FloorController();
 			break;
 		case 'deterioration':
-			$controller->upload('/controller/deterioration');
+			$controller=new DeteriorationController();
 			break;
 	}
+	$controller->insertData();
 }
 ?>
