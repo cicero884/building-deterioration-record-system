@@ -1,116 +1,207 @@
-.page {
-    /* position */
-    display: grid;
-    height: 100vh;
-    width: 100vw;
-    /* layout */
-    grid-template-columns: 98vw;
-    grid-template-rows: 10fr 5fr 5fr 5fr 5fr 5fr 30fr;
-    grid-template-areas: "Title" "first" "Title" "second" "Title" "third" ".";
-    /*grid-column-gap: 10px;
+    .style1 {
+        /* position */
+        display: grid;
+        height: 100vh;
+        width: 100vw;
+        /* layout */
+        grid-template-columns: 98vw;
+        grid-template-rows: 10fr 10fr 30fr 5fr;
+        grid-template-areas: "R1__Title" "R1__TopButton" "R1__bg" "R1__BottomButton";
+        /* skin */
+        font-family: Microsoft JhengHei;
+        font-size: 4rem;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .style2 {
+        /* position */
+        display: grid;
+        height: 100vh;
+        width: 100vw;
+        /* layout */
+        grid-template-columns: 98vw;
+        grid-template-rows: 5fr 5fr 5fr 5fr 5fr 5fr 1fr;
+        grid-template-areas: "Title1" "first" "Title2" "second" "Title3" "third" ".";
+        /*grid-column-gap: 10px;
     grid-row-gap: 15px;*/
-    /* skin */
-    font-family: Microsoft JhengHei;
-    justify-content: center;
-    align-items: center;
-}
-
-.left {
-    float: left;
-    position: relative;
-    left: 12%;
-}
-
-.right {
-    float: left;
-    position: relative;
-    left: 16%;
-}
-
-.button,
-#final {
-    background: url(../image/buttons/green_botton.png);
-    background-repeat: no-repeat;
-    background-size: 100% 200%;
-    position: flex;
-    left: 35vw;
-    /*top: 40vh;*/
-    font-size: 5rem;
-}
-
-.myCheckbox input {
-    // display: none;
-    // Better than 
-    display: none;
-    for accessibility reasons position: relative;
-    z-index: -9999;
-}
-
-.myCheckbox span {
-    width: 33vw;
-    height: 28vw;
-    font-size: 3rem;
-    color: white;
-    display: inline-block;
-    background: url(../image/buttons/yellow_botton.png);
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-}
-
-.myCheckbox input:checked+span {
-    background: url(../image/buttons/red_botton.png);
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-}
-
-.button2 {
-    display: none;
-}
-
-.text {
-    display: inline-block;
-    padding-top: 1rem;
-}
-
-.Title {
-    /*font-size: 40px;*/
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 4rem;
-}
-
-#ps {
-    /* layout */
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    /* position */
-    width: 98%;
-    height: 20rem;
-    margin-left: 2rem;
-    /* skin */
-    border: 1rem solid white;
-    z-index: 10;
-}
-
-#psLeft {
-    float: left;
-    font-size: 4rem;
-    /* layout */
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    /* position */
-    height: 10rem;
-    margin-left: 6rem;
-}
-
-#final {
-    display: block;
-    align-items: center;
-    justify-items: center;
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 4rem;
-    font-family: Microsoft JhengHei;
-}
+        /* skin */
+        font-family: Microsoft JhengHei;
+        justify-content: center;
+        align-items: center;
+    }
+    /*
+    .first,
+    .second,
+    .third {
+        float: left;
+        width: 33vw;
+        height: 28vw;
+    }*/
+    
+    .left {
+        float: left;
+        position: relative;
+        left: 12%;
+    }
+    
+    .right {
+        float: left;
+        position: relative;
+        left: 16%;
+    }
+    
+    .a {
+        float: left;
+        position: relative;
+        left: 1%;
+    }
+    
+    .b {
+        float: left;
+        position: relative;
+        left: 8%;
+    }
+    
+    .c {
+        float: left;
+        position: relative;
+        left: 12%;
+    }
+    
+    .button,
+    #final {
+        background: url(../image/buttons/green_botton.png);
+        background-repeat: no-repeat;
+        background-size: 100% 200%;
+        position: flex;
+        left: 35vw;
+        /*top: 40vh;*/
+        font-size: 5rem;
+    }
+    
+    .myCheckbox input {
+        // display: none;
+        // Better than 
+        display: none;
+        for accessibility reasons position: relative;
+        z-index: -9999;
+    }
+    
+    .myCheckbox span {
+        width: 33vw;
+        height: 28vw;
+        font-size: 3rem;
+        color: white;
+        display: inline-block;
+        background: url(../image/buttons/yellow_botton.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+    
+    .myCheckbox input:checked+span {
+        background: url(../image/buttons/red_botton.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+    
+    .button2 {
+        display: none;
+    }
+    
+    .firstCheckbox input {
+        // display: none;
+        // Better than 
+        display: none;
+        for accessibility reasons position: relative;
+        z-index: -9999;
+    }
+    
+    .firstCheckbox span {
+        width: 28vw;
+        height: 28vw;
+        font-size: 40px;
+        color: white;
+        display: block;
+        background: url(../image/buttons/red_botton1.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+    
+    .firstCheckbox input:checked+span {
+        background: url(../image/buttons/green_botton1.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+    
+    .text {
+        display: inline-block;
+        padding-top: 1rem;
+    }
+    
+    .Title1,
+    .Title2,
+    .Title3,
+    .R1__Title {
+        /*font-size: 40px;
+        margin-left: auto;
+        margin-right: auto;*/
+        font-size: 4rem;
+        height: 10vh;
+        display: block;
+    }
+    
+    .R1__TopButton,
+    .R1__BottomButton,
+    .first,
+    .second,
+    .third {
+        height: 5vh;
+    }
+    
+    #R1__bg {
+        background: url(../image/house_cube.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        display: block;
+    }
+    
+    #ps {
+        /* layout */
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        /* position */
+        width: 98%;
+        height: 20rem;
+        margin-left: 2rem;
+        /* skin */
+        border: 1rem solid white;
+        z-index: 10;
+    }
+    
+    #psLeft {
+        float: left;
+        font-size: 4rem;
+        /* layout */
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        /* position */
+        height: 10rem;
+        margin-left: 6rem;
+    }
+    
+    #final {
+        display: block;
+        align-items: center;
+        justify-items: center;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 4rem;
+        font-family: Microsoft JhengHei;
+    }
+    
+    b {
+        display: block;
+    }
