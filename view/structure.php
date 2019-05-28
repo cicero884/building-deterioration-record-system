@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="shortcut icon" href="view/app/image/logos/login.png">
 		<meta charset = "utf-8">
 <?php
 foreach($this->page_css as $css){
