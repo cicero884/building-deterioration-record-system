@@ -1,5 +1,4 @@
-canvas,#d_map{
-	touch-action:none;
+canvas,#d_tags{
 	position:absolute;
 }
 .plane{

@@ -15,7 +15,7 @@ $icons=array(
 <?php foreach($icons as $name => $chName):?>
 		<figure class='recordIcon' id='<?php echo $name;?>'>
 			<img src='view/app/image/icons/<?php echo $name;?>.png'>
-			<figcaption><?php echo $chName;?></figcaption>
+			<figcaption class="small"><?php echo $chName;?></figcaption>
 		</figure>
 <?php endforeach;?>
 	</div>

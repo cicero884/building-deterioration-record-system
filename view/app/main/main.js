@@ -14,4 +14,4 @@ $('#addHouse').click(function(){
 			})
 		}
 	})
-})
+});

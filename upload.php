@@ -1,6 +1,5 @@
 <?php
 session_start();
-require 'controllers/controller.php';
 $controller=new Controller();
 if(isset($_GET['type'])){
 	switch($_GET['type']){
