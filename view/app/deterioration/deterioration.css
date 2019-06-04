@@ -23,90 +23,48 @@
         grid-template-columns: 98vw;
         grid-template-rows: 5fr 5fr 5fr 5fr 5fr 5fr 1fr;
         grid-template-areas: "Title1" "first" "Title2" "second" "Title3" "third" ".";
-        /*grid-column-gap: 10px;
-    grid-row-gap: 15px;*/
         /* skin */
         font-family: Microsoft JhengHei;
         justify-content: center;
         align-items: center;
     }
-    /*
-    .first,
-    .second,
-    .third {
-        float: left;
-        width: 33vw;
-        height: 28vw;
-    }*/
+    /*css of record 1*/
     
-    .left {
+    #R1__BottomButtonLeft {
         float: left;
         position: relative;
-        left: 12%;
+        left: 18%;
     }
     
-    .right {
+    #R1__BottomButtonRight {
         float: left;
         position: relative;
-        left: 16%;
+        left: 24%;
     }
     
-    .a {
+    #first__Button {
         float: left;
         position: relative;
         left: 1%;
     }
     
-    .b {
+    #second__Button {
         float: left;
         position: relative;
-        left: 8%;
+        left: 7%;
     }
     
-    .c {
+    #third__Button {
         float: left;
         position: relative;
-        left: 12%;
+        left: 10%;
     }
     
-    .button,
-    #final {
-        background: url(../image/buttons/green_botton.png);
-        background-repeat: no-repeat;
-        background-size: 100% 200%;
-        position: flex;
-        left: 35vw;
-        /*top: 40vh;*/
-        font-size: 5rem;
-    }
-    
-    .myCheckbox input {
-        // display: none;
-        // Better than 
-        display: none;
-        for accessibility reasons position: relative;
-        z-index: -9999;
-    }
-    
-    .myCheckbox span {
-        width: 33vw;
-        height: 28vw;
-        font-size: 3rem;
-        color: white;
-        display: inline-block;
-        background: url(../image/buttons/yellow_botton.png);
+    #R1__bg {
+        background: url(../image/house_cube.png);
         background-repeat: no-repeat;
         background-size: 100% auto;
-    }
-    
-    .myCheckbox input:checked+span {
-        background: url(../image/buttons/red_botton.png);
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-    }
-    
-    .button2 {
-        display: none;
+        display: block;
     }
     
     .firstCheckbox input {
@@ -134,36 +92,76 @@
         background-size: 100% auto;
     }
     
-    .text {
+    .text1 {
         display: inline-block;
         padding-top: 1rem;
+    }
+    /*css of record 345*/
+    
+    .myCheckbox input {
+        // display: none;
+        // Better than 
+        display: none;
+        for accessibility reasons position: relative;
+        z-index: -9999;
+    }
+    
+    .myCheckbox span {
+        width: 33vw;
+        height: 28vw;
+        font-size: 3rem;
+        color: white;
+        display: inline-block;
+        background: url(../image/buttons/blue_button2.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+    
+    .myCheckbox input:checked+span {
+        background: url(../image/buttons/red_button2.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+    
+    .button2 {
+        display: none;
+    }
+    
+    .text2 {
+        display: inline-block;
+        padding-top: 6rem;
     }
     
     .Title1,
     .Title2,
     .Title3,
     .R1__Title {
-        /*font-size: 40px;
-        margin-left: auto;
-        margin-right: auto;*/
         font-size: 4rem;
-        height: 10vh;
-        display: block;
+        height: 8vh;
+        text-align: center;
     }
     
     .R1__TopButton,
-    .R1__BottomButton,
+    .R1__BottomButton {
+        height: 5vh;
+        display: block;
+    }
+    
     .first,
     .second,
     .third {
-        height: 5vh;
+        height: 13vh;
+        display: block;
     }
     
-    #R1__bg {
-        background: url(../image/house_cube.png);
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        display: block;
+    .left {
+        display: inline-block;
+        margin-left: 10vw;
+    }
+    
+    .right {
+        display: inline-block;
+        margin-left: 10vw;
     }
     
     #ps {
@@ -174,10 +172,11 @@
         /* position */
         width: 98%;
         height: 20rem;
-        margin-left: 2rem;
+        margin-left: 5rem;
         /* skin */
-        border: 1rem solid white;
+        border: 4px solid white;
         z-index: 10;
+        color: black;
     }
     
     #psLeft {
@@ -189,19 +188,28 @@
         justify-items: center;
         /* position */
         height: 10rem;
-        margin-left: 6rem;
+        margin-left: 5rem;
     }
     
     #final {
+        background: url(../image/buttons/orange_button.png);
+        background-repeat: no-repeat;
+        background-size: 100% 200%;
         display: block;
-        align-items: center;
+        position: absolute;
+        /*align-items: center;
         justify-items: center;
         margin-right: auto;
-        margin-left: auto;
-        font-size: 4rem;
+        margin-left: auto;*/
+        top: 80vh;
+        left: 8vw;
+        width: 80vw;
+        font-size: 3rem;
+        color: white;
         font-family: Microsoft JhengHei;
     }
     
     b {
         display: block;
+        margin-top: 4rem;
     }
