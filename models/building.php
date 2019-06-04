@@ -2,6 +2,9 @@
 require_once("config.php");
 
 class ModelBuilding {
+
+    public $sql      = '';
+    public $building = '';
     
     // build a nested array with buildingId, address, image
     // ex. the third house's address => $buildingInfo[2]['address']
@@ -74,14 +77,33 @@ class ModelBuilding {
         return $items;
     }
 
-    public function getBuildingDetail( $buildingId ) {
-        $sqlSearch = "SELECT `address`,  ownerName, ownerPhone, type, used, structure, image, floorUpper, floorDown
+    public function generateBuildingSQLById( $buildingId ) {
+        $this->sql = "SELECT *
                       FROM   building
-                      WHERE  buildingId = :buildingId";
-        $search     = $GLOBALS['conn']->prepare( $sqlSearch );
-        $search->execute([':buildingId'=>$buildingId]);
+                      WHERE  buildingId = ".$buildingId;
+        return $this;
+    }
+
+    public function selectByDate( $date ) {
+        switch( $date ){
+            case 1:
+                $this->sql = $this->sql." AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 1 MONTH) AND CURRENT_DATE();";
+                break;
+            case 2:
+                $this->sql = $this->sql." AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 3 MONTH) AND CURRENT_DATE();";
+                break;
+            case 3:
+                $this->sql = $this->sql." AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 6 MONTH) AND CURRENT_DATE();";
+                break;
+        }
+        return $this;
+    }
+
+    public function executSQL( ) {
+        $search     = $GLOBALS['conn']->prepare( $this->sql );
+        $search->execute();
         $row=$search->fetch(PDO::FETCH_OBJ);   
-        $buildingInfo = array(
+        $this->building = array(
             'name'       => $row->ownerName, 
             'phone'      => $row->ownerPhone, 
             'type'       => $row->type, 
@@ -93,8 +115,7 @@ class ModelBuilding {
             'address'    => $row->address,
             'image'      => "image/".$row->image
         );
-
-        return $buildingInfo;
+        return $this->building;
     }
 }
 ?>

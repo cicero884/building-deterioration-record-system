@@ -52,7 +52,7 @@ class Controller{
 			}
 			elseif( $page==="web_building" ) {
 				$this->controllers['building']=new BuildingController();
-				$this->buildingDetail = $this->controllers['building']->getBuildingDetail( $_GET['buildingId'] );
+				$this->buildingDetail = $this->controllers['building']->buildingDetailForWebBuilding( $_GET['buildingId'] );
 				$this->getFiles($this->cur_path.'web_building');
 			}
 		}

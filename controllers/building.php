@@ -42,6 +42,7 @@ class BuildingController {
         }
     }
 
+    /*
     public function getBuildingDetail( $buildingId, $type=self::TYPE ) {
         $buildingDetail = $this->models['building']->getBuildingDetail( $buildingId );
 
@@ -50,6 +51,24 @@ class BuildingController {
         $buildingDetail['structure'] = self::STRUCTURE[ (int)$buildingDetail['structure'] ];
         
         return $buildingDetail;
+    }
+    */
+
+    public function buildingDetailForWebBuilding( $buildingId ) {
+        $building =  $this->models['building']->generateBuildingSQLById( $buildingId )->executSQL();
+        $buildingInfo = array(
+            'name'       => $building['name'], 
+            'phone'      => $building['phone'],
+            'type'       => self::TYPE[ ( int )$building[ 'type' ]  ],
+            'usage'      => self::USAGE[ (int)$building['usage'] ],
+            'structure'  => self::STRUCTURE[ (int)$building['structure'] ],
+            'floorUpper' => $building['floorUpper'], 
+            'floorDown'  => $building['floorDown'],
+            'buildingId' => $building['buildingId'],
+            'address'    => $building['address'],
+            'image'      => "image/".$building['image']
+        );
+        return $buildingInfo;
     }
 }
 ?>
