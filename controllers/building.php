@@ -7,6 +7,9 @@ class BuildingController {
 
     public $controllers = NULL;
     public $models = NULL;
+    const  TYPE      = [ "透天", "公寓", "大廈", "三合院", "其他" ];
+    const  USAGE     = [ "住家", "商店", "住商混合", "其他" ];
+    const  STRUCTURE = [ "鋼筋混泥土", "鋼骨", "木造", "磚造", "其他" ];
 
     function __construct() {
         $this->controllers['image'] = new ImageController();
@@ -39,56 +42,12 @@ class BuildingController {
         }
     }
 
-    public function getBuildingDetail( $buildingId ) {
+    public function getBuildingDetail( $buildingId, $type=self::TYPE ) {
         $buildingDetail = $this->models['building']->getBuildingDetail( $buildingId );
-        switch( $buildingDetail['type'] ) {
-            case '0':
-                $buildingDetail['type'] = "透天" ;
-                break;
-            case '1':
-                $buildingDetail['type'] = "公寓" ;
-                break;
-            case '2':
-                $buildingDetail['type'] = "大廈" ;
-                break;
-            case '3':
-                $buildingDetail['type'] = "三合院" ;
-                break;
-            case '4':
-                $buildingDetail['type'] = "其他" ;
-                break;
-        }
-        switch( $buildingDetail['usage'] ) {
-            case '0':
-                $buildingDetail['usage'] = "住家" ;
-                break;
-            case '1':
-                $buildingDetail['usage'] = "商店" ;
-                break;
-            case '2':
-                $buildingDetail['usage'] = "住商混合" ;
-                break;
-            case '3':
-                $buildingDetail['usage'] = "其他" ;
-                break;
-        }
-        switch( $buildingDetail['structure'] ) {
-            case '0':
-                $buildingDetail['structure'] = "鋼筋混泥土" ;
-                break;
-            case '1':
-                $buildingDetail['structure'] = "鋼骨" ;
-                break;
-            case '2':
-                $buildingDetail['structure'] = "木造" ;
-                break;
-            case '3':
-                $buildingDetail['structure'] = "磚造" ;
-                break;
-            case '4':
-                $buildingDetail['structure'] = "其他" ;
-                break;
-        }
+
+        $buildingDetail['type']      = self::TYPE[ ( int )$buildingDetail[ 'type' ]  ];
+        $buildingDetail['usage']     = self::USAGE[ (int)$buildingDetail['usage'] ];
+        $buildingDetail['structure'] = self::STRUCTURE[ (int)$buildingDetail['structure'] ];
         
         return $buildingDetail;
     }
