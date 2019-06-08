@@ -41,42 +41,6 @@ class ModelBuilding {
         $insert->execute( $buildingInfo );
     }
 
-    // get building information by buildingIds array
-    public function getBuildingInfos( $buildingIds, $date ) {
-        $items = array();
-        $count = 0;
-        foreach( $buildingIds as $n ) {
-            $sql = "SELECT `address`, ownerName, ownerPhone, recordDate
-                    FROM building
-                    WHERE buildingId=".$n;
-            switch( $date ){
-                case 1:
-                    $temp = " AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 1 MONTH) AND CURRENT_DATE();";
-                    break;
-                case 2:
-                    $temp = " AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 3 MONTH) AND CURRENT_DATE();";
-                    break;
-                case 3:
-                    $temp = " AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 6 MONTH) AND CURRENT_DATE();";
-                    break;
-            }
-            $sql = $sql.$temp;
-            $search = $GLOBALS['conn']->prepare( $sql );
-            $search->execute();
-            if( $row=$search->fetch(PDO::FETCH_OBJ) ) {
-                $items[$count] = array(
-                    'address' => $row->address,
-                    'name'    => $row->ownerName,
-                    'phone'   => $row->ownerPhone,
-                    'date'    => $row->recordDate,
-                    'buildingId' => $n
-                );
-                $count++;
-            }
-        }
-        return $items;
-    }
-
     public function generateBuildingSQLById( $buildingId ) {
         $this->sql = "SELECT *
                       FROM   building
@@ -113,7 +77,8 @@ class ModelBuilding {
             'floorDown'  => $row->floorDown,
             'buildingId' => $row->buildingId,
             'address'    => $row->address,
-            'image'      => "image/".$row->image
+            'date'       => $row->recordDate,
+            'image'      => $row->image
         );
         return $this->building;
     }

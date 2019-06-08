@@ -42,18 +42,6 @@ class BuildingController {
         }
     }
 
-    /*
-    public function getBuildingDetail( $buildingId, $type=self::TYPE ) {
-        $buildingDetail = $this->models['building']->getBuildingDetail( $buildingId );
-
-        $buildingDetail['type']      = self::TYPE[ ( int )$buildingDetail[ 'type' ]  ];
-        $buildingDetail['usage']     = self::USAGE[ (int)$buildingDetail['usage'] ];
-        $buildingDetail['structure'] = self::STRUCTURE[ (int)$buildingDetail['structure'] ];
-        
-        return $buildingDetail;
-    }
-    */
-
     public function buildingDetailForWebBuilding( $buildingId ) {
         $building =  $this->models['building']->generateBuildingSQLById( $buildingId )->executSQL();
         $buildingInfo = array(
@@ -68,6 +56,23 @@ class BuildingController {
             'address'    => $building['address'],
             'image'      => "image/".$building['image']
         );
+        return $buildingInfo;
+    }
+
+    public function buildingDetailForWebSum( $buildingIds, $date ) {
+        $buildingInfo = array();
+        $count = 0;
+        foreach( $buildingIds as $id ) {
+            $building = $this->models['building']->generateBuildingSQLById( $id )->selectByDate( $date )->executSQL();
+            $buildingInfo[ $count ] = array(
+                'address'    => $building[ 'address' ],
+                'name'       => $building[ 'name' ],
+                'phone'      => $building[ 'phone' ],
+                'buildingId' => $building[ 'buildingId' ],
+                'date'       => $building[ 'date' ]
+            );
+            $count += 1;
+        }
         return $buildingInfo;
     }
 }

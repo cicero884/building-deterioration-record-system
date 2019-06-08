@@ -1,9 +1,11 @@
 <?php
 require_once('building.php');
 require_once('controllers/building.php');
+require_once('controllers/floor.php');
 class Controller{
 	protected $recentHouses=array();
 	protected $buildingDetail;
+	protected $floorDetails;
 	protected $cur_path='view/';
 	protected $page_css=array();
 	protected $page_html=array();
@@ -52,7 +54,9 @@ class Controller{
 			}
 			elseif( $page==="web_building" ) {
 				$this->controllers['building']=new BuildingController();
+				$this->controllers['floor']= new FloorController();
 				$this->buildingDetail = $this->controllers['building']->buildingDetailForWebBuilding( $_GET['buildingId'] );
+				$this->floorDetails = $this->controllers['floor']->floorDetailForWebBuilding( $_GET['buildingId'] );
 				$this->getFiles($this->cur_path.'web_building');
 			}
 		}
