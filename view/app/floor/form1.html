@@ -1,14 +1,22 @@
 <div class="page">
-	<div id=b asicInfo>
-
+	<p class="page__title">建築基本資料</p>
+	<div id="houseInfo" class="border">
+		<p>地址：台南市玉井區玉田路123號</p>
+		<p>屋主姓名：丁大山</p>
+		<p>屋主電話：06-2705888</p>
+		<?php echo $houseInfo;?>
 	</div>
-	<form>
-		紀錄樓層<br>
-		<input type="radio" name="scale" value="upper"> 地上<br><input type=text></input>
-		<p>樓</p>
-		<input type="radio" name="scale" value="down"> 地下<br><input type=text></input>
-		<p>樓</p>
-	</form>
-
-	<p>紀錄樓層</p>
+	<p class="page__title">紀錄樓層</p>
+	<div id="floorNumber" class="border">
+		<div class="floorRecord">
+		<input type="radio" name="scale" value="upper"></input><p>  地上</p><br>
+		<input type=number style="height:5rem;width:15rem;"></input>
+		<p> 樓</p>
+	</div>
+		<div class="floorRecord">
+		<input type="radio" name="scale" value="down"></input><p>  地下</p><br>
+		<input type=number style="height:5rem;width:15rem;"></input>
+		<p> 樓</p>
+	</div>
+	</div>
 </div>
