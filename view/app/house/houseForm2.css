@@ -1,145 +1,68 @@
-body {
+.page {
     /* position */
-    display: grid;
-    height: 100vh;
-    width: 100vw;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.page>.page__title {
     /* layout */
-    grid-template-columns: 0.5fr 0.5fr;
-    grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr 0.01fr 0.1fr 0.2fr;
-    grid-template-areas: "header header" "BuildingType BuildingType" "BuildingUsage BuildingUsage" "BuildingStruc BuildingStruc" "BuildingScale BuildingScale" "BuildingScaleUp BuildingScaleDown" "Button Button";
-    grid-column-gap: 10px;
-    grid-row-gap: 15px;
-    /* skin */
-    font-family: Microsoft JhengHei;
-    justify-content: center;
-    align-items: center;
-    background-image: url(./background.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% auto;
+    display: block;
+    /* position */
+    height: 4rem;
     margin: 0;
+    margin-left: 2rem;
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+    /* skin */
+    font-size: 3rem;
 }
 
-.header {
-    /*  background-color: #8BC574;*/
+.page>.page__floor {
+    /* position */
+    margin-left: 2rem;
+}
+
+.page__input {
+    /* layout */
     display: block;
-    /* align-self: center;*/
-    grid-area: header;
-    margin: 10px;
-}
-
-.BuildingType {
-    /*  background-color: #748CC5;*/
-    display: block;
-    /*align-self: center;*/
-    grid-area: BuildingType;
-    margin: 10px;
-}
-
-.BuildingUsage {
-    /* background-color: #C57474;*/
-    display: block;
-    /*align-self: center;*/
-    grid-area: BuildingUsage;
-    margin: 10px;
-}
-
-.BuildingStruc {
-    /*  background-color: #FCE052;*/
-    display: block;
-    /* align-self: center;*/
-    grid-area: BuildingStruc;
-    margin: 10px;
-}
-
-.BuildingScale {
-    /* background-color: #ffad86;*/
-    display: block;
-    /* align-self: center;*/
-    grid-area: BuildingScale;
-    margin: 10px;
-}
-
-.BuildingScaleUp {
-    /* background-color: #ffad86;*/
-    display: block;
-    /*align-self: center;*/
-    grid-area: BuildingScaleUp;
-    margin: 10px;
-}
-
-.BuildingScaleDown {
-    /* background-color: #dab1d5;*/
-    display: block;
-    /*  align-self: center;*/
-    grid-area: BuildingScaleDown;
-    margin: 10px;
-}
-
-.Button {
-    /*   background-color: #ffb5b5;
-    display: block;
-    /*  align-self: center;*/
-    grid-area: Button;
-    margin: 10px;
-    position: absolute;
-    left: 35%;
-    top: 85%;
-}
-
-.ground {
-    float: left;
-    left: 60px;
-    margin: 10px;
-}
-
-#upperFloor {
-    float: left;
-    margin: 10px;
-}
-
-.floor {
-    float: right;
-    margin: 10px;
-}
-
-#underFloor {
-    float: left;
-    left: 60px;
-    top: 20px;
-    margin: 10px;
-}
-
-input[type=number] {
-    border: 2px solid white;
-    border-radius: 10px;
-}
-
-select {
+    /* position */
     width: 100%;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #f1f1f1;
+    height: 8rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+    /* skin */
+    border-radius: 1rem;
+    font-size: 3rem;
 }
 
-select {
-    background-image: url('down_icon.png');
-    background-position: 290px 0px;
-    background-repeat: no-repeat;
-    z-index: 1;
+.page__input>.input__item {
+    /* skin */
+    font-size: 5rem;
 }
 
-input[type=button],
-input[type=submit],
-input[type=reset] {
-    background-color: rgb(255, 153, 0);
-    border: none;
-    color: rgb(5, 5, 5);
-    padding: 10px 20px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-    font-family: Microsoft JhengHei;
+.floor__flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 15vh;
+    font-size: 3.5rem;
 }
 
-0.15fr 0.15fr 0.15fr 0.15fr 0.01fr 0.15fr 0.23fr
+.floor__flex>input {
+    font-size: 2rem;
+}
+
+#submitHouse {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    height: 4vh;
+    background-color: #ff9c00;
+    font-size: 2rem;
+    font-weight: bold;
+}
