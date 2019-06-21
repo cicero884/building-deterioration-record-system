@@ -76,5 +76,41 @@ class ModelDeterioration {
         }
         return $buildingIds;
     }
+
+    public function getDeteriorationInfosByFloorId( $floorId ) {
+        $deteriorationInfos = array();
+        $count = 0;
+        $sql = "SELECT *
+                FROM deterioration
+                WHERE floorId=".$floorId ;
+        $select = $GLOBALS['conn']->prepare( $sql );
+        $select->execute();
+
+        while( $row=$select->fetch(PDO::FETCH_OBJ) ){    
+            $deteriorationInfos[$count] = array(
+                'deteriorationId' => $row->deteriorationId,
+                'floorId' => $row->floorId,
+                'column'  => $row->column,
+                'beam'    => $row->beam, 
+                'wall'    => $row->wall,
+                'hole'    => $row->hole, 
+                'floor'   => $row->floor, 
+                'RC'      => $row->rebarExposed, 
+                'addOn'   => $row->addOn,
+                'flake'   => $row->exfoliation, 
+                'flakeDepth' => $row->exfoliationDepth, 
+                'flakeScrap' => $row->exfoliationScrap, 
+                'crack'      => $row->crack, 
+                'crackLength' => $row->crackLength, 
+                'crackWidth'  => $row->crackWidth, 
+                'ps'          => $row->ps, 
+                'locationX'   => $row->x, 
+                'locationY'   => $row->y 
+            );
+            $count += 1;
+        }
+
+        return  $deteriorationInfos;        
+    }
 }
 ?>

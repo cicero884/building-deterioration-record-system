@@ -3,11 +3,11 @@ require_once("models/deterioration.php");
 require_once("controllers/image.php");
 
 class DeteriorationController {
-    public $models = NULL;
-    public $controllers = NULL;
+    public $models;
+    public $controllers;
 
-    public function __constructor() {
-        $this->models['deterioration'] = new ModelDeterioration();
+    public function __construct() {
+        $this->models[ 'deterioration' ] = new ModelDeterioration();
         $this->controllers['image'] = new ImageController();
     }
 
@@ -36,7 +36,12 @@ class DeteriorationController {
             ':ps'          => $_POST['ps']
         );
         $this->models['deterioration']->insertDeterioration( $deterioration );
-        
+    }
+
+    public function deteriorationDetailForWebBuilding( $floorId ) {
+        $deterioration = $this->models[ 'deterioration' ]->getDeteriorationInfosByFloorId( $floorId );
+
+        return $deterioration;
     }
 }
 

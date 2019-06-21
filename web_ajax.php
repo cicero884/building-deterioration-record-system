@@ -5,8 +5,9 @@ require_once("controllers/deterioration.php");
 require_once("models/building.php");
 require_once("models/deterioration.php");
 
-$controllers['building'] = new BuildingController();
-$controllers['floor']    = new FloorController();
+$controllers['building']      = new BuildingController();
+$controllers['floor']         = new FloorController();
+$controllers['deterioration'] = new DeteriorationController();
 $models['building']      = new ModelBuilding();
 $models['deterioration'] = new ModelDeterioration();
 
@@ -28,8 +29,40 @@ switch( $_POST['page'] ) {
         break;
 
     case 'building':
-        $floorInfos = $controllers['floor']->floorDetailForWebBuilding( $_POST['buildingId'] );
-        echo json_encode( $floorInfos );
+        switch( $_POST['action'] ) {
+            case 'selectFloorInfo':
+                $floorInfos = $controllers['floor']->floorDetailForWebBuilding( $_POST['buildingId'] );
+                echo json_encode( $floorInfos );
+                break;
+            case 'selectDeteriorationInfo':
+                $deteriorations = $controllers['deterioration']->deteriorationDetailForWebBuilding( $_POST['floorId'] );
+                $deteriorationInfos = array();
+                $count = 0;
+                foreach( $deteriorations as $item ) {
+                    // position
+                    $positionString = "";
+                    $positionString .= ( $item['column'] == 1 )? "柱 ": "";
+                    $positionString .= ( $item['beam']   == 1 )? "樑 ": "";
+                    $positionString .= ( $item['wall']   == 1 )? "牆 ": "";
+                    $positionString .= ( $item['hole']   == 1 )? "開口 ": "";
+                    $positionString .= ( $item['floor']  == 1 )? "樓板 ": "";
+                    $positionString .= ( str_word_count( $positionString ) <= 1 )? "" : "接合處 ";
+
+                    $deteriorationInfos[ $count ] = array(
+                        'deteriorationId' => $item['deteriorationId'],
+                        'position'        => $positionString,
+                        'flakeDepth'      => $item['flakeDepth'],
+                        'flakeScrap'      => $item['flakeScrap'],
+                        'crackLength'     => $item['crackLength'],
+                        'crackWidth'      => $item['crackWidth'],
+                        'RC'              => $item['RC'],
+                        'addOn'           => $item['addOn']
+                    );
+                    $count += 1;
+                }
+                echo json_encode( $deteriorationInfos );
+                break;
+        }
         break;
 
     default:

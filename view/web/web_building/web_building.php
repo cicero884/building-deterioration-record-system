@@ -34,15 +34,6 @@
                     <th>加蓋處</th>
                     <th>圖片</th>
                 </tr>
-                <tr>
-                    <td class="td__number"></td>
-                    <td class="td__position"></td>
-                    <td class="td__flake"></td>
-                    <td class="td__crack"></td>
-                    <td class="td__rc"></td>
-                    <td class="td__add-on"></td>
-                    <td class="td__picture"></td>
-                </tr>
             </table>
         </article>
     </section>
