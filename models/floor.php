@@ -43,6 +43,8 @@ class ModelFloor {
                  FROM `floor`
                  WHERE floorId=".$floorId ;
         $select = $GLOBALS['conn']->prepare( $sql );
+        $select->execute();
+        $row=$select->fetch(PDO::FETCH_OBJ);
         $this->floor = array(
             'picture'    => $row->floorPlan,
             'floor'      => $row->floor,

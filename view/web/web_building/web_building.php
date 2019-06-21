@@ -1,7 +1,7 @@
 <header>
     <!--和前一頁基本上一模一樣-->
 </header>
-<main class="building">
+<main class="building" id=<?php echo "building__".$this->buildingDetail['buildingId']?>>
     <section class="building__info">
         <p>地址</p>     <p> <?php echo $this->buildingDetail['address'] ?></p> 
         <br/>
@@ -14,5 +14,36 @@
         <p>建築規模</p> <p> 地上 <?php echo $this->buildingDetail['floorUpper']?>
                            地下 <?php echo $this->buildingDetail['floorDown']?></p>
     </section>
-    <img class="building__image" src = <?php echo $this->buildingDetail['image']?> >
+    <img class="building__image" alt = 'building_picture' src = <?php echo $this->buildingDetail['image'] ?> >
+</main>
+<main class="detail">
+    <section class="floor__info">
+        <article class="info__floor-plan">
+            <p class="floor-plan__title" >地下一樓</p>
+            <img class="floor-plan__image"/>
+        </article>
+        <article class="info__deterioration">
+            <p class="deterioration__tite"></p>
+            <table class="deterioration__table">
+                <tr>
+                    <th>編號</th>
+                    <th>劣化位置</th>
+                    <th>剝落</th>
+                    <th>裂縫</th>
+                    <th>鋼筋外露</th>
+                    <th>加蓋處</th>
+                    <th>圖片</th>
+                </tr>
+                <tr>
+                    <td class="td__number"></td>
+                    <td class="td__position"></td>
+                    <td class="td__flake"></td>
+                    <td class="td__crack"></td>
+                    <td class="td__rc"></td>
+                    <td class="td__add-on"></td>
+                    <td class="td__picture"></td>
+                </tr>
+            </table>
+        </article>
+    </section>
 </main>

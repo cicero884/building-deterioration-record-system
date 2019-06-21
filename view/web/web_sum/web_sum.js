@@ -28,7 +28,7 @@ function selectBuilding( pc, flake, crack, date ) {
 		url:'web_ajax.php',
 		type:'POST',
 		data:{
-			action: 'select',
+			page:   'sum',
       		pc:      pc,
       		flake:   flake,
 			crack:   crack,

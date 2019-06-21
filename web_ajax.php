@@ -1,15 +1,17 @@
 <?php
 require_once("controllers/building.php");
+require_once("controllers/floor.php");
 require_once("controllers/deterioration.php");
 require_once("models/building.php");
 require_once("models/deterioration.php");
 
 $controllers['building'] = new BuildingController();
+$controllers['floor']    = new FloorController();
 $models['building']      = new ModelBuilding();
 $models['deterioration'] = new ModelDeterioration();
 
-switch( $_POST['action'] ) {
-    case 'select':
+switch( $_POST['page'] ) {
+    case 'sum':
         $items = array();
 
         if( htmlspecialchars( $_POST['pc']) == 1 )
@@ -21,10 +23,15 @@ switch( $_POST['action'] ) {
 
         $buildingIds = $models['deterioration']->selectDeterioration( $items );
         $buildingInfo = $controllers['building']->buildingDetailForWebSum( $buildingIds, $_POST['date'] );
-        // $buildingInfo = $models['building']->getBuildingInfos( $buildingIds, $_POST['date'] );
         echo json_encode($buildingInfo);
 
         break;
+
+    case 'building':
+        $floorInfos = $controllers['floor']->floorDetailForWebBuilding( $_POST['buildingId'] );
+        echo json_encode( $floorInfos );
+        break;
+
     default:
         echo $_POST[ 'action'];
 }
