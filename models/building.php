@@ -2,6 +2,9 @@
 require_once("config.php");
 
 class ModelBuilding {
+
+    public $sql      = '';
+    public $building = '';
     
     // build a nested array with buildingId, address, image
     // ex. the third house's address => $buildingInfo[2]['address']
@@ -38,50 +41,49 @@ class ModelBuilding {
         $insert->execute( $buildingInfo );
     }
 
-    // get building information by buildingIds array
-    public function getBuildingInfos( $buildingIds, $date ) {
-        $items = array();
-        $count = 0;
-        foreach( $buildingIds as $n ) {
-            $sql = "SELECT `address`, ownerName, ownerPhone, recordDate
-                    FROM building
-                    WHERE buildingId=".$n;
-            switch( $date ){
-                case 1:
-                    $temp = " AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 1 MONTH) AND CURRENT_DATE();";
-                    break;
-                case 2:
-                    $temp = " AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 3 MONTH) AND CURRENT_DATE();";
-                    break;
-                case 3:
-                    $temp = " AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 6 MONTH) AND CURRENT_DATE();";
-                    break;
-            }
-            $sql = $sql.$temp;
-            $search = $GLOBALS['conn']->prepare( $sql );
-            $search->execute();
-            if( $row=$search->fetch(PDO::FETCH_OBJ) ) {
-                $items[$count] = array(
-                    'address' => $row->address,
-                    'name'    => $row->ownerName,
-                    'phone'   => $row->ownerPhone,
-                    'date'    => $row->recordDate,
-                    'buildingId' => $n
-                );
-                $count++;
-            }
-        }
-        return $items;
+    public function getLastestBuildingId() {
+        $sql = "SELECT MAX(buildingId) FROM building";
+        
+        $search = $GLOBALS['conn']->prepare( $sql ); 
+        $search->execute();
+        $row=$search->fetch(PDO::FETCH_OBJ);
+
+        return $search->buildingId;
     }
 
-    public function getBuildingDetail( $buildingId ) {
-        $sqlSearch = "SELECT `address`,  ownerName, ownerPhone, type, used, structure, image, floorUpper, floorDown
+    public function generateBuildingSQLById( $buildingId ) {
+        $this->sql = "SELECT *
                       FROM   building
-                      WHERE  buildingId = :buildingId";
-        $search     = $GLOBALS['conn']->prepare( $sqlSearch );
-        $search->execute([':buildingId'=>$buildingId]);
+                      WHERE  buildingId = ".$buildingId;
+        return $this;
+    }
+
+    public function selectByDate( $date ) {
+        switch( $date ){
+            case 1:
+                $this->sql = $this->sql." AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 1 MONTH) AND CURRENT_DATE();";
+                break;
+            case 2:
+                $this->sql = $this->sql." AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 3 MONTH) AND CURRENT_DATE();";
+                break;
+            case 3:
+                $this->sql = $this->sql." AND recordDate BETWEEN (CURRENT_DATE() - INTERVAL 6 MONTH) AND CURRENT_DATE();";
+                break;
+        }
+        return $this;
+    }
+
+    public function selectByAddress( $address ) {
+        if( $address != "" )
+            $this->sql = $this->sql." AND `address` LIKE '%".$address."%'";
+        return $this;
+    }
+
+    public function executSQL( ) {
+        $search     = $GLOBALS['conn']->prepare( $this->sql );
+        $search->execute();
         $row=$search->fetch(PDO::FETCH_OBJ);   
-        $buildingInfo = array(
+        $this->building = array(
             'name'       => $row->ownerName, 
             'phone'      => $row->ownerPhone, 
             'type'       => $row->type, 
@@ -91,10 +93,10 @@ class ModelBuilding {
             'floorDown'  => $row->floorDown,
             'buildingId' => $row->buildingId,
             'address'    => $row->address,
-            'image'      => "image/".$row->image
+            'date'       => $row->recordDate,
+            'image'      => $row->image
         );
-
-        return $buildingInfo;
+        return $this->building;
     }
 }
 ?>

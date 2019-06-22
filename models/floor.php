@@ -2,6 +2,8 @@
 require_once("config.php");
 
 class ModelFloor {
+    public $floor = '';
+
     // insert building information to the database
     public function insertFloor( $floorInfo ) {
         $sql = "INSERT INTO floor ( buildingId, floor, floorPlan )
@@ -20,13 +22,34 @@ class ModelFloor {
 
         return  $result->floorId;
     }
-	public function getInfo($floorId){
-		$sql = "SELECT *
-				FROM `floor`
-				WHERE floorId=:floorId";
-		$select = $GLOBALS['conn']->prepare( $sql );
-		$select->execute([':floorId'=>$floorId]);
-		return $select->fetch(PDO::FETCH_OBJ);
-	}
+    public function getFloorIdsByBuildingId( $buildingId ) {
+        $floorIds = array();
+        $sql = "SELECT floorId 
+                FROM `floor`
+                WHERE buildingId=:buildingId" ;
+        $select = $GLOBALS['conn']->prepare( $sql );
+        $select->execute([':buildingId'=>$buildingId]);
+
+        while( $row=$select->fetch(PDO::FETCH_OBJ) ){    
+            array_push( $floorIds, $row->floorId );
+        }
+
+        return  $floorIds;
+    }
+
+    public function getFloorInfoById( $floorId ) {
+        $sql = "SELECT *
+                 FROM `floor`
+                 WHERE floorId=".$floorId ;
+        $select = $GLOBALS['conn']->prepare( $sql );
+        $select->execute();
+        $row=$select->fetch(PDO::FETCH_OBJ);
+        $this->floor = array(
+            'picture'    => $row->floorPlan,
+            'floor'      => $row->floor,
+            'floorId'    => $row->floorId 
+        );
+        return $this->floor;
+    }
 }
 ?>

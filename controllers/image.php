@@ -1,12 +1,24 @@
 <?php
 class ImageController {
 
-    function imageUpload( $name, $num ) {
-        $target_dir = "image/";
+    function imageUpload( $name, $page, $buildingId = 0, $floorId = 0, $deteriorationId = 0, $num = 0 ) {
+        $target_dir  = "image/";
+        $extension   =end(explode(".", $_FILES[$name]["name"]));
+        $newfilename = "";
 
         // rename
-        $extension=end(explode(".", $_FILES[$name]["name"]));
-        $newfilename= date_format(date_create(),"Y-m-d_H:i:s").$num .".".$extension;
+        switch( $page ) {
+            case 'building':
+                $newfilename= $buildingId."-out.".$extension;
+                break;
+            case 'floor':
+                $newfilename= $buildingId."_".$floorId."-plan.".$extension;
+                break;
+            case 'deterioration' :
+                $newfilename= $buildingId."_".$floorId."_".$deteriorationId."-".$num.".".$extension;
+                break;
+        }
+
         $target_file = $target_dir . $newfilename;
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -25,7 +37,7 @@ class ImageController {
             return "false";
         // if everything is ok, try to upload file
         } else {
-            if (move_uploaded_file($_FILES[$name]["tmp_name"], $target_file)) {
+            if ( move_uploaded_file($_FILES[$name]["tmp_name"], $target_file )) {
                 return $newfilename;
             } else {
                 return "false";
