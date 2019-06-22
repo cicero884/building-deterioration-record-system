@@ -13,14 +13,19 @@ class DeteriorationController {
 
     public function insertData() {
         $deteriorationId = $this->models[ 'deterioration' ]->getLastestDeteriorationId() + 1;
+        $imageUpload = array();
         for($n = 1; $n <= 4; $n += 1) {
-            $imageUpload = $this->controllers['image']->imageUpload( "image".$n, $_POST['buildingId'], $_SESSION['floorId'], $deteriorationId, $n );
+            array_push( $imageUpload, $this->controllers['image']->imageUpload( "image".$n, $_POST['buildingId'], $_SESSION['floorId'], $deteriorationId, $n ) );
         }
 
         $deterioration = array(
             ':floorId'          => $_SESSION['floorId'],
             ':x'                => $_POST['x'],
             ':y'                => $_POST['y'],
+            ':image1'           => $imageUpload[0],
+            ':image2'           => $imageUpload[1],
+            ':image3'           => $imageUpload[2],
+            ':image4'           => $imageUpload[3],
             ':column'           => ( isset($_POST['position'][0])? 1 : 0 ), 
             ':beam'             => ( isset($_POST['position'][1])? 1 : 0 ),
             ':wall'             => ( isset($_POST['position'][2])? 1 : 0 ),

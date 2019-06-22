@@ -57,6 +57,8 @@ class Controller{
 				$this->controllers['floor']= new FloorController();
 				$this->buildingDetail = $this->controllers['building']->buildingDetailForWebBuilding( $_GET['buildingId'] );
 				$this->floorDetails = $this->controllers['floor']->floorDetailForWebBuilding( $_GET['buildingId'] );
+				array_push( $this->page_css, "node_modules/lightgallery/dist/css/lightgallery.css" );
+				array_push( $this->page_js, "node_modules/lightgallery/dist/js/lightgallery-all.js" );
 				$this->getFiles($this->cur_path.'web_building');
 			}
 		}

@@ -115,7 +115,11 @@ class ModelDeterioration {
                 'crackWidth'  => $row->crackWidth, 
                 'ps'          => $row->ps, 
                 'locationX'   => $row->x, 
-                'locationY'   => $row->y 
+                'locationY'   => $row->y,
+                'image1'      => $row->image1,
+                'image2'      => $row->image2,
+                'image3'      => $row->image3,
+                'image4'      => $row->image4 
             );
             $count += 1;
         }

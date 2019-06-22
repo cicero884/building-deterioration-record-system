@@ -56,7 +56,11 @@ switch( $_POST['page'] ) {
                         'crackLength'     => $item['crackLength'],
                         'crackWidth'      => $item['crackWidth'],
                         'RC'              => $item['RC'],
-                        'addOn'           => $item['addOn']
+                        'addOn'           => $item['addOn'],
+                        'image1'          => $item['image1'],
+                        'image2'          => $item['image2'],
+                        'image3'          => $item['image3'],
+                        'image4'          => $item['image4']
                     );
                     $count += 1;
                 }

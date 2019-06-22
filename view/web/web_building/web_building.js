@@ -81,12 +81,13 @@ let getDeterationDetail = ( floorIds )=>{
 }
 
 let makeDeteriorationTable = ( id )=> {
+    console.log(id);
     let table = document.getElementById( "table__" + id  );
     return new Promise ((resolve) => {
         DeteriorationInfo.forEach( ( element, index ) => {
             let row = table.insertRow( index + 1 );
             let cell = [];
-            let tempElement, tempString;
+            let tempElement;
             for( let i = 0; i < 7; ++i ) 
                 cell[i] = row.insertCell(i);
             // column for number
@@ -118,6 +119,29 @@ let makeDeteriorationTable = ( id )=> {
             // column for image
             cell[6].classList.add("td__image");
             tempElement = document.createElement("img");
+            tempElement.src = "img";
+            tempElement.addEventListener( "click", ()=>{
+                $(this).lightGallery({
+                    dynamic: true,
+                    dynamicEl: [{
+                        "src": element.image1,
+                        'thumb': element.image1,
+                        'subHtml': '<h4>遠</h4>'
+                    }, {
+                        'src': element.image2,
+                        'thumb': element.image2,
+                        'subHtml': "<h4>近</h4>"
+                    }, {
+                        'src': element.image3,
+                        'thumb': element.image3,
+                        'subHtml': "<h4>其他</h4>"
+                    }, {
+                        'src': element.image4,
+                        'thumb': element.image4,
+                        'subHtml': "<h4>其他</h4>"
+                    }]
+                })
+            } )
             cell[6].appendChild( tempElement );
         })
         resolve( id );
