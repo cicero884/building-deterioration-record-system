@@ -18,12 +18,13 @@ class BuildingController {
 
     // call it to insert building information to the database
     public function insertData() {
-        $imageUpload = $this->controllers['image']->imageUpload( "image", 0 );
+        $buildingId  = $this->models['building']->getLastestBuildingId() + 1;
+        $imageUpload = $this->controllers['image']->imageUpload( "image", "building", $buildingId );
         
         // upload Image sucess
         if( $imageUpload != false ) {
             $buildingInfo = array(
-                ':userId'     => htmlspecialchars( $_SESSION['userId'] ),
+                ':userId'     => htmlspecialchars( $_GET['userId'] ),
                 ':address'    => htmlspecialchars( $_POST['address'] ),
                 ':ownerName'  => htmlspecialchars( $_POST['name'] ),
                 ':ownerPhone' => htmlspecialchars( $_POST['phone'] ),

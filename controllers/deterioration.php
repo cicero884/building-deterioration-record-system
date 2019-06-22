@@ -12,8 +12,9 @@ class DeteriorationController {
     }
 
     public function insertData() {
+        $deteriorationId = $this->models[ 'deterioration' ]->getLastestDeteriorationId() + 1;
         for($n = 1; $n <= 4; $n += 1) {
-            $imageUpload = $this->controllers['image']->imageUpload( "image".$n, $n );
+            $imageUpload = $this->controllers['image']->imageUpload( "image".$n, $_POST['buildingId'], $_SESSION['floorId'], $deteriorationId, $n );
         }
 
         $deterioration = array(

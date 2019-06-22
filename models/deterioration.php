@@ -29,6 +29,16 @@ class ModelDeterioration {
         $insert->execute( $deterioration );
     }
 
+    public function getLastestDeteriorationId() {
+        $sql = "SELECT MAX( deteriorationId ) FROM deterioration";
+        
+        $search = $GLOBALS['conn']->prepare( $sql ); 
+        $search->execute();
+        $row=$search->fetch(PDO::FETCH_OBJ);
+
+        return $search->deteriorationId;
+    }
+
     // item is an array with the information need to select
     // return selected id
     public function selectDeterioration( $item ) {

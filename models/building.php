@@ -41,6 +41,16 @@ class ModelBuilding {
         $insert->execute( $buildingInfo );
     }
 
+    public function getLastestBuildingId() {
+        $sql = "SELECT MAX(buildingId) FROM building";
+        
+        $search = $GLOBALS['conn']->prepare( $sql ); 
+        $search->execute();
+        $row=$search->fetch(PDO::FETCH_OBJ);
+
+        return $search->buildingId;
+    }
+
     public function generateBuildingSQLById( $buildingId ) {
         $this->sql = "SELECT *
                       FROM   building
