@@ -73,6 +73,12 @@ class ModelBuilding {
         return $this;
     }
 
+    public function selectByAddress( $address ) {
+        if( $address != "" )
+            $this->sql = $this->sql." AND `address` LIKE '%".$address."%'";
+        return $this;
+    }
+
     public function executSQL( ) {
         $search     = $GLOBALS['conn']->prepare( $this->sql );
         $search->execute();

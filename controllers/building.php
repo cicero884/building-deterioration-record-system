@@ -60,19 +60,21 @@ class BuildingController {
         return $buildingInfo;
     }
 
-    public function buildingDetailForWebSum( $buildingIds, $date ) {
+    public function buildingDetailForWebSum( $buildingIds, $date, $address ) {
         $buildingInfo = array();
         $count = 0;
         foreach( $buildingIds as $id ) {
-            $building = $this->models['building']->generateBuildingSQLById( $id )->selectByDate( $date )->executSQL();
-            $buildingInfo[ $count ] = array(
-                'address'    => $building[ 'address' ],
-                'name'       => $building[ 'name' ],
-                'phone'      => $building[ 'phone' ],
-                'buildingId' => $building[ 'buildingId' ],
-                'date'       => $building[ 'date' ]
-            );
-            $count += 1;
+            $building = $this->models['building']->generateBuildingSQLById( $id )->selectByAddress( $address )->selectByDate( $date )->executSQL();
+            if( $building['address'] != null ) {
+                $buildingInfo[ $count ] = array(
+                    'address'    => $building[ 'address' ],
+                    'name'       => $building[ 'name' ],
+                    'phone'      => $building[ 'phone' ],
+                    'buildingId' => $building[ 'buildingId' ],
+                    'date'       => $building[ 'date' ]
+                );
+                $count += 1;
+            }
         }
         return $buildingInfo;
     }

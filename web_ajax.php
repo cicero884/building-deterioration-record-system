@@ -23,7 +23,7 @@ switch( $_POST['page'] ) {
             array_push( $items, 'exfoliationDepth=1 AND exfoliationScrap=1');
 
         $buildingIds = $models['deterioration']->selectDeterioration( $items );
-        $buildingInfo = $controllers['building']->buildingDetailForWebSum( $buildingIds, $_POST['date'] );
+        $buildingInfo = $controllers['building']->buildingDetailForWebSum( $buildingIds, $_POST['date'], $_POST['address'] );
         echo json_encode($buildingInfo);
 
         break;
