@@ -1,27 +1,33 @@
-let $element_carousel = $('#elementList').flickity({
+$element_contentFlickity = $('#elementList').flickity({
 	cellSelector: '.floorElement',
 	groupCells: true,
 	prevNextButtons: false,
 	pageDots: false
 });
-let $carousel = $('.content').flickity({
+$contentFlickity = $('.content').flickity({
 	cellSelector: '.page',
 	prevNextButtons: false,
 });
-let flkty = $carousel.data('flickity');
-let prev_index=0;
-$element_carousel.on('pointerDown.flickity',function(){
+flkty = $contentFlickity.data('flickity');
+prev_index=0;
+$element_contentFlickity.on('pointerDown.flickity',function(){
 	flkty.options.draggable=false;
 	flkty.updateDraggable();
 });
-$element_carousel.on('pointerUp.flickity',function(){
+$element_contentFlickity.on('pointerUp.flickity',function(){
 	flkty.options.draggable=true;
 	flkty.updateDraggable();
 });
-$carousel.on( 'change.flickity', function( event, index ) {
-	if(event.target.tagName.toLowerCase()!=="form") return;//prevent element_carousel change event
+$contentFlickity.on( 'change.flickity', function( event, index ) {
+	if(event.target.tagName.toLowerCase()!=="form") return;//prevent element_contentFlickity change event
 	switch(index){
 		case 1:
+			if(prev_index<index){
+				setFloorElements();
+				setPlanes();
+				$element_contentFlickity.flickity('resize');
+			}
+
 			flkty.options.draggable=false;
 			flkty.updateDraggable();
 
@@ -52,20 +58,20 @@ $carousel.on( 'change.flickity', function( event, index ) {
 
 function initEvent(func){
 	let mousePressed = false;
-	$carousel.off('pointerDown.flickity');
-	$carousel.off('pointerMove.flickity');
-	$carousel.off('pointerUp.flickity');
-	$carousel.on( 'pointerDown.flickity', function(e,p,m) {
+	$contentFlickity.off('pointerDown.flickity');
+	$contentFlickity.off('pointerMove.flickity');
+	$contentFlickity.off('pointerUp.flickity');
+	$contentFlickity.on( 'pointerDown.flickity', function(e,p,m) {
         mousePressed = true;;
         func(p, false);
     });
 
-	$carousel.on( 'pointerMove.flickity', function(e,p,m) {
+	$contentFlickity.on( 'pointerMove.flickity', function(e,p,m) {
         if (mousePressed) {
             func(p, true);
         }
     });
-	$carousel.on( 'pointerUp.flickity', function(e,p,m) {
+	$contentFlickity.on( 'pointerUp.flickity', function(e,p,m) {
         func(p, false);
         mousePressed = false;
     });

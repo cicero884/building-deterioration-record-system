@@ -1,16 +1,16 @@
-let baseCanvas=$('#baseCanvas')[0],
-	base_ctx=baseCanvas.getContext("2d");
+baseCanvas=$('#baseCanvas')[0];
+base_ctx=baseCanvas.getContext("2d");
 
-(function(){
+function setFloorElements(){
 	let ratio=$("#f3_plane").height()/9/40;//40 is image size
 	console.log($("#floorElement").height());
 	$(".floorElement").children('img').each(function(){
 		this.height=$(this).height()*ratio;
 	});
-	$element_carousel.data('flickity').reloadCells();
-})();
+	$element_contentFlickity.data('flickity').reloadCells();
+};
 
-$element_carousel.on('staticClick.flickity',function( event, pointer, cellElement, cellIndex ){
+$element_contentFlickity.on('staticClick.flickity',function( event, pointer, cellElement, cellIndex ){
 	flkty.options.draggable =false;
 	flkty.updateDraggable();
 

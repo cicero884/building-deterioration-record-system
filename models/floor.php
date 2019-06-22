@@ -20,5 +20,13 @@ class ModelFloor {
 
         return  $result->floorId;
     }
+	public function getInfo($floorId){
+		$sql = "SELECT *
+				FROM `floor`
+				WHERE floorId=:floorId";
+		$select = $GLOBALS['conn']->prepare( $sql );
+		$select->execute([':floorId'=>$floorId]);
+		return $select->fetch(PDO::FETCH_OBJ);
+	}
 }
 ?>
