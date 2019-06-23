@@ -1,0 +1,286 @@
+/* initialize */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* body > header */
+.header {
+    /* [ layout ] */
+    display: grid;
+    grid-template-areas: "logo title link";
+    grid-template-columns: 2fr 3fr 2fr;
+
+    /* [ position ] */ 
+    height: 15vh;
+    width: 100%;
+
+    /* [ skin ] */
+    background-image: url('../image/bar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .header > .header__logo */
+.header > .header__logo{
+    /* [ position ] */
+    grid-area: logo;
+    height: 12vh;
+    position: absolute;
+    top:1vh;
+    left:2vw;
+}
+
+
+.header > .header__word{
+    /* layout */
+    display: flex;
+    align-self: center;
+
+    /* position */
+    grid-area: title;
+    position: relative;
+    top:1vh;
+    left:-8vw;
+    /* skin */
+    color: #ffffff;
+    font-size: 2rem;
+    font-family:Agency FB;
+}
+
+.header > .header__link {
+    /* position */
+    display: flex;
+    grid-area: link;
+    width: auto;
+    align-items: center
+}
+
+.header__link > .link__item {
+    /* layout */
+    display: inline-block;
+
+    /*position*/
+    margin-left:3vw;
+    margin-top:2vh;
+
+    /* skin */
+    color: #ffffff;
+    font-size: 1rem;
+    font-family:微軟正黑體;
+}
+
+a {
+    text-decoration:none;
+    color: #ffffff;
+} 
+
+.test{
+    display: grid;
+    grid-template-areas:  "second" "third";
+    grid-template-rows:  0.2fr 0.8fr;  
+}
+.test>.building {
+    display: grid;
+}
+
+.building > .building__title{
+    /* [ position ] */
+    
+    height: 5vh;
+    position: flex;
+    margin-top:1vh;
+    margin-left:5vw;;
+}
+
+.building > .building__info{
+    grid-area: second;
+    border-width:3px;
+    border-style:solid;
+    border-color:#d2d2d2;
+    width:50vw;
+    height:25vh;
+    margin-top:1vh;
+    margin-left:-15vw;
+    color: #595959;
+    font-size: 1rem;
+    font-family:微軟正黑體;
+
+    display: grid;
+    grid-template-areas: "first1 first2 first2 first2 first2 first2" 
+                         "second1 second2 second3 second4 second4 second4" 
+                         "third1 third2 third3 third4 third5 third6" 
+                         "fourth1 fourth2 fourth2 fourth2 fourth2 fourth2";
+    grid-template-rows: 1fr 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+}
+
+.test>.building > .building__image{
+    grid-area: second;
+    display:inline-block;
+    margin-left:40vw;
+    height:25vh;
+    width:30vw;
+}
+
+
+.building__info > .first_info{
+    grid-area: first1;
+    text-align:center;
+     
+}
+.building__info > .first1_info{
+    grid-area: first2;
+    text-align:left;
+    
+}
+
+.building__info > .second1_info{
+    grid-area: second1;
+    text-align:right;
+}
+.building__info > .second11_info{
+    grid-area: second2;
+    text-align:left;
+}
+
+.building__info > .second2_info{
+    grid-area: second3;
+    text-align:right;
+}
+.building__info > .second21_info{
+    grid-area: second4;
+    text-align:left;
+}
+
+.building__info > .third1_info{
+    grid-area: third1;
+    text-align:right;
+}
+.building__info > .third11_info{
+    grid-area: third2;
+    text-align:left;
+}
+
+.building__info > .third2_info{
+    grid-area: third3;
+    text-align:right;
+}
+.building__info > .third21_info{
+    grid-area: third4;
+    text-align:left;
+}
+
+.building__info > .third3_info{
+    grid-area: third5;
+    text-align:right;
+}
+.building__info > .third31_info{
+    grid-area: third6;
+    text-align:left;
+   
+}
+
+.building__info > .fourth_info{
+    grid-area: fourth1;
+    text-align:right;
+}
+
+.building__info > .fourth1_info{
+    grid-area: fourth2;
+    text-align:left;
+    
+}
+.test>.detail{
+    
+}
+.detail >.floor__info{
+    grid-area: third;
+    display: grid;
+    grid-template-areas: "picture deterior"; 
+    grid-template-columns: 2fr 5fr; 
+}
+
+.floor__info > .footer__pictureinfo{
+    grid-area: picture;
+    margin-top:5vh;
+    margin-left:5vw;
+    color: #9a9a9a;
+    font-size: 1rem;
+    font-family:微軟正黑體;
+}
+
+.floor__info > .info__floor-plan{
+    grid-area: picture;
+}
+
+.floor__info > .footer__picture{
+    grid-area: picture;
+    margin-top:5vh;
+    margin-left:5vw;
+    
+}
+
+
+.floor__info > .footer__deterior{
+    grid-area: deterior;
+    border-width:3px;
+    border-style:solid;
+    border-color:#d3d3d3;
+    height:45vh;
+    width:55vw;
+    margin-top:5vh;
+    margin-left:3vw;
+
+}
+
+.footer__deterior > .footer__deteriortitle{
+    color: #9a9a9a;
+    font-size: 1rem;
+    font-family:微軟正黑體;
+}
+
+#table_location{
+    grid-area: deterior;
+    height:40vh;
+    width:54vw;
+    overflow-x:hidden;
+    overflow-y:auto;
+    position: relative;
+    top:1vh;
+    left:1vw;
+}
+
+table {  
+    color:#4d4d4d;
+    font-family: 微軟正黑體; 
+    font-size:1rem; 
+    height:15vh;
+    width:53vw;
+    text-align:center;
+    overflow:auto;
+    border-collapse:collapse;
+    margin-top:1vh;   
+    border-top: 0.6vh solid #8c8c8c;  
+    border-bottom: 0.6vh solid #8c8c8c; 
+}
+
+td {
+border-top: 0.5vh solid #b5b5b5;  
+border-bottom: 0.5vh solid #b5b5b5; 
+}
