@@ -33,7 +33,7 @@ class FloorController {
         foreach( $floorIds as $id ) {
             $floor = $this->models[ 'floor' ]->getFloorInfoById( $id );
             $floorInfo[ $count ] = array(
-                'picture' => $floor[ 'picture' ],
+                'picture' => "image/".$floor[ 'picture' ],
                 'floor'   => $floor[ 'floor' ],
                 'floorId' => $floor[ 'floorId' ]
             );
