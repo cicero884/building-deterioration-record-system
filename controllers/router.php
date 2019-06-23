@@ -45,11 +45,17 @@ class Router{
 			}
 			elseif(substr($page,0,3)==='web') {
 				if( $page==="web_sum" ) {
+					array_push( $this->page_js, "node_modules/html2canvas/dist/html2canvas.js" );
+					array_push( $this->page_js, "https://unpkg.com/jspdf@latest/dist/jspdf.min.js" );
 					$this->getFiles('view/web/web_sum');	
 				}
 				elseif( $page==="web_building" ) {
 					$this->controllers['building']=new BuildingController();
-					$this->buildingDetail = $this->controllers['building']->getBuildingDetail( $_GET['buildingId'] );
+					$this->buildingDetail = $this->controllers['building']->buildingDetailForWebBuilding( $_GET['buildingId'] );
+					array_push( $this->page_css, "node_modules/lightgallery/dist/css/lightgallery.css" );
+					array_push( $this->page_js, "node_modules/lightgallery/dist/js/lightgallery-all.js" );
+					array_push( $this->page_js, "node_modules/html2canvas/dist/html2canvas.js" );
+					array_push( $this->page_js, "https://unpkg.com/jspdf@latest/dist/jspdf.min.js" );
 					$this->getFiles('view/web/web_building');
 				}
 			}

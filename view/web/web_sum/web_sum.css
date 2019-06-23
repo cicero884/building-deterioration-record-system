@@ -193,12 +193,12 @@ time, mark, audio, video {
  }
 
  .table_1{
-    grid-area: table_;
     display: flex; 
     font-family:微軟正黑體;
     font-size:3vh; 
     margin-top:3vh;
     margin-left:9vh;
+    width: 100px;
  }
 
 table {  
@@ -239,3 +239,14 @@ a {
     text-decoration:none;
     color: #ffffff;
 } 
+
+#download-button {
+    display: inline-block;
+    font-family: 微軟正黑體;
+    position: relative;
+    left:85%;
+    border-width:0px;
+    background: #48e195;
+    font-size:1.2rem;
+    border-radius:5px;
+}

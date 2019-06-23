@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/cicero884/building-deterioration-record-system#readme",
   "dependencies": {
+    "html2canvas": "^1.0.0-rc.3",
+    "jspdf": "^1.5.3",
     "lightgallery": "^1.6.12"
   }
 }

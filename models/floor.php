@@ -37,6 +37,16 @@ class ModelFloor {
         return  $floorIds;
     }
 
+    public function getLastestFloorId() {
+        $sql = "SELECT MAX(floorId) FROM floor";
+        
+        $search = $GLOBALS['conn']->prepare( $sql ); 
+        $search->execute();
+        $row=$search->fetch(PDO::FETCH_OBJ);
+
+        return $search->floorId;
+    }
+
     public function getFloorInfoById( $floorId ) {
         $sql = "SELECT *
                  FROM `floor`
