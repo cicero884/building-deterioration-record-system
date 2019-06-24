@@ -8,8 +8,9 @@
                 </section>
 </header>
 <article class="test" id="information__building">
-    <main class="building" id=<?php echo "building__".$this->buildingDetail['buildingId']?> >
-        <img class="building__title" src="./view/web/image/title2.png">
+    <main class="building" id=<?php echo "building__".$this->buildingDetail['buildingId']?>>
+        <img class="building__title" src="./view/web/image/title2.png"/>
+        <button id="pdf-download">PDF 下載</button>
         <section class="building__info">
             <p class="first_info">地址: </p>     <p class="first1_info"> <?php echo $this->buildingDetail['address'] ?></p> 
             <p class="second1_info">屋主姓名: </p>  <p class="second11_info"> <?php echo $this->buildingDetail['name'] ?></p>
@@ -47,4 +48,4 @@
         </section>
     </main>
 </article>
-<button id="pdf-download">PDF 下載</button>
+
