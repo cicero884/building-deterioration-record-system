@@ -1,27 +1,33 @@
-let $element_carousel = $('#elementList').flickity({
+$element_contentFlickity = $('#elementList').flickity({
 	cellSelector: '.floorElement',
 	groupCells: true,
 	prevNextButtons: false,
 	pageDots: false
 });
-let $carousel = $('.content').flickity({
+$contentFlickity = $('.content').flickity({
 	cellSelector: '.page',
 	prevNextButtons: false,
 });
-let flkty = $carousel.data('flickity');
-let prev_index=0;
-$element_carousel.on('pointerDown.flickity',function(){
+flkty = $contentFlickity.data('flickity');
+prev_index=0;
+$element_contentFlickity.on('pointerDown.flickity',function(){
 	flkty.options.draggable=false;
 	flkty.updateDraggable();
 });
-$element_carousel.on('pointerUp.flickity',function(){
+$element_contentFlickity.on('pointerUp.flickity',function(){
 	flkty.options.draggable=true;
 	flkty.updateDraggable();
 });
-$carousel.on( 'change.flickity', function( event, index ) {
-	if(event.target.tagName.toLowerCase()!=="form") return;//prevent element_carousel change event
+$contentFlickity.on( 'change.flickity', function( event, index ) {
+	if(event.target.tagName.toLowerCase()!=="form") return;//prevent element_contentFlickity change event
 	switch(index){
 		case 1:
+			if(prev_index<index){
+				setFloorElements();
+				setPlanes();
+				$element_contentFlickity.flickity('resize');
+			}
+
 			flkty.options.draggable=false;
 			flkty.updateDraggable();
 
@@ -43,7 +49,7 @@ $carousel.on( 'change.flickity', function( event, index ) {
 			let final_ctx=$("#floor")[0].getContext("2d");
 			clearCanvas(final_ctx);
 			final_ctx.drawImage(base_ctx.canvas,0,0,$("#floor")[0].width,$("#floor")[0].height);
-			send_floor_data();
+			if(prev_index<index) send_floor_data();
 			initEvent(deteriorationPos);
 			break;
 	}
@@ -52,31 +58,54 @@ $carousel.on( 'change.flickity', function( event, index ) {
 
 function initEvent(func){
 	let mousePressed = false;
-	$carousel.off('pointerDown.flickity');
-	$carousel.off('pointerMove.flickity');
-	$carousel.off('pointerUp.flickity');
-	$carousel.on( 'pointerDown.flickity', function(e,p,m) {
+	$contentFlickity.off('pointerDown.flickity');
+	$contentFlickity.off('pointerMove.flickity');
+	$contentFlickity.off('pointerUp.flickity');
+	$contentFlickity.on( 'pointerDown.flickity', function(e,p,m) {
         mousePressed = true;;
         func(p, false);
     });
 
-	$carousel.on( 'pointerMove.flickity', function(e,p,m) {
+	$contentFlickity.on( 'pointerMove.flickity', function(e,p,m) {
         if (mousePressed) {
             func(p, true);
         }
     });
-	$carousel.on( 'pointerUp.flickity', function(e,p,m) {
+	$contentFlickity.on( 'pointerUp.flickity', function(e,p,m) {
         func(p, false);
         mousePressed = false;
     });
 }
 function send_floor_data(){
-	$.ajax({
-		url:'index.php',
-		type:'GET',
-		data:{
-			type:'floor',
+	let formData = new FormData();
+	let hashData=window.location.hash.substring(1).split('-');
+	let upper_or_down=$('input[name="floor"]:checked').val();
+	let floor;
+	let planeData=$("#baseCanvas")[0].toDataURL("image/png");
+	if(upper_or_down==='upper') floor=$('#upper').val();
+	else if(upper_or_down==='down') floor='-'+$('#down').val();
+	formData.append('page', 'floor');
+	if(hashData.length>2){
+		formData.append('action', 'update');
+		formData.append('floorID',hashData[2]);
+	}
+	else formData.append('action', 'insert');
 
-		}
+	formData.append('floor',floor);
+	formData.append('buildingId', hashData[1]);
+	formData.append('floorPlan',planeData);
+	$.ajax({
+		url:'upload.php',
+		type:'POST',
+		processData: false,
+		contentType: false,
+		data:formData,
+		error: function(xhr) {
+            alert('Ajax request error');
+        },
+        success: function(response){
+			HashReflashFlag=false;
+			window.location.hash=window.location.hash+"-"+response;
+        }
 	});
 }

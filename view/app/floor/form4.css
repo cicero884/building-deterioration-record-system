@@ -16,6 +16,27 @@
 .new_tag{
 	background-color:red !important;
 }
+@-webkit-keyframes blink{
+    0% {
+        background-color: yellow;
+        opacity:1;
+    }
+    50% {
+        background-color: yellow;
+    }
+    77% {
+        background-color: orange;
+    }
+    100% {
+        background-color: red;
+    }
+}
+.blink{
+	-webkit-animation-name: blink;
+    -webkit-animation-duration: 400ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+}
 .record{
 	background-color:#00bdbd;
 	color:white;

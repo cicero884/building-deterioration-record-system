@@ -10,6 +10,15 @@ class ModelFloor {
                 VALUES ( :buildingId, :floor, :floorPlan ); ";
         $insert = $GLOBALS['conn']->prepare( $sql ); 
         $insert->execute( $floorInfo );
+		return $this->getLastestFloorId();
+    }
+
+    public function updateData( $floorInfo ) {
+        $sql = "UPDATE `floor`
+                SET floorPlan= :floorPlan, floor= :floor
+                WHERE floorId= :floorId";
+        $update = $GLOBALS['conn']->prepare( $sql ); 
+        $update->execute( $floorInfo );
     }
 
     public function getFloorId( $buildingId, $floor ) {
@@ -22,7 +31,6 @@ class ModelFloor {
 
         return  $result->floorId;
     }
-
     public function getFloorIdsByBuildingId( $buildingId ) {
         $floorIds = array();
         $sql = "SELECT floorId 
@@ -36,6 +44,15 @@ class ModelFloor {
         }
 
         return  $floorIds;
+    }
+
+    public function getLastestFloorId() {
+        $sql = "SELECT *
+                FROM  `floor`
+                WHERE floorId =( SELECT max(floorId) FROM `floor` )";
+        $search = $GLOBALS['conn']->prepare( $sql ); 
+        $search->execute();
+        return $search->fetch(PDO::FETCH_OBJ)->floorId;
     }
 
     public function getFloorInfoById( $floorId ) {

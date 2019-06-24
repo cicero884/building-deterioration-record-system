@@ -12,9 +12,9 @@ foreach($this->page_css as $css){
 	<body>
 <?php
 foreach($this->page_html as $html) include "$html";
-if(count($this->page_content)>0){
+if(count($this->contents)>0){
 	echo "<form class='content'>";
-	foreach($this->page_content as $path) $this->load($path);
+	foreach($this->contents as $content) $this->load($content);
 	echo "</form>";
 }
 ?>
