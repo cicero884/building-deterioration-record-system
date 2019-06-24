@@ -10,10 +10,8 @@ class DeteriorationController {
         $this->models[ 'deterioration' ] = new ModelDeterioration();
         $this->controllers['image'] = new ImageController();
     }
-    
     public function insertData(){
-        $deteriorationId = $this->models[ 'deterioration' ]->getLastestDeteriorationId() + 1;
-
+		echo $this->models['deterioration']->newDeterioration($_POST['floorID'],$_POST['x'],$_POST['y']);
 	}
 
     public function updateData(){
@@ -50,10 +48,6 @@ class DeteriorationController {
         $deterioration = $this->models[ 'deterioration' ]->getDeteriorationInfosByFloorId( $floorId );
 
         return $deterioration;
-    }
-
-    public function deleteData() {
-        $this->models[ 'deterioration' ]->deleteDeterioration($_POST['deteriorationId']);
     }
 }
 
