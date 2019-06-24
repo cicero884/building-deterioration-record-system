@@ -1,5 +1,7 @@
+let HashReflashFlag=true;
 window.onhashchange=function(){
-	//hash type:page-buildingID-floor
+	//hash type:page-buildingID-floorID-deteriorationID
+	if(!HashReflashFlag) return;
 	let data=window.location.hash.substring(1).split('-');
 	$.ajax({
 		url:'index.php',
@@ -16,4 +18,5 @@ window.onhashchange=function(){
 			$('.content').html(responce);
 		},
 	});
+	HashReflashFlag=true;
 }
