@@ -15,7 +15,7 @@ if(is_null($this->floorInfo)){
 	$downFloor='';
 }
 else{
-	$floor=$this->floorInfo->floor;
+	$floor=$this->floorInfo['floor'];
 	$isUpper=($floor>0);
 	$isDown=($floor<0);
 	$upperfloor=($isUpper)? $floor:'';
@@ -23,12 +23,12 @@ else{
 }
 ?>
 		<div class="floorRecord">
-			<input type="radio" class="scale" value="upper" name='floor' checked=<?=$isUpper?>><p>  地上</p><br>
+			<input id="upper_radio" type="radio" class="scale" value="upper" name='floor' checked=<?=$isUpper?>><p>  地上</p><br>
 			<input id="upper" type=number value=<?=$upperfloor?> style="height:5rem;width:15rem;">
 			<p>樓</p>
 		</div>
 		<div class="floorRecord">
-			<input type="radio" class="scale" value="down" name='floor' checked=<?=$isDown?>><p>  地下</p><br>
+			<input id="down_radio" type="radio" class="scale" value="down" name='floor' checked=<?=$isDown?>><p>  地下</p><br>
 			<input id="down" type=number value=<?=$downFloor?> style="height:5rem;width:15rem;">
 			<p>樓</p>
 		</div>

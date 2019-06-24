@@ -46,6 +46,7 @@ $contentFlickity.on( 'change.flickity', function( event, index ) {
 			initEvent(stampDraw);
 			break;
 		case 3:
+			console.log('here');
 			let final_ctx=$("#floor")[0].getContext("2d");
 			clearCanvas(final_ctx);
 			final_ctx.drawImage(base_ctx.canvas,0,0,$("#floor")[0].width,$("#floor")[0].height);

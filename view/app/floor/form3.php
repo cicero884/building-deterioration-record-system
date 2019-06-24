@@ -4,12 +4,13 @@ $floorElement=array(
 	"stair2"=>"樓梯1",
 	"split"=>"隔間",
 	"doorL"=>"房門(左開)",
-	"doorR"=>"房門(右開)")
+	"doorR"=>"房門(右開)");
+$image=(is_null($this->floorInfo))? '':'image/'.$this->floorInfo['picture'];
 ?>
 <div class='page'>
 	<div id='f3_plane' class="plane">
 		<canvas class="grid"></canvas>
-		<canvas id='baseCanvas'></canvas>
+		<canvas id='baseCanvas' src='<?=$image?>'></canvas>
 		<canvas id='floorElement'></canvas>
 		<div class="small">
 			<figure id='rotateIcon'>

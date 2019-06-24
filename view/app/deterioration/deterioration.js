@@ -4,9 +4,9 @@ $('#final').click(function(e){
 	let formData = new FormData($('.content')[0]);
 	formData.append('page', 'deterioration');
     formData.append('action','update');
-    formData.append('deterioration', hashData[3]);
-    console.log( hashData );
-	formData.set('houseImage',$('[name="houseImage"]').prop('files')[0]);
+    formData.append('deteriorationId', Number(hashData[3]));
+    console.log( Number(hashData[3]) );
+	// formData.set('houseImage',$('[name="houseImage"]').prop('files')[0]);
 	$.ajax({
         url:'upload.php',
         type:'POST',
