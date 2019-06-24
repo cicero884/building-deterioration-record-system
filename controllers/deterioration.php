@@ -16,14 +16,14 @@ class DeteriorationController {
 
     public function updateData(){
 
-        /*
+        
         $imageUpload = array();
         for($n = 1; $n <= 4; $n += 1) {
-            array_push( $imageUpload, $this->controllers['image']->imageUpload( "image".$n, $_POST['buildingId'], $_POST['floorId'], $_POST['deteriorationId'], $n ) );
+            array_push( $imageUpload, $this->controllers['image']->imageUpload( "image".$n, "deterioration", $_POST['buildingId'], $_POST['floorId'], $deteriorationId, $n ) );
         }
-        */
+        
 
-        $imageUpload = ['test', 'test', 'test', 'test'];
+        // $imageUpload = ['test', 'test', 'test', 'test'];
 
         $deterioration = array(
             ':deteriorationId'  => $deteriorationId,
