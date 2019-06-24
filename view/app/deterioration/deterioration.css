@@ -292,3 +292,11 @@
         display: none;
     }
 
+    .show__preivew-image{
+        display: block;
+        margin-top:-11vh;
+        margin-left:0vw; 
+        width: 36vw;
+        height: 20vh;
+    }
+
