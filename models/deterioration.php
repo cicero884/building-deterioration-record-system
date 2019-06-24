@@ -3,52 +3,45 @@ require_once("config.php");
 
 class ModelDeterioration {
     public function updateDeterioration($deteriorationId, $deterioration ) {
-        /*
-        		$sql = 'UPDATE deterioration
-				SET column=:column,
-					beam=:beam,
-					wall=:wall,
-					hole=:hole,
-					`floor`=:`floor`,
-					exfoliation=:exfoliation,
-					rebarExposed=:rebarExposed,
-					addOn=:addOn,
-					exfoliationDepth=:exfoliationDepth,
-					exfoliationScrap=:exfoliationScrap,
-					crack=:crack,
-					crackLength=:crackLength,
-					crackWidth=:crackWidth,
-					ps=:ps,
-					image1=:image1,
-					image2=:image2,
-					image3=:image3,
-					image4=:image4
-				WHERE deteriorationId=:deteriorationId';
-        */
 		$sql = 'UPDATE deterioration
-				SET ps=:ps,
-					`column`=:column
+				SET    ps           =:ps, 
+                       `column`     =:column,
+                       beam         =:beam,
+                       wall         =:wall,
+                       `floor`      =:floor,
+                       hole         =:hole,
+                       rebarExposed =:rebarExposed,
+                       addOn        =:addOn,
+                       exfoliation  =:exfoliation,
+                       exfoliationDepth =:exfoliationDepth,
+                       exfoliationScrap =:exfoliationScrap,
+                       crack=:crack,
+					    crackLength=:crackLength,
+					    crackWidth=:crackWidth,
+					    image1=:image1,
+					    image2=:image2,
+					    image3=:image3,
+					    image4=:image4
 				WHERE deteriorationId=:deteriorationId';
         $update = $GLOBALS['conn']->prepare( $sql ); 
         
-        // $update->bindValue(':image1', $deterioration[':image1']);
-        // $update->bindValue(':image2', $deterioration[':image2']);
-        // $update->bindValue(':image3', $deterioration[':image3']);
-        // $update->bindValue(':image4', $deterioration[':image4']);
-        // $update->bindValue(':deteriorationId', $deteriorationId);
-        // $update->bindValue(':wall', $deterioration[':wall'] , PDO::PARAM_INT );
-        // $update->bindValue(':column', $deterioration[':column'] , PDO::PARAM_INT );
-        // $update->bindValue(':beam', $deterioration[':beam'] , PDO::PARAM_INT );
-        // $update->bindValue(':hole', $deterioration[':hole'] , PDO::PARAM_INT );
-        // $update->bindValue(':floor', $deterioration[':floor'] , PDO::PARAM_INT );
-        // $update->bindValue(':rebarExposed', $deterioration[':rebarExposed'] , PDO::PARAM_INT );
-        // $update->bindValue(':addOn', $deterioration[':addOn'] , PDO::PARAM_INT );
-        // $update->bindValue(':exfoliation', $deterioration[':exfoliation'] , PDO::PARAM_INT );
-        // $update->bindValue(':exfoliationDepth', $deterioration[':exfoliationDepth'] , PDO::PARAM_INT );
-        // $update->bindValue(':exfoliationScrap', $deterioration[':exfoliationScrap'] , PDO::PARAM_INT );
-        // $update->bindValue(':crack', $deterioration[':crack'] , PDO::PARAM_INT );
-        // $update->bindValue(':crackLength', $deterioration[':crackLength'] , PDO::PARAM_INT );
-        // $update->bindValue(':crackWidth', $deterioration[':crackWidth'] , PDO::PARAM_INT );
+        $update->bindValue(':image1', $deterioration[':image1']);
+        $update->bindValue(':image2', $deterioration[':image2']);
+        $update->bindValue(':image3', $deterioration[':image3']);
+        $update->bindValue(':image4', $deterioration[':image4']);
+        $update->bindValue(':wall', $deterioration[':wall'] , PDO::PARAM_INT );
+        $update->bindValue(':column', $deterioration[':column'] , PDO::PARAM_INT );
+        $update->bindValue(':beam', $deterioration[':beam'] , PDO::PARAM_INT );
+        $update->bindValue(':hole', $deterioration[':hole'] , PDO::PARAM_INT );
+        $update->bindValue(':floor', $deterioration[':floor'] , PDO::PARAM_INT );
+        $update->bindValue(':rebarExposed', $deterioration[':rebarExposed'] , PDO::PARAM_INT );
+        $update->bindValue(':addOn', $deterioration[':addOn'] , PDO::PARAM_INT );
+        $update->bindValue(':exfoliation', $deterioration[':exfoliation'] , PDO::PARAM_INT );
+        $update->bindValue(':exfoliationDepth', $deterioration[':exfoliationDepth'] , PDO::PARAM_INT );
+        $update->bindValue(':exfoliationScrap', $deterioration[':exfoliationScrap'] , PDO::PARAM_INT );
+        $update->bindValue(':crack', $deterioration[':crack'] , PDO::PARAM_INT );
+        $update->bindValue(':crackLength', $deterioration[':crackLength'] , PDO::PARAM_INT );
+        $update->bindValue(':crackWidth', $deterioration[':crackWidth'] , PDO::PARAM_INT );
         
         $update->execute( $deterioration );
     }
