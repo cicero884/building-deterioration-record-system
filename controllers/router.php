@@ -90,7 +90,7 @@ class Router{
 					$this->buildingDetail=$this->models['building']->getBuildingInfoById($content['buildingID']);
 					$path='view/app/floor';
 				}
-				elseif($content['page']==="app_deterioration" && $buildingID!=='' && $floorID!==''){
+				elseif($content['page']==="app_deterioration" && $content['buildingID']!=='' && $content['floorID']!==''){
 					$path='view/app/deterioration';
 				}
 				else{//app_main

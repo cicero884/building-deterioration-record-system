@@ -10,7 +10,9 @@ $image=(is_null($this->floorInfo))? '':'image/'.$this->floorInfo['picture'];
 	<div id='f4_plane' class="plane">
 		<canvas class="grid" align=center></canvas>
 		<canvas id="floor" src='<?=$image?>'></canvas>
-		<div id="d_tags"></div>
+		<div id="d_tags">
+<?php foreach($this->deteriorations as $d) echo "<span class='record' posLeft=".$d['locationX']." posTop=".$d['locationY']."></span>";?>
+		</div>
 	</div>
 	<div id="recordList">
 <?php foreach($icons as $name => $chName):?>

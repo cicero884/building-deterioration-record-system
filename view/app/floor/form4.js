@@ -28,8 +28,8 @@ function record_deterioration(){
 		formData.append('action','insert');
 
 		formData.append('floorID',hashData[2]);
-		formData.append('x',$('.new_tag')[0].offsetLeft/$('#d_tags').width());
-		formData.append('y',$('.new_tag')[0].offsetTop/$('#d_tags').height());
+		formData.append('x',$('.new_tag')[0].offsetLeft/$('#d_tags').width()*100);
+		formData.append('y',$('.new_tag')[0].offsetTop/$('#d_tags').height()*100);
 		$.ajax({
 			url:'upload.php',
 			type:'POST',

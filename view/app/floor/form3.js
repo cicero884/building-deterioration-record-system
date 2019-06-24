@@ -8,7 +8,7 @@ function setFloorElements(){
 		this.height=$(this).height()*ratio;
 	});
 	$element_contentFlickity.data('flickity').reloadCells();
-};
+}
 
 $element_contentFlickity.on('staticClick.flickity',function( event, pointer, cellElement, cellIndex ){
 	flkty.options.draggable =false;
