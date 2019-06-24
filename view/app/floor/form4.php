@@ -11,7 +11,11 @@ $image=(is_null($this->floorInfo))? '':'image/'.$this->floorInfo['picture'];
 		<canvas class="grid" align=center></canvas>
 		<canvas id="floor" src='<?=$image?>'></canvas>
 		<div id="d_tags">
-<?php foreach($this->deteriorations as $d) echo "<span class='record' posLeft=".$d['locationX']." posTop=".$d['locationY']."></span>";?>
+<?php 
+if(!is_null($this->deteriorations)){
+	foreach($this->deteriorations as $d) echo "<span class='record' posLeft=".$d['locationX']." posTop=".$d['locationY']."></span>";
+}
+?>
 		</div>
 	</div>
 	<div id="recordList">
