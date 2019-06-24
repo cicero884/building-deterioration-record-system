@@ -1,6 +1,4 @@
 let submitButton = document.getElementById("form__submit");
-let doc = new jsPDF();
-let buildingInfo;
 submitButton.addEventListener("click", ()=>{
 
 	for(let i = document.getElementById("table").rows.length; i > 1;i--)
@@ -26,10 +24,6 @@ submitButton.addEventListener("click", ()=>{
 	selectBuilding( pc, flake, crack, date, address.replace(/\s/g, '') );
 })
 
-document.getElementById('download-button').addEventListener('click', ()=>{
-	downloadPDF();
-})
-
 
 function selectBuilding( pc, flake, crack, date, address ) {
 	$.ajax({
@@ -47,10 +41,11 @@ function selectBuilding( pc, flake, crack, date, address ) {
 			alert('Ajax request error');
 		},
 		success: function(response){
-			buildingInfo = JSON.parse( response );
+			console.log(response);
 			makeTable( response );
 		}
-	})
+		
+	});
 }
 
 function makeTable( items ) {
@@ -74,46 +69,6 @@ function makeTable( items ) {
 		row.insertCell(2).appendChild( document.createTextNode( item.name ) );
 		row.insertCell(3).appendChild( document.createTextNode( item.phone ) );
 		row.insertCell(4).appendChild( document.createTextNode( item.date.substring(0,10) ) );
-		// row.insertCell(5).appendChild( x );
-	});
-}
-
-let downloadPDF = ()=>{
-	html2canvas(document.getElementById('table_location'))
-	.then(function(canvas) {
-		let contentWidth = canvas.width;
-		let contentHeight = canvas.height;
-	
-		//一页pdf显示html页面生成的canvas高度;
-		let pageHeight = contentWidth / 592.28 * 841.89;
-		//未生成pdf的html页面高度
-		let leftHeight = contentHeight;
-		//页面偏移
-		let position = 0;
-		//a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
-		let imgWidth = 595.28;
-		let imgHeight = 592.28/contentWidth * contentHeight;
-	
-		let pageData = canvas.toDataURL('image/jpeg', 1.0);
-	
-		let pdf = new jsPDF('', 'pt', 'a4');
-	
-		//有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(841.89)
-		//当内容未超过pdf一页显示的范围，无需分页
-		if (leftHeight < pageHeight) {
-			pdf.addImage(pageData, 'JPEG', 25, 10, imgWidth, imgHeight );
-		} else {
-			while(leftHeight > 0) {
-				pdf.addImage(pageData, 'JPEG', 10, position, imgWidth, imgHeight)
-				leftHeight -= pageHeight;
-				position -= 841.89;
-				//避免添加空白页
-				if(leftHeight > 0) {
-					pdf.addPage();
-				}
-			}
-		}
-	
-		pdf.save('content.pdf');
+		row.insertCell(5).appendChild( x );
 	});
 }

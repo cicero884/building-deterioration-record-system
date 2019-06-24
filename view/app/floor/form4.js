@@ -1,3 +1,5 @@
+let tag_count=0;
+
 //var unsave_tags
 //this var set at main page,
 
@@ -6,28 +8,15 @@ function tag(id, x, y) {
     this.x = x;
     this.y = y;
 }
-let new_elem=null;
 $('#new').click(function(){
-	if(!new_elem){
-		new_elem=$("<span class='record new_tag'>"+('0'+($('.record').length+1)).slice(-2)+"</span>");
-		new_elem.click(record_deterioration);
-		$('#d_tags').append(new_elem);
-	}
-	else{
-		new_elem.removeClass("blink");
-		setTimeout(function() {
-			new_elem.addClass("blink");
-		}, 0.5);
-	}
+	new_elem=$("<span class='record new_tag'>"+('0'+(++tag_count)).slice(-2)+"</span>");
+	unsave_tags.push(new tag(tag_count,0,0));
+	new_elem.click(record_deterioration);
+	$('#d_tags').append(new_elem);
 })
 function record_deterioration(){
-	$contentFlickity.on('staticClick.flickity',function(event,pointer,cellElement,cellIndex){
-		let formData=new FormData();
-		let hashData=window.location.hash.substring(1).split('-');
-		formData.append('page', 'deterioration');
-		formData.append('action','insert');
-
-		formData.append('',)
+	console.log("click");
+	$carousel.on('staticClick.flickity',function(event,pointer,cellElement,cellIndex){
 		$.ajax({
 			url:'upload.php',
 			type:'POST',

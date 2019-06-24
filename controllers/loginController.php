@@ -1,8 +1,7 @@
 <?php
-
-require_once("controllers/router.php");
+require_once("controllers/controller.php");
 require_once("models/login.php");
-class loginController extends Router{
+class loginController extends Controller{
 	private $models;
 	public $errMsg='';
 	public function __construct(){

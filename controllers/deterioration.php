@@ -10,37 +10,36 @@ class DeteriorationController {
         $this->models[ 'deterioration' ] = new ModelDeterioration();
         $this->controllers['image'] = new ImageController();
     }
-    public function insertData(){
+
+    public function insertData() {
         $deteriorationId = $this->models[ 'deterioration' ]->getLastestDeteriorationId() + 1;
-
-	}
-
-    public function updateData(){
-        $deteriorationId=$_POST['deteriorationID'];
         $imageUpload = array();
         for($n = 1; $n <= 4; $n += 1) {
             array_push( $imageUpload, $this->controllers['image']->imageUpload( "image".$n, $_POST['buildingId'], $_SESSION['floorId'], $deteriorationId, $n ) );
         }
 
         $deterioration = array(
+            ':floorId'          => $_SESSION['floorId'],
+            ':x'                => $_POST['x'],
+            ':y'                => $_POST['y'],
             ':image1'           => $imageUpload[0],
             ':image2'           => $imageUpload[1],
             ':image3'           => $imageUpload[2],
             ':image4'           => $imageUpload[3],
-            ':column'           => ( isset($_POST['column'])? 1 : 0 ), 
-            ':beam'             => ( isset($_POST['beam'])? 1 : 0 ),
-            ':wall'             => ( isset($_POST['wall'])? 1 : 0 ),
-            ':floor'            => ( isset($_POST['floor'])? 1 : 0 ),
-            ':hole'             => ( isset($_POST['hole'])? 1 : 0 ),
-            ':rebarExposed'     => ( ( isset($_POST['RCUncover']) && $_POST['RCUncover'] == "1" )? 1 : 0 ),
-            ':addOn'            => ( ( isset($_POST['addOn']) && $_POST['addOn'] == "1" )? 1 : 0 ),
-            ':exfoliation'      => ( ( isset($_POST['flake']) && $_POST['flake'] == "1" )? 1 : 0 ),
-            ':exfoliationDepth' => ( ( isset($_POST['flake_depth']) && $_POST['flake_depth'] == "1")? 1 : 0 ),
-            ':exfoliationScrap' => ( ( isset($_POST['flake_scrap']) && $_POST['flake_scrap'] == "1")? 1 : 0 ),
-            ':crack'       => ( ( isset($_POST['crack']) && $_POST['crack'] == "1" )? 1 : 0 ), 
-            ':crackLength' => ( ( isset($_POST['crack_length']) && $_POST['crack_length'] == "1")? 1 : 0 ),
-            ':crackWidth'  => ( ( isset($_POST['crack_width']) && $_POST['crack_width'] == "1" )? 1 : 0 ),
-            ':ps'          => htmlspecialchars( $_POST['ps'] )
+            ':column'           => ( isset($_POST['position'][0])? 1 : 0 ), 
+            ':beam'             => ( isset($_POST['position'][1])? 1 : 0 ),
+            ':wall'             => ( isset($_POST['position'][2])? 1 : 0 ),
+            ':floor'            => ( isset($_POST['position'][3])? 1 : 0 ),
+            ':hole'             => ( isset($_POST['position'][4])? 1 : 0 ),
+            ':rebarExposed'     => ( isset($_POST['RC'])? 1 : 0 ),
+            ':addOn'            => ( isset($_POST['addOn'])? 1 : 0 ),
+            ':exfoliation'      => ( isset($_POST['exfoliation'])? 1 : 0 ),
+            ':exfoliationDepth' => ( isset($_POST['exfoliaitonDepth'])? 1 : 0 ),
+            ':exfoliationScrap' => ( isset($_POST['exfoliationScrap'])? 1 : 0 ),
+            ':crack'       => ( isset($_POST['crack'])? 1 : 0 ), 
+            ':crackLength' => ( isset($_POST['crackLength'])? 1 : 0 ),
+            ':crackWidth'  => ( isset($_POST['crackWidth'])? 1 : 0 ),
+            ':ps'          => $_POST['ps']
         );
         $this->models['deterioration']->insertDeterioration( $deterioration );
     }

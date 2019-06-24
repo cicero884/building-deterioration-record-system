@@ -1,6 +1,6 @@
-lastX=0, lastY=0,pos=0;
-cur_ctx=0,angle=0;
-selectImage=0;
+let lastX, lastY,pos;
+let cur_ctx,angle=0;
+let selectImage;
 
 function setCanvasVar(canvas){
     cur_ctx=canvas.getContext("2d");
@@ -86,33 +86,31 @@ function clearCanvas(ctx=cur_ctx){
 }
 
 //set canvas size
-function setPlanes(){
-	$(".plane").each(function(){
-		let height=$(this).height(),
-			width=height/3*2;
-		$(this).children("canvas").each(function(){
-			setSize($(this)[0],width,height);
-		});
+$(".plane").each(function(){
+	let height=$(this).height(),
+		width=height/3*2;
+	$(this).children("canvas").each(function(){
+		setSize($(this)[0],width,height);
 	});
-	$("#d_tags").width($("#floor").width());
-	$("#d_tags").height($("#floor").height());
+});
+$("#d_tags").width($("#floor").width());
+$("#d_tags").height($("#floor").height());
 
-	//draw grid
-	$(".grid").each(function(){
-		ctx=$(this)[0].getContext("2d");
-		for(let i=0;i<=6;++i){
-			ctx.beginPath();
-			ctx.lineWidth = (i%6==0)? vmin(0.6):vmin(0.2);
-			ctx.moveTo(i*ctx.canvas.width/6,0);
-			ctx.lineTo(i*ctx.canvas.width/6,ctx.canvas.height);
-			ctx.stroke();
-		}
-		for(let i=0;i<=9;++i){
-			ctx.beginPath();
-			ctx.lineWidth = (i%9==0)? vmin(0.6):vmin(0.2);
-			ctx.moveTo(0,i*ctx.canvas.height/9);
-			ctx.lineTo(ctx.canvas.width,i*ctx.canvas.height/9);
-			ctx.stroke();
-		}
-	});
-};
+//draw grid
+$(".grid").each(function(){
+	ctx=$(this)[0].getContext("2d");
+	for(let i=0;i<=6;++i){
+		ctx.beginPath();
+		ctx.lineWidth = (i%6==0)? vmin(0.6):vmin(0.2);
+		ctx.moveTo(i*ctx.canvas.width/6,0);
+		ctx.lineTo(i*ctx.canvas.width/6,ctx.canvas.height);
+		ctx.stroke();
+	}
+	for(let i=0;i<=9;++i){
+		ctx.beginPath();
+		ctx.lineWidth = (i%9==0)? vmin(0.6):vmin(0.2);
+		ctx.moveTo(0,i*ctx.canvas.height/9);
+		ctx.lineTo(ctx.canvas.width,i*ctx.canvas.height/9);
+		ctx.stroke();
+	}
+});

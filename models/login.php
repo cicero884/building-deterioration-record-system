@@ -19,9 +19,6 @@ class ModuleLogin
 		}
 		return 'account or password can\'t be empty!';
 	}
-	public function isLogin(){
-		return isset($_SESSION['userId'])&&$_SESSION['userId']!==''&&isset($_SESSION['userType'])&&$_SESSION['userType']!=='';
-	}
 }
 
 ?>
