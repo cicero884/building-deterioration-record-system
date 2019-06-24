@@ -29,12 +29,11 @@ class DeteriorationController {
         $deterioration = array(
             ':deteriorationId'  => $deteriorationId,
             ':ps'               => htmlspecialchars( "test" ),
-            ':column'           => ( isset($_POST['column'])? '1' : '0' )
-            //':beam'             => ( isset($_POST['beam'])? 1 : 0 ),
-            // ':wall'             => ( isset($_POST['wall'])? 1 : 0 ),
-            // ':floor'            => ( isset($_POST['floor'])? 1 : 0 ),
-            // ':hole'             => ( isset($_POST['hole'])? 1 : 0 ),
-            /*
+            ':column'           => ( isset($_POST['column'])? 1 : 0 ),
+            ':beam'             => ( isset($_POST['beam'])? 1 : 0 ),
+            ':wall'             => ( isset($_POST['wall'])? 1 : 0 ),
+            ':floor'            => ( isset($_POST['floor'])? 1 : 0 ),
+            ':hole'             => ( isset($_POST['hole'])? 1 : 0 ),
             ':rebarExposed'     => ( ( isset($_POST['RCUncover']) && $_POST['RCUncover'] == "1" )? 1 : 0 ),
             ':addOn'            => ( ( isset($_POST['addOn']) && $_POST['addOn'] == "1" )? 1 : 0 ),
             ':exfoliation'      => ( ( isset($_POST['flake']) && $_POST['flake'] == "1" )? 1 : 0 ),
@@ -47,7 +46,6 @@ class DeteriorationController {
             ':image2'           => $imageUpload[1],
             ':image3'           => $imageUpload[2],
             ':image4'           => $imageUpload[3]
-            */
         );
         $this->models['deterioration']->updateDeterioration($deteriorationId, $deterioration );
     }
