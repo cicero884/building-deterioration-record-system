@@ -7,7 +7,7 @@
                     <a class="link__item" href=" ">設計理念</a>
                 </section>
 </header>
-<div class="test">
+<div class="test" id="information__building">
  <main class="building" id=<?php echo "building__".$this->buildingDetail['buildingId']?>>
     <img class="building__title" src="./view/web/image/title2.png"/>
     <button id="pdf-download">PDF 下載</button>
