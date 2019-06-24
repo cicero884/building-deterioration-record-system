@@ -38,9 +38,9 @@
 
 .page > .image__upload {
     /* layout */
-    display: flex;
-    align-items: center;
-    justify-items: center;
+    display: grid;
+    grid-template-areas: "picture";
+
 
     /* position */
     width: 98%;
@@ -52,5 +52,34 @@
 
 }
 
+#houseImage {
+    /* position */
+    display: block;
+    grid-area: picture;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+
+    /* skin */
+    color: rgba( 0, 101, 111, 0 );
+}
+
 .image__upload > .image__logo {
+    /* position */
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    grid-area: picture;
+    height: 100%;
+    width: auto;
+}
+
+.image__upload > .image__logo > .preview {
+    /* position */
+    display: flex;
+
+    align-self: center;
+    justify-self: center;
+    height: 50%;
+    width: auto;
 }
