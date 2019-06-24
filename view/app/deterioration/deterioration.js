@@ -5,6 +5,8 @@ $('#final').click(function(e){
 	formData.append('page', 'deterioration');
     formData.append('action','update');
     formData.append('deteriorationId', Number(hashData[3]));
+    formData.append('floorId', Number(hashData[2]));
+    formData.append('buildingId', Number(hashData[1]));
     console.log( Number(hashData[3]) );
 	// formData.set('houseImage',$('[name="houseImage"]').prop('files')[0]);
 	$.ajax({
