@@ -49,7 +49,7 @@ class ModelDeterioration {
 				( :floorId, :x, :y);";
         $insert = $GLOBALS['conn']->prepare( $sql ); 
 		$insert->execute([':floorId'=>$floorId,':x'=>$x,':y'=>$y]);
-		return getLastestDeteriorationId();
+		return $this->getLastestDeteriorationId();
     }
     
     public function deleteDeterioration( $deteriorationId ) {
