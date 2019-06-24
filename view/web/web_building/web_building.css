@@ -19,8 +19,6 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
-
-
 /* body > header */
 .header {
     /* [ layout ] */
@@ -228,7 +226,7 @@ a {
 
 .floor__info > .footer__pictureinfo{
     grid-area: picture;
-    margin-top:5vh;
+    margin-top:7vh;
     margin-left:5vw;
     color: #9a9a9a;
     font-size: 1rem;
