@@ -25,15 +25,16 @@ class FloorController {
         echo $this->models['floor']->insertFloor( $floorInfo );
     }
 
-    public function updateData( $floorId ) {
-        $fileName = $_GET['buildingId']."_".$floorId."-plan.jpg";
+    public function updateData() {
+		$floorId=$_POST['floorID'];
+        $fileName = $_POST['buildingId']."_".$floorId."-plan.jpg";
         $file = "image/".$fileName;
 
         // Check if file already exists
         if (file_exists($file))
             unlink($file);
 
-        $img = str_replace('data:image/jpeg;base64,', '', $_POST['data']);
+        $img = str_replace('data:image/jpeg;base64,', '', $_POST['floorPlan']);
         $img = str_replace(' ', '+', $img);
         $res = file_put_contents( $file , base64_decode($img) );
 

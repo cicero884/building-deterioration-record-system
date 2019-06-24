@@ -85,7 +85,11 @@ function send_floor_data(){
 	if(upper_or_down==='upper') floor=$('#upper').val();
 	else if(upper_or_down==='down') floor='-'+$('#down').val();
 	formData.append('page', 'floor');
-	formData.append('action', (hashData.length>2)? 'update':'insert');
+	if(hashData.length>2){
+		formData.append('action', 'update');
+		formData.append('floorID',hashData[2]);
+	}
+	else formData.append('action', 'insert');
 
 	formData.append('floor',floor);
 	formData.append('buildingId', hashData[1]);

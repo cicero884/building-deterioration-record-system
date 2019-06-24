@@ -10,9 +10,13 @@ class DeteriorationController {
         $this->models[ 'deterioration' ] = new ModelDeterioration();
         $this->controllers['image'] = new ImageController();
     }
-
-    public function insertData() {
+    public function insertData(){
         $deteriorationId = $this->models[ 'deterioration' ]->getLastestDeteriorationId() + 1;
+
+	}
+
+    public function updateData(){
+        $deteriorationId=$_POST['deteriorationID'];
         $imageUpload = array();
         for($n = 1; $n <= 4; $n += 1) {
             array_push( $imageUpload, $this->controllers['image']->imageUpload( "image".$n, $_POST['buildingId'], $_SESSION['floorId'], $deteriorationId, $n ) );
