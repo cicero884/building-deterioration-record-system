@@ -21,8 +21,29 @@ $('#final').click(function(e){
             alert('Ajax request error');
         },
         success: function(response){
-            window.location.hash="app_main";
-            console.log(response);
+            let hashData=window.location.hash.substring(1).split('-');
+            console.log( "app_main-"+Number(hashData[1]) + "-" + Number(hashData[2]) );
+            window.location.hash="app_floor-"+Number(hashData[1]) + "-" + Number(hashData[2]);
         }
     });
 })
+
+let readPreviewURL = (input , index)=> {
+	if (input.files && input.files[0]) {
+        let reader = new FileReader();
+		
+		reader.onload = function(e) {
+            document.getElementsByClassName('preview')[index].src = e.target.result;
+            document.getElementsByClassName('preview')[index].classList.add("show__preivew-image");
+		}
+		
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
+Array.from(document.getElementsByClassName('picture__button')).forEach( (element, index)=>{
+    element.onchange = ()=> {
+        readPreviewURL( document.getElementsByClassName('picture__button')[index], index );
+    }
+});
+
