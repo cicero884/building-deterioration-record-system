@@ -90,10 +90,12 @@ a {
     color: #ffffff;
 } 
 
+
+
 .test{
     display: grid;
     grid-template-areas:  "second" "third";
-    grid-template-rows:  0.2fr 0.8fr;  
+    grid-template-rows:  0.1fr 0.9fr;  
 }
 .test>.building {
     display: grid;
@@ -116,7 +118,7 @@ a {
     width:50vw;
     height:25vh;
     margin-top:1vh;
-    margin-left:-15vw;
+    margin-left:-13vw;
     color: #595959;
     font-size: 1rem;
     font-family:微軟正黑體;
@@ -218,7 +220,6 @@ a {
 
 .floor__info > .footer__pictureinfo{
     grid-area: picture;
-    
     margin-left:5vw;
     color: #9a9a9a;
     font-size: 1rem;
@@ -237,7 +238,13 @@ a {
     border-style:solid;
     border-color:#d2d2d2;
     width:30vw;
+    height:40vh;
+}
+
+.info__floor-plan > .floor-plan__image{
+    grid-area: picture;
     height:30vh;
+    width:30vw
 }
 
 .floor__info > .info__floor-plan{
@@ -293,13 +300,24 @@ table {
     
 }
 
+
+
 td {
 border-top: 0.5vh solid #b5b5b5;  
 border-bottom: 0.5vh solid #b5b5b5;
-height:5px; 
+height:2px; 
 }
 
 th{
     height:5px; 
 }
 
+#pdf-download{
+    grid-area: second;
+    height:4vh;
+    width:6vw;
+    margin-left:75vw;
+    margin-top:25vh;
+    font-size: 0.7rem;
+    font-family:微軟正黑體;
+}

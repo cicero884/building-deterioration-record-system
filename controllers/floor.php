@@ -10,16 +10,17 @@ class FloorController {
     }
 
     public function insertData() {
-        $fileName = date_format(date_create(),"Y-m-d_H:i:s").".jpg";
+        $floorId = $this->models['floor']->getLastestFloorId();
+        $fileName = $_GET['buildingId']."_".$floorId."-plan.jpg";
         $file = "image/".$fileName;
         $img = str_replace('data:image/jpeg;base64,', '', $_POST['data']);
         $img = str_replace(' ', '+', $img);
         $res = file_put_contents( $file , base64_decode($img) );
 
         $floorInfo = array(
-            ':buildingId' => htmlspecialchars( $_SESSION['buildingId'] ),
+            ':buildingId' => htmlspecialchars( $_GET['buildingId'] ),
             ':floor'      => htmlspecialchars( $_POST['floor'] ),
-            ':floorPlan'  => htmlspecialchars( $fileName ) 
+            ':floorPlan'  => htmlspecialchars( $file ) 
         );
         $this->models['floor']->insertFloor( $floorInfo );
     }
@@ -32,7 +33,7 @@ class FloorController {
         foreach( $floorIds as $id ) {
             $floor = $this->models[ 'floor' ]->getFloorInfoById( $id );
             $floorInfo[ $count ] = array(
-                'picture' => $floor[ 'picture' ],
+                'picture' => "image/".$floor[ 'picture' ],
                 'floor'   => $floor[ 'floor' ],
                 'floorId' => $floor[ 'floorId' ]
             );
