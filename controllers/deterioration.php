@@ -29,7 +29,7 @@ class DeteriorationController {
         $deterioration = array(
             ':deteriorationId'  => $deteriorationId,
             ':ps'               => htmlspecialchars( "test" ),
-            ':column'           => ( isset($_POST['column'])? '1' : '0' )
+            ':column'           => ( isset($_POST['column'])? 1 : 0 )
             //':beam'             => ( isset($_POST['beam'])? 1 : 0 ),
             // ':wall'             => ( isset($_POST['wall'])? 1 : 0 ),
             // ':floor'            => ( isset($_POST['floor'])? 1 : 0 ),

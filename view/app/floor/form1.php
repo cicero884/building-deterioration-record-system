@@ -15,7 +15,7 @@ if(is_null($this->floorInfo)){
 	$downFloor='';
 }
 else{
-	$floor=$this->floorInfo->floor;
+	$floor=$this->floorInfo['floor'];
 	$isUpper=($floor>0);
 	$isDown=($floor<0);
 	$upperfloor=($isUpper)? $floor:'';

@@ -26,7 +26,8 @@ class ModelDeterioration {
 				WHERE deteriorationId=:deteriorationId';
         */
 		$sql = 'UPDATE deterioration
-				SET ps=:ps, column=:column
+				SET ps=:ps,
+					`column`=:column
 				WHERE deteriorationId=:deteriorationId';
         $update = $GLOBALS['conn']->prepare( $sql ); 
         
