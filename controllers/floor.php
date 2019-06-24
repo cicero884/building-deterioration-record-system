@@ -11,7 +11,7 @@ class FloorController {
 
     public function insertData() {
         $floorId = $this->models['floor']->getLastestFloorId();
-        $fileName = $_GET['buildingId']."_".$floorId."-plan.jpg";
+        $fileName = $_POST['buildingId']."_".$floorId."-plan.jpg";
         $file = "image/".$fileName;
         $img = str_replace('data:image/jpeg;base64,', '', $_POST['floorPlan']);
         $img = str_replace(' ', '+', $img);

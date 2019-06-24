@@ -10,7 +10,7 @@ class ModelFloor {
                 VALUES ( :buildingId, :floor, :floorPlan ); ";
         $insert = $GLOBALS['conn']->prepare( $sql ); 
         $insert->execute( $floorInfo );
-		return getLastestFloorId();
+		return $this->getLastestFloorId();
     }
 
     public function getFloorId( $buildingId, $floor ) {
