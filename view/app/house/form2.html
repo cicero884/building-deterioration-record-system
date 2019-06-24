@@ -1,49 +1,49 @@
 <div class="page">
-	<p class="page__title">建築種類</p>
+    <p class="page__title">建築種類</p>
 	<div>
-		<select name="type" id="BuildingType" class="page__input" >
-			<option value="0" class="input__item">透天</option>
-			<option value="1" class="input__item">公寓</option>
-			<option value="2" class="input__item">大廈</option>
-			<option value="3" class="input__item">三合院</option>
-			<option value="4" class="input__item">其他</option>
+		<select name="type" id="BuildingType" class="page__input">
+			<option value=0 class="input__item">透天</option>
+			<option value=1 class="input__item">公寓</option>
+			<option value=2 class="input__item">大廈</option>
+			<option value=3 class="input__item">三合院</option>
+			<option value=4 class="input__item">其他</option>
 		</select>
 	</div>
 
 	<p class="page__title">建築用途</p>
 	<div>
-		<select name="usage" id="BuildingUsage" class="page__input" >
-			<option value="0">住宅</option>
-			<option value="1">辦公室</option>
-			<option value="2">工廠</option>
-			<option value="3">商店</option>
-			<option value="4">混合式</option>
+		<select name="usage" id="BuildingUsage" class="page__input">
+			<option value=0>住宅</option>
+			<option value=1>辦公室</option>
+			<option value=2>工廠</option>
+			<option value=3>商店</option>
+			<option value=4>混合式</option>
 		</select>
 	</div>
 
 	<p class="page__title">建築結構</p>
 	<div>
 		<select name="structure" id="BuildingStruc" class="page__input">
-			<option value="0">鋼筋混凝土</option>
-			<option value="1">鋼骨</option>
-			<option value="2">木造</option>
-			<option value="3">磚造</option>
-			<option value="4">其他</option>
+			<option value=0>鋼筋混凝土</option>
+			<option value=1>鋼骨</option>
+			<option value=2>木造</option>
+			<option value=3>磚造</option>
+			<option value=4>其他</option>
 		</select>
 	</div>
 
 	<p class="page__title">建築規模</p>
-	<div class="page__floor">
-		<p class="floor__content--word">地上</p>
-		<input class="floor__content--input" type=number id=upperFloor name="scaleUp"></input>
-		<p class="floor__content--word">樓</p>
+
+	<div class="floor__flex">
+		<p>地上</p>
+		<input type="number" id="upperFloor" name="scaleUp" style="height: 5rem;width: 8rem;">
+		<p>樓，地下</p>
+		<input type="number" id="underFloor" name="scaleDown" style="height: 5rem;width: 8rem;">
+		<p>樓</p>
 	</div>
-	<div class="page__floor">
-		<p class="floor__content--word">地下</p>
-		<input class="floor__content--input" type=number id=underFloor name="scaleDown"></input>
-		<p class="floor__content--word">樓</p>
-	</div>
-	<div id="submitHouse" class="Button">
-		<b><input type='submit' value='完成基本資料'></b>
+
+
+	<div>
+		<b><input id="submitHouse" type='submit' value='完成基本資料'></b>
 	</div>
 </div>
