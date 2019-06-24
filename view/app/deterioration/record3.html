@@ -7,29 +7,29 @@
         <div class="left">
             <label for="test"></label>
             <label class="myCheckbox">
-                <input class="button2" type="radio" name="flake" value="1"/>
+                <input id="flake__yes" class="button2" type="radio" name="flake" value="1"/>
                 <span class="text2" align=center>是</span>
             </label>
         </div>
         <div class="right">
             <label for="test"></label>
             <label class="myCheckbox">
-                    <input class="button2" type="radio" name="flake" value="0"/>
+                    <input id="flake__false" class="button2" type="radio" name="flake" value="0"/>
                     <span class="text2" align=center>否</span>
                 </label>
             <br>
         </div>
     </div>
 
-    <div class="Title2 display__none">
+    <div class="Title2 display__none flake__part">
         <b>剝落深度</b>
         <br>
     </div>
-    <div class="second display__none">
+    <div class="second display__none flake__part">
         <div class="left">
             <label for="test"></label>
             <label class="myCheckbox">
-                <input class="button2" type="radio" name="flake_depth" value="0"/>
+                <input class="button2 flake__button" type="radio" name="flake_depth" value="0"/>
                 <span class="text2" align="center">小於2.5cm</span>
             </label>
             <br>
@@ -37,22 +37,22 @@
         <div class="right">
             <label for="test"></label>
             <label class="myCheckbox">
-                <input class="button2" type="radio" name="flake_depth" value="1"/>
+                <input class="button2 flake__button" type="radio" name="flake_depth" value="1"/>
                 <span class="text2" align=center>大於2.5cm</span>
             </label>
             <br>
         </div>
     </div>
 
-    <div class="Title3 display__none">
+    <div class="Title3 display__none flake__part">
         <b>碎片長度</b>
         <br>
     </div>
-    <div class="third display__none">
+    <div class="third display__none flake__part">
         <div class="left">
             <label for="test"></label>
             <label class="myCheckbox">
-                <input class="button2" type="radio" name="flake_scrap" value="0"/>
+                <input class="button2 flake__button" type="radio" name="flake_scrap" value="0"/>
                 <span class="text2" align=center>小於1.5cm</span>
                 </label>
             <br>
@@ -60,7 +60,7 @@
         <div class="right">
             <label for="test"></label>
             <label class="myCheckbox">
-                <input class="button2" type="radio" name="flake_scrap" value="1"/>
+                <input class="button2 flake__button" type="radio" name="flake_scrap" value="1"/>
                 <span class="text2" align=center>大於1.5cm</span>
             </label>
             <br>
