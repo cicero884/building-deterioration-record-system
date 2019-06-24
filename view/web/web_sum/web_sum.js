@@ -1,6 +1,11 @@
 let submitButton = document.getElementById("form__submit");
 let doc = new jsPDF();
 let buildingInfo;
+
+window.onload = ()=>{
+	selectBuilding( 0, 0, 0, 0, "" );	
+}
+
 submitButton.addEventListener("click", ()=>{
 
 	for(let i = document.getElementById("table").rows.length; i > 1;i--)
@@ -69,6 +74,12 @@ function makeTable( items ) {
 		tempAddressElement.innerHTML = item.address;
 		tempAddressElement.style.color = "rgb(0,0,0)";
 		tempAddressElement.href = document.URL + "?page=web_building&buildingId=" + item.buildingId;
+		tempAddressElement.addEventListener('mouseover', (element) => {
+			element.target.style.color = "gray";
+		})
+		tempAddressElement.addEventListener('mouseleave', (element) => {
+			element.target.style.color = "rgb(0,0,0)";
+		})
  		row.insertCell(0).appendChild( document.createTextNode( item.buildingId ));
 		row.insertCell(1).appendChild( tempAddressElement);
 		row.insertCell(2).appendChild( document.createTextNode( item.name ) );
