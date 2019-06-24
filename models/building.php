@@ -42,12 +42,14 @@ class ModelBuilding {
     }
 
     public function getLastestBuildingId() {
-        $sql = "SELECT MAX(buildingId) FROM building";
-        
+        $sql = "SELECT *
+                FROM  building
+                WHERE buildingId =( SELECT max(buildingId) FROM building )";
         $search = $GLOBALS['conn']->prepare( $sql ); 
         $search->execute();
-        return $search->fetch(PDO::FETCH_OBJ);
+        return $search->fetch(PDO::FETCH_OBJ)->buildingId;
     }
+
 	public function getBuildingInfoById($buildingId){
 		$sql = "SELECT *
 				FROM `building`
