@@ -56,18 +56,21 @@ $contentFlickity.on( 'change.flickity', function( event, index ) {
 	}
 	prev_index=index;
 });
+function setImage(){
+	let final_ctx=$("#floor")[0].getContext("2d");
+	let drawCanvas=$('#floorDraw')[0];
+	let draw_ctx=baseCanvas.getContext("2d");
+	base_ctx.drawImage(img,0,0,baseCanvas.width,baseCanvas.height);
+	final_ctx.drawImage(img,0,0,$("#floor")[0].width,$("#floor")[0].height);
+	draw_ctx.drawImage(img,0,0,$('#floorDraw')[0].width,$('#floorDraw')[0].height);
+}
 setTimeout(function() {
 	if($("#floor")[0].getAttribute('src')!==''){
 		$contentFlickity.flickity( 'select',1, false, true );
 		$contentFlickity.flickity( 'select',2, false, true );
 		$contentFlickity.flickity( 'select',3, false, true );
 		var img=$('<img src="'+$("#floor")[0].getAttribute('src')+'">')[0];
-		let final_ctx=$("#floor")[0].getContext("2d");
-		let drawCanvas=$('#floorDraw')[0];
-		let draw_ctx=baseCanvas.getContext("2d");
-		base_ctx.drawImage(img,0,0,baseCanvas.width,baseCanvas.height);
-		final_ctx.drawImage(img,0,0,$("#floor")[0].width,$("#floor")[0].height);
-		draw_ctx.drawImage(img,0,0,$('#floorDraw')[0].width,$('#floorDraw')[0].height);
+		function onImageLoaded(url,setImage);
 
 		let xSize=$('#d_tags').width()/100;
 		let ySize=$('#d_tags').height()/100;
@@ -80,6 +83,20 @@ setTimeout(function() {
 		}
 	}
 }, 500);
+function onImageLoaded(url, cb) {
+	var image = new Image()
+	image.src = url
+
+	if (image.complete) {
+		// 圖片已經被載入
+		cb(image)
+	} else {
+		// 如果圖片未被載入，則設定載入時的回調
+		image.onload = function () {
+			cb(image)
+		}
+	}
+}
 
 function initEvent(func){
 	let mousePressed = false;
@@ -87,19 +104,19 @@ function initEvent(func){
 	$contentFlickity.off('pointerMove.flickity');
 	$contentFlickity.off('pointerUp.flickity');
 	$contentFlickity.on( 'pointerDown.flickity', function(e,p,m) {
-        mousePressed = true;;
-        func(p, false);
-    });
+		mousePressed = true;;
+		func(p, false);
+	});
 
 	$contentFlickity.on( 'pointerMove.flickity', function(e,p,m) {
-        if (mousePressed) {
-            func(p, true);
-        }
-    });
+		if (mousePressed) {
+			func(p, true);
+		}
+	});
 	$contentFlickity.on( 'pointerUp.flickity', function(e,p,m) {
-        func(p, false);
-        mousePressed = false;
-    });
+		func(p, false);
+		mousePressed = false;
+	});
 }
 function send_floor_data(){
 	let formData = new FormData();
@@ -126,11 +143,11 @@ function send_floor_data(){
 		contentType: false,
 		data:formData,
 		error: function(xhr) {
-            alert('Ajax request error');
-        },
-        success: function(response){
+			alert('Ajax request error');
+		},
+		success: function(response){
 			HashReflashFlag=false;
 			window.location.hash=window.location.hash+"-"+response;
-        }
+		}
 	});
 }
