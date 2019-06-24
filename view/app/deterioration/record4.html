@@ -7,7 +7,7 @@
         <div class="left">
             <label for="test"></label>
             <label class="myCheckbox">
-                <input class="button2" type="radio" name="crack" value="1"/>
+                <input id="crack__yes" class="button2" type="radio" name="crack" value="1"/>
                 <span class="text2" align=center>是</span>
             </label>
             <br>
@@ -15,20 +15,20 @@
         <div class="right">
             <label for="test"></label>
             <label class="myCheckbox">
-                <input class="button2" type="radio" name="crack" value="0"/>
+                <input id="crack__false" class="button2" type="radio" name="crack" value="0"/>
                 <span class="text2" align=center>否</span>
             </label>
             <br>
         </div>
     </div>
-    <div class="Title2 display__none">
+    <div class="Title2 display__none crack__part">
         <b>裂縫長度</b>
     </div>
-    <div class="second display__none">
+    <div class="second display__none crack__part">
         <div class="left">
             <label for="test"></label>
             <label class="myCheckbox">
-                <input class="button2" type="radio" name="crack_length" value="0"/>
+                <input class="button2 crack__button" type="radio" name="crack_length" value="0"/>
                 <span class="text2" align=center>小於30cm</span>
             </label>
             <br>
@@ -36,7 +36,7 @@
         <div class="right">
             <label for="test"></label>
             <label class="myCheckbox">
-                <input class="button2" type="radio" name="crack_length" value="1"/>
+                <input class="button2 crack__button" type="radio" name="crack_length" value="1"/>
                 <span class="text2" align=center>大於30cm</span>
             </label>
             <br>
@@ -44,15 +44,15 @@
     </div>
 
 
-    <div class="Title3 display__none">
+    <div class="Title3 display__none crack__part">
         <b>裂縫寬度</b>
         <br>
     </div>
-    <div class="third display__none">
+    <div class="third display__none crack__part">
         <div class="left">
             <label for="test"></label>
             <label class="myCheckbox">
-                <input class="button2" type="radio" name="crack_width" value="0"/>
+                <input class="button2 crack__button" type="radio" name="crack_width" value="0"/>
                 <span class="text2" align=center>小於3mm</span>
             </label>
             <br>
@@ -60,7 +60,7 @@
         <div class="right">
             <label for="test"></label>
             <label class="myCheckbox">
-                <input class="button2" type="radio" name="crack_width" value="1"/>
+                <input class="button2 crack__button" type="radio" name="crack_width" value="1"/>
                 <span class="text2" align=center>大於3mm</span>
             </label>
             <br>

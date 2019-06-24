@@ -47,3 +47,41 @@ Array.from(document.getElementsByClassName('picture__button')).forEach( (element
     }
 });
 
+document.getElementById("flake__yes").addEventListener('change', ()=>{
+    if( document.getElementById("flake__yes").checked ) {
+        Array.from( document.getElementsByClassName("flake__part") ).forEach( (element)=>{
+            element.classList.remove("display__none");
+        } )
+    }
+})
+
+document.getElementById("flake__false").addEventListener('change', ()=>{
+    if( document.getElementById("flake__false").checked ) {
+        Array.from( document.getElementsByClassName("flake__part") ).forEach( (element)=>{
+            element.classList.add("display__none");
+        } )
+        Array.from( document.getElementsByClassName("flake__button") ).forEach( (element)=>{
+            element.checked = false;
+        } )
+    }
+})
+
+document.getElementById("crack__yes").addEventListener('change', ()=>{
+    if( document.getElementById("crack__yes").checked ) {
+        Array.from( document.getElementsByClassName("crack__part") ).forEach( (element)=>{
+            element.classList.remove("display__none");
+        } )
+    }
+})
+
+document.getElementById("crack__false").addEventListener('change', ()=>{
+    if( document.getElementById("crack__false").checked ) {
+        Array.from( document.getElementsByClassName("crack__part") ).forEach( (element)=>{
+            element.classList.add("display__none");
+        } )
+        Array.from( document.getElementsByClassName("crack__button") ).forEach( (element)=>{
+            element.checked = false;
+        } )
+    }
+})
+
