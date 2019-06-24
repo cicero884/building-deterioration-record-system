@@ -89,13 +89,12 @@ class ModelDeterioration {
 	}
 
     public function getLastestDeteriorationId() {
-        $sql = "SELECT MAX( deteriorationId ) FROM deterioration";
-        
+        $sql = "SELECT *
+                FROM  deterioration
+                WHERE deteriorationId =( SELECT max(deteriorationId) FROM deterioration )";
         $search = $GLOBALS['conn']->prepare( $sql ); 
         $search->execute();
-        $row=$search->fetch(PDO::FETCH_OBJ);
-
-        return $search->deteriorationId;
+        return $search->fetch(PDO::FETCH_OBJ)->deteriorationId;
     }
 
     // item is an array with the information need to select
