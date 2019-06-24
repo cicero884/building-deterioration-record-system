@@ -236,7 +236,7 @@
     .fle > .image__upload {
         /* layout */
         
-    
+        display:block;
     
         /* position */
         width: 40%;
@@ -270,7 +270,21 @@
     }
 
     .textpho{
-        margin-top:10vh;
+        margin-top:1vw;
+        margin-left:1vw;
+        font-size: 6rem;
+        color:rgb(255, 255, 255,0.25);
+        font-family: 微軟正黑體；
     }
 
+    .preview{
+        margin-top:-5vh;
+        margin-left:12vw;
+        height:5vh;
+        
+    }
+
+    .picture__button{
+        visibility: hidden;
+    }
 
