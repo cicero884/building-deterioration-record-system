@@ -145,6 +145,7 @@ time, mark, audio, video {
     background: #48e195;
     font-size:1.2rem;
     border-radius:5px;
+    width:10vw;
 }
   .left_1 {
     grid-area:left_1;
@@ -249,4 +250,5 @@ a {
     background: #48e195;
     font-size:1.2rem;
     border-radius:5px;
+    width:10vw;
 }

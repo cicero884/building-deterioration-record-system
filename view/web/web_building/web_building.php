@@ -8,11 +8,11 @@
                 </section>
 </header>
 <div class="test">
-<main class="building" id=<?php echo "building__".$this->buildingDetail['buildingId']?>>
+ <main class="building" id=<?php echo "building__".$this->buildingDetail['buildingId']?>>
     <img class="building__title" src="./view/web/image/title2.png"/>
     <button id="pdf-download">PDF 下載</button>
     <section class="building__info">
-        <p class="first_info">地址: </p>     <p class="first1_info"> <?php echo $this->buildingDetail['address'] ?></p> 
+        <p class="first_info">地址: </p>      <p class="first1_info"> <?php echo $this->buildingDetail['address'] ?></p> 
         <p class="second1_info">屋主姓名: </p>  <p class="second11_info"> <?php echo $this->buildingDetail['name'] ?></p>
         <p class="second2_info">屋主電話: </p>  <p class="second21_info"> <?php echo $this->buildingDetail['phone']?></p>
         <p class="third1_info">建築種類: </p> <p class="third11_info"> <?php echo $this->buildingDetail['type'] ?></p>
@@ -22,8 +22,8 @@
                            地下 <?php echo $this->buildingDetail['floorDown']?></p>
     </section>
     <img class="building__image" alt = 'building_picture' src = <?php echo $this->buildingDetail['image'] ?> >
-</main>
-<main class="detail">
+ </main>
+ <main class="detail">
     <section class="floor__info">
         <article class="info__floor-plan">
             <h2 class="footer__pictureinfo">平面圖</h2> 
@@ -46,6 +46,6 @@
             </table>
         </article>
     </section>
-</main>
+ </main>
 </div>
 
