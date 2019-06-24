@@ -69,8 +69,7 @@ setTimeout(function() {
 		$contentFlickity.flickity( 'select',1, false, true );
 		$contentFlickity.flickity( 'select',2, false, true );
 		$contentFlickity.flickity( 'select',3, false, true );
-		var img=$('<img src="'+$("#floor")[0].getAttribute('src')+'">')[0];
-		function onImageLoaded(url,setImage);
+		onImageLoaded($("#floor")[0].getAttribute('src'),setImage);
 
 		let xSize=$('#d_tags').width()/100;
 		let ySize=$('#d_tags').height()/100;
