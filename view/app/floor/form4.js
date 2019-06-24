@@ -6,18 +6,7 @@ function tag(id, x, y) {
     this.x = x;
     this.y = y;
 }
-let new_elem=null;
-$contentFlickity.on('ready.flickity', function() {
-	if($("#floor")[0].getAttribute('src')!==''){
-		$contentFlickity.flickity( 'select',1, false, true );
-		$contentFlickity.flickity( 'select',2, false, true );
-		$contentFlickity.flickity( 'select',3, false, true );
-		var img=$('<img src="'+$("#floor")[0].getAttribute('src')+'">');
-		base_ctx.drawImage(img,0,0,baseCanvas.width,baseCanvas.height);
-		final_ctx.drawImage(img,0,0,$("#floor")[0].width,$("#floor")[0].height);
-		draw_ctx.drawImage(img,0,0,$('#floorDraw')[0].width,$('#floorDraw')[0].height);
-	}
-});
+new_elem=null;
 $('#new').click(function(){
 	if(!new_elem){
 		new_elem=$("<span class='record new_tag'>"+('0'+($('.record').length+1)).slice(-2)+"</span>");
