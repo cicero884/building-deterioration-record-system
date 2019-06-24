@@ -19,6 +19,8 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
+
+
 /* body > header */
 .header {
     /* [ layout ] */
@@ -97,6 +99,7 @@ a {
     grid-template-areas:  "second" "third";
     grid-template-rows:  0.1fr 0.9fr;  
 }
+
 .test>.building {
     display: grid;
 }
@@ -107,44 +110,49 @@ a {
     height: 5vh;
     position: flex;
     margin-top:1vh;
-    margin-left:5vw;;
+    margin-left:6vw;;
 }
 
 .building > .building__info{
     grid-area: second;
-    border-width:3px;
+    border-width:1px;
     border-style:solid;
     border-color:#d2d2d2;
+    text-align: center;
+    line-height:6vh;
     width:50vw;
     height:25vh;
-    margin-top:1vh;
-    margin-left:-13vw;
+    position: absolute;
+    margin-top:7vh;
+    margin-left:6vw;
     color: #595959;
     font-size: 1rem;
     font-family:微軟正黑體;
 
     display: grid;
-    grid-template-areas: "first1 first2 first2 first2 first2 first2" 
-                         "second1 second2 second3 second4 second4 second4" 
-                         "third1 third2 third3 third4 third5 third6" 
-                         "fourth1 fourth2 fourth2 fourth2 fourth2 fourth2";
+    grid-template-areas: "first first1 first2 first2 first2 first2 first2 first2 first2 first2 first2 first2" 
+                         "second1 second1 second2 second2 second3 second3 second4 second4 second4 second4 second4 second4" 
+                         "third1 third1 third2 third2 third3 third3 third4 third4 third5 third5 third6 third6" 
+                         "fourth1 fourth1 fourth2 fourth2 fourth2 fourth2 fourth2 fourth2 fourth2 fourth2 fourth2 fourth2";
     grid-template-rows: 1fr 1fr 1fr 1fr; 
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
 }
+
+
 
 .test>.building > .building__image{
     grid-area: second;
-    display:inline-block;
-    margin-left:40vw;
+    
+    margin-top:1vh;
+    margin-left:50vw;
     height:25vh;
-    width:30vw;
+    width:auto;
 }
 
 
 .building__info > .first_info{
     grid-area: first1;
-    text-align:center;
-     
+    text-align:left;
 }
 .building__info > .first1_info{
     grid-area: first2;
@@ -220,6 +228,7 @@ a {
 
 .floor__info > .footer__pictureinfo{
     grid-area: picture;
+    margin-top:5vh;
     margin-left:5vw;
     color: #9a9a9a;
     font-size: 1rem;
@@ -234,7 +243,7 @@ a {
     color: #9a9a9a;
     font-size: 1rem;
     font-family:微軟正黑體;
-    border-width:3px;
+    border-width:1px;
     border-style:solid;
     border-color:#d2d2d2;
     width:30vw;
@@ -243,8 +252,13 @@ a {
 
 .info__floor-plan > .floor-plan__image{
     grid-area: picture;
+    display: block;
     height:30vh;
-    width:30vw
+    width:12vw;
+    margin-top:auto;
+    margin-right:auto;
+    margin-left:auto;
+    margin-bottom:auto;
 }
 
 .floor__info > .info__floor-plan{
@@ -261,11 +275,11 @@ a {
 
 .floor__info > .info__deterioration{
     grid-area: deterior;
-    border-width:3px;
+    border-width:1px;
     border-style:solid;
     border-color:#d3d3d3;
     width:55vw;
-    margin-top:4vh;
+    margin-top:5vh;
     margin-left:5vw;
     margin-bottom:1vh;
     color: #9a9a9a;
@@ -289,7 +303,7 @@ table {
     font-family: 微軟正黑體; 
     font-size:1rem; 
     height:1vh;
-    width:53vw;
+    width:50vw;
     text-align:center;
     overflow:auto;
     border-collapse:collapse;
@@ -306,6 +320,7 @@ td {
 border-top: 0.5vh solid #b5b5b5;  
 border-bottom: 0.5vh solid #b5b5b5;
 height:2px; 
+vertical-align:middle;
 }
 
 th{
@@ -315,9 +330,15 @@ th{
 #pdf-download{
     grid-area: second;
     height:4vh;
-    width:6vw;
+    width:8vw;
     margin-left:75vw;
-    margin-top:25vh;
-    font-size: 0.7rem;
+    margin-top:-3vh;
+    font-size: 1rem;
     font-family:微軟正黑體;
+}
+
+button{
+    background-color:#edce3d;
+    border:0px;
+    
 }

@@ -58,3 +58,8 @@ input {
 #floorNumber {
     height: 20vh;
 }
+
+.scale{
+    height:10px;
+    width: 40px;
+}

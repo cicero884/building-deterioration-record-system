@@ -8,5 +8,5 @@
 		</figure>
 <?php endforeach;?>
 	</div>
-	<img id="addHouse" src='view/app/image/buttons/new.png'>
+	<img id="addHouse" src='view/app/image/buttons/plus.png'>
 </div>
