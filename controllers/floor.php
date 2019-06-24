@@ -11,18 +11,18 @@ class FloorController {
 
     public function insertData() {
         $floorId = $this->models['floor']->getLastestFloorId();
-        $fileName = $_GET['buildingId']."_".$floorId."-plan.jpg";
+        $fileName = $_POST['buildingId']."_".$floorId."-plan.jpg";
         $file = "image/".$fileName;
-        $img = str_replace('data:image/jpeg;base64,', '', $_POST['data']);
+        $img = str_replace('data:image/jpeg;base64,', '', $_POST['floorPlan']);
         $img = str_replace(' ', '+', $img);
         $res = file_put_contents( $file , base64_decode($img) );
 
         $floorInfo = array(
-            ':buildingId' => htmlspecialchars( $_GET['buildingId'] ),
+            ':buildingId' => htmlspecialchars( $_POST['buildingId'] ),
             ':floor'      => htmlspecialchars( $_POST['floor'] ),
             ':floorPlan'  => htmlspecialchars( $fileName ) 
         );
-        $this->models['floor']->insertFloor( $floorInfo );
+        echo $this->models['floor']->insertFloor( $floorInfo );
     }
 
     public function updateData( $floorId ) {

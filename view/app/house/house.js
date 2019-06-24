@@ -11,7 +11,6 @@ $('#submitHouse').click(function(e){
 		contentType: false,
         data:formData,
         error: function(xhr) {
-			console.log(xhr);
             alert('Ajax request error');
         },
         success: function(response){
