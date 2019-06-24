@@ -11,13 +11,13 @@
     /* layout */
     display: block;
     /* position */
-    height: 6vh;
-    margin: 0;
+    
+    
     margin-left: 2rem;
-    margin-top: 7rem;
+    
     margin-bottom: 1rem;
     /* skin */
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 #houseInfo,
@@ -33,12 +33,13 @@
     border-radius: 15px;
     z-index: 10;
     color: black;
+    line-height: 2vh;
 }
 
 p,
 input {
-    margin-left: 2rem;
-    font-size: 2.5rem;
+   
+    font-size: 3rem;
 }
 
 .floorRecord {
@@ -60,6 +61,6 @@ input {
 }
 
 .scale{
-    height:10px;
+    height:100px;
     width: 40px;
 }
