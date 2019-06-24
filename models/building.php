@@ -46,9 +46,7 @@ class ModelBuilding {
         
         $search = $GLOBALS['conn']->prepare( $sql ); 
         $search->execute();
-        $row=$search->fetch(PDO::FETCH_OBJ);
-
-        return $search->buildingId;
+        return $search->fetch(PDO::FETCH_OBJ);
     }
 	public function getBuildingInfoById($buildingId){
 		$sql = "SELECT *
