@@ -132,19 +132,19 @@ let makeDeteriorationTable = ( id )=> {
                     dynamicEl: [{
                         "src": element.image1,
                         'thumb': element.image1,
-                        'subHtml': '<h4>遠</h4>'
+                        'subHtml': '<h4>' + element.ps + '</h4>'
                     }, {
                         'src': element.image2,
                         'thumb': element.image2,
-                        'subHtml': "<h4>近</h4>"
+                        'subHtml': '<h4>' + element.ps + '</h4>'
                     }, {
                         'src': element.image3,
                         'thumb': element.image3,
-                        'subHtml': "<h4>其他</h4>"
+                        'subHtml': '<h4>' + element.ps + '</h4>'
                     }, {
                         'src': element.image4,
                         'thumb': element.image4,
-                        'subHtml': "<h4>其他</h4>"
+                        'subHtml': '<h4>' + element.ps + '</h4>'
                     }]
                 })
             } )
@@ -188,7 +188,7 @@ let setFloorImage = ( index )=> {
 };
 
 let downloadPDF = ()=>{
-    html2canvas(document.getElementsByClassName('detail')[0])
+    html2canvas( document.getElementById('information__building') )
     .then(function(canvas) {
         let contentWidth = canvas.width;
         let contentHeight = canvas.height;

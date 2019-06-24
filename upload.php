@@ -1,10 +1,10 @@
 <?php
-require_once("controller/building.php");
-require_once("controller/floor.php");
-require_once("controller/deterioration.php");
+require_once("controllers/building.php");
+require_once("controllers/floor.php");
+require_once("controllers/deterioration.php");
 session_start();
-if(isset($_GET['type'])){
-	switch($_GET['type']){
+if(isset($_POST['page'])){
+	switch($_POST['page']){
 		case 'building':
 			$controller=new BuildingController();
 			break;
@@ -15,6 +15,15 @@ if(isset($_GET['type'])){
 			$controller=new DeteriorationController();
 			break;
 	}
-	$controller->insertData();
+}
+if(isset($_POST['action'])){
+	switch($_POST['action']){
+		case 'update':
+			$controller->updateData();
+			break;
+		case 'insert':
+			$controller->insertData();
+			break;
+	}
 }
 ?>

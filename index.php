@@ -10,16 +10,16 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 	$content=array(
 		'page'=>(isset($_POST['page']))? $_POST['page']:'',
 		'buildingID'=>(isset($_POST['buildingID']))? $_POST['buildingID']:'',
-		'floor'=>(isset($_POST['floor']))? $_POST['floor']:''
+		'floorID'=>(isset($_POST['floorID']))? $_POST['floorID']:''
 	);
 	$router->load($content);
 }
 elseif($_SERVER['REQUEST_METHOD']==='GET'){
 	$page=(isset($_GET['page']))? $_GET['page']:'';
 	$buildingID=(isset($_GET['buildingID']))? $_GET['buildingID']:'';
-	$floor=(isset($_GET['floor']))? $_GET['floor']:'';
+	$floorID=(isset($_GET['floorID']))? $_GET['floorID']:'';
 
-	$router->redirect($page,$buildingID,$floor);
+	$router->redirect($page,$buildingID,$floorID);
 }
 /*
 if(isset($_GET['action'])){

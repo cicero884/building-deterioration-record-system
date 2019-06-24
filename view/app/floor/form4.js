@@ -6,21 +6,28 @@ function tag(id, x, y) {
     this.x = x;
     this.y = y;
 }
+let new_elem=null;
 $('#new').click(function(){
 	if(!new_elem){
-		new_elem=$("<span class='record new_tag'>"+('0'+(++window.tag_count)).slice(-2)+"</span>");
+		new_elem=$("<span class='record new_tag'>"+('0'+($('.record').length+1)).slice(-2)+"</span>");
 		new_elem.click(record_deterioration);
 		$('#d_tags').append(new_elem);
 	}
 	else{
 		new_elem.removeClass("blink");
 		setTimeout(function() {
-			new_elem.addClass("demo");
-		}, 1);
+			new_elem.addClass("blink");
+		}, 0.5);
 	}
 })
 function record_deterioration(){
 	$contentFlickity.on('staticClick.flickity',function(event,pointer,cellElement,cellIndex){
+		let formData=new FormData();
+		let hashData=window.location.hash.substring(1).split('-');
+		formData.append('page', 'deterioration');
+		formData.append('action','insert');
+
+		formData.append('',)
 		$.ajax({
 			url:'upload.php',
 			type:'POST',

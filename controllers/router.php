@@ -3,10 +3,13 @@ require_once('controllers/building.php');
 require_once("models/login.php");
 require_once("models/building.php");
 require_once("models/floor.php");
+require_once("models/deterioration.php");
 class Router{
 	protected $recentHouses=array();
 	protected $floorInfo;
 	protected $buildingDetail;
+	protected $deteriorations=array();
+
 	protected $cur_path='view/';
 	protected $page_css=array();
 	protected $page_html=array();
@@ -18,8 +21,9 @@ class Router{
 		$this->models['login']=new ModuleLogin();
 		$this->models['building']=new ModelBuilding();
 		$this->models['floor']=new ModelFloor();
+		$this->models['deterioration']=new ModelDeterioration();
 	}
-	public function redirect($page='',$buildingID='',$floor=''){
+	public function redirect($page='',$buildingID='',$floorID=''){
 		$this->page_css=array();
 		$this->page_html=array();
 		$contents=array();
@@ -40,7 +44,7 @@ class Router{
 				$this->contents[]=array(
 					'page'=>$page,
 					'buildingID'=>$buildingID,
-					'floor'=>$floor
+					'floorID'=>$floorID
 				);
 			}
 			elseif(substr($page,0,3)==='web') {
@@ -75,12 +79,18 @@ class Router{
 					$path='view/app/house';
 				}
 				elseif($content['page']==="app_floor" && $content['buildingID']!==''){
-					$floorID=$this->models['floor']->getFloorId($content['buildingID'],$content['floor']);
-					$this->floorInfo=$this->models['floor']->getInfo($floorID);
-					//$this->houseInfo=$this->models['building']->
+					if($content['floorID']!==''){
+						$this->floorInfo=$this->models['floor']->getFloorInfoById($content['floorID']);
+						$this->deteriorations=$this->models['deterioration']->getDeteriorationInfosByFloorId($content['floorID']);
+					}
+					else{
+						$this->floorInfo=NULL;
+						$this->deteriorations=NULL;
+					}
+					$this->buildingDetail=$this->models['building']->getBuildingInfoById($content['buildingID']);
 					$path='view/app/floor';
 				}
-				elseif($content['page']==="app_deterioration" && $buildingID!=='' && $floor!==''){
+				elseif($content['page']==="app_deterioration" && $buildingID!=='' && $floorID!==''){
 					$path='view/app/deterioration';
 				}
 				else{//app_main

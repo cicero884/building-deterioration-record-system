@@ -49,7 +49,7 @@ $contentFlickity.on( 'change.flickity', function( event, index ) {
 			let final_ctx=$("#floor")[0].getContext("2d");
 			clearCanvas(final_ctx);
 			final_ctx.drawImage(base_ctx.canvas,0,0,$("#floor")[0].width,$("#floor")[0].height);
-			send_floor_data();
+			if(prev_index<index) send_floor_data();
 			initEvent(deteriorationPos);
 			break;
 	}
@@ -77,12 +77,35 @@ function initEvent(func){
     });
 }
 function send_floor_data(){
-	$.ajax({
-		url:'index.php',
-		type:'GET',
-		data:{
-			type:'floor',
+	let formData = new FormData();
+	let hashData=window.location.hash.substring(1).split('-');
+	let upper_or_down=$('input[name="floor"]:checked').val();
+	let floor;
+	let planeData=$("#baseCanvas")[0].toDataURL("image/png");
+	if(upper_or_down==='upper') floor=$('#upper').val();
+	else if(upper_or_down==='down') floor='-'+$('#down').val();
+	formData.append('page', 'floor');
+	if(hashData.length>2){
+		formData.append('action', 'update');
+		formData.append('floorID',hashData[2]);
+	}
+	else formData.append('action', 'insert');
 
-		}
+	formData.append('floor',floor);
+	formData.append('buildingId', hashData[1]);
+	formData.append('floorPlan',planeData);
+	$.ajax({
+		url:'upload.php',
+		type:'POST',
+		processData: false,
+		contentType: false,
+		data:formData,
+		error: function(xhr) {
+            alert('Ajax request error');
+        },
+        success: function(response){
+			HashReflashFlag=false;
+			window.location.hash=window.location.hash+"-"+response;
+        }
 	});
 }
