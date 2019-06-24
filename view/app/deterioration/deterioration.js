@@ -28,17 +28,17 @@ $('#final').click(function(e){
     });
 })
 
-let readPreviewURL = (input , index)=> {
-	if (input.files && input.files[0]) {
+readPreviewURL = (input , index)=> {
+    if (input.files && input.files[0]) {
         let reader = new FileReader();
-		
-		reader.onload = function(e) {
+        
+        reader.onload = function(e) {
             document.getElementsByClassName('preview')[index].src = e.target.result;
             document.getElementsByClassName('preview')[index].classList.add("show__preivew-image");
-		}
-		
-		reader.readAsDataURL(input.files[0]);
-	}
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+    }
 }
 
 Array.from(document.getElementsByClassName('picture__button')).forEach( (element, index)=>{
