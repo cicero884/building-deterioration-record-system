@@ -21,7 +21,8 @@ $('#final').click(function(e){
             alert('Ajax request error');
         },
         success: function(response){
-			window.location.hash="app_main";
+            window.location.hash="app_main";
+            console.log(response);
         }
     });
 })
