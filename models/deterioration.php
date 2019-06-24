@@ -2,7 +2,56 @@
 require_once("config.php");
 
 class ModelDeterioration {
-    public function insertDeterioration( $deterioration ) {
+    public function updateDeterioration($deteriorationId, $deterioration ) {
+		$task=[
+			':deteriorationId'=>$deterioration[':deteriorationId'],
+			':column'=>$deterioration[':column'],
+			':beam'=>$deterioration[':beam'],
+			':wall'=>$deterioration[':wall'],
+			':hole'=>$deterioration[':hole'],
+			':floor'=>$deterioration[':floor'],
+			':length'=>$deterioration[':length'],
+			':width'=>$deterioration[':width'],
+			':exfoliation'=>$deterioration[':exfoliation'],
+			':rebarExposed'=>$deterioration[':rebarExposed'],
+			':addOn'=>$deterioration[':addOn'],
+			':exfoliationDepth'=>$deterioration[':exfoliationDepth'],
+			':exfoliationScrap'=>$deterioration[':exfoliationScrap'],
+			':crack'=>$deterioration[':crack'],
+			':crackLength'=>$deterioration[':crackLength'],
+			':crackWidth'=>$deterioration[':crackWidth'],
+			':ps'=>$deterioration[':ps'],
+			':image1'=>$deterioration[':image1'],
+			':image2'=>$deterioration[':image2'],
+			':image3'=>$deterioration[':image3'],
+			':image4'=>$deterioration[':image4'],
+		];
+		$sql = 'UPDATE tasks
+				SET column=:column,
+					beam=:beam,
+					wall=:wall,
+					hole=:hole,
+					floor=:floor,
+					length=:length,
+					width=:width,
+					exfoliation=:exfoliation,
+					rebarExposed=:rebarExposed,
+					addOn=:addOn,
+					exfoliationDepth=:exfoliationDepth,
+					exfoliationScrap=:exfoliationScrap,
+					crack=:crack,
+					crackLength=:crackLength,
+					crackWidth=:crackWidth,
+					ps=:ps,
+					image1=:image1,
+					image2=:image2,
+					image3=:image3,
+					image4=:image4
+				WHERE deteriorationId=:deteriorationId';
+		$update=$GLOBALS['conn']->prepare( $sql );
+		return $update->execute($task);
+			
+/*
         $sql = "INSERT INTO deterioration
                 ( floorId, `column`, beam, wall, hole, `floor`, 
                   rebarExposed, addOn,
@@ -27,7 +76,17 @@ class ModelDeterioration {
         $insert->bindValue(':crackLength', $deterioration[':crackLength'] , PDO::PARAM_INT );
         $insert->bindValue(':crackWidth', $deterioration[':crackWidth'] , PDO::PARAM_INT );
         $insert->execute( $deterioration );
+*/
     }
+	public function newDeterioration($floorId,$x,$y){
+		$sql = "INSERT INTO deterioration
+				( ifloorId, x, y)
+				VALUES
+				( :floorId, :x, :y);";
+        $insert = $GLOBALS['conn']->prepare( $sql ); 
+		$insert->execute([':floorId'=>$floorId,':x'=>$x,':y'=>$y]);
+		return getLastestDeteriorationId();
+	}
 
     public function getLastestDeteriorationId() {
         $sql = "SELECT MAX( deteriorationId ) FROM deterioration";

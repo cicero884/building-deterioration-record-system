@@ -50,6 +50,14 @@ class ModelBuilding {
 
         return $search->buildingId;
     }
+	public function getBuildingInfoById($buildingId){
+		$sql = "SELECT *
+				FROM `building`
+				WHERE buildingId=:buildingId";
+		$select = $GLOBALS['conn']->prepare( $sql );
+		$select->execute([':buildingId'=>$buildingId]);
+		return $select->fetch(PDO::FETCH_OBJ);
+	}
 
     public function generateBuildingSQLById( $buildingId ) {
         $this->sql = "SELECT *

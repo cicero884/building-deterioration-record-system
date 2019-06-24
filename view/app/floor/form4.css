@@ -33,7 +33,7 @@
 }
 .blink{
 	-webkit-animation-name: blink;
-    -webkit-animation-duration: 900ms;
+    -webkit-animation-duration: 400ms;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: ease-in-out;
 }
