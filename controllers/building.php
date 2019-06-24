@@ -9,13 +9,13 @@ class BuildingController {
     public $controllers = NULL;
     public $models = NULL;
     const  TYPE      = [ "透天", "公寓", "大廈", "三合院", "其他" ];
-    const  USAGE     = [ "住家", "商店", "住商混合", "其他" ];
+    const  USAGE     = [ "住家", "辦公室", "商店", "住商混合", "其他" ];
     const  STRUCTURE = [ "鋼筋混泥土", "鋼骨", "木造", "磚造", "其他" ];
 
     function __construct() {
         $this->controllers['image'] = new ImageController();
         $this->models['building'] = new ModelBuilding();
-        $this->models['login'] = new ModelLogin();
+        $this->models['login'] = new ModuleLogin();
     }
 
     // call it to insert building information to the database
