@@ -7,7 +7,8 @@ window.onhashchange=function(){
 		data:{
 			page:data[0],
 			buildingID:(data.length>1)? data[1]:'',
-			floorID:(data.length>2)? data[2]:''
+			floorID:(data.length>2)? data[2]:'',
+			deteriorationID:(data.length>3)? data[3]:''
 		},
 		success:function(responce){
 			$('.content').remove();

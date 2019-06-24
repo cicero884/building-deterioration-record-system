@@ -1,12 +1,12 @@
 <?php
-require_once("controller/building.php");
-require_once("controller/floor.php");
-require_once("controller/deterioration.php");
+require_once("controllers/building.php");
+require_once("controllers/floor.php");
+require_once("controllers/deterioration.php");
 session_start();
-if(isset($_GET['type'])){
-	if(isset($_GET['action'])) $action=$_GET['action'];
+if(isset($_POST['page'])){
+	if(isset($_POST['action'])) $action=$_POST['action'];
 	else $action="";
-	switch($_GET['type']){
+	switch($_POST['page']){
 		case 'building':
 			$controller=new BuildingController();
 			$controller->insertData();
