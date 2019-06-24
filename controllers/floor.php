@@ -20,9 +20,28 @@ class FloorController {
         $floorInfo = array(
             ':buildingId' => htmlspecialchars( $_GET['buildingId'] ),
             ':floor'      => htmlspecialchars( $_POST['floor'] ),
-            ':floorPlan'  => htmlspecialchars( $file ) 
+            ':floorPlan'  => htmlspecialchars( $fileName ) 
         );
         $this->models['floor']->insertFloor( $floorInfo );
+    }
+
+    public function updateData( $floorId ) {
+        $fileName = $_GET['buildingId']."_".$floorId."-plan.jpg";
+        $file = "image/".$fileName;
+
+        // Check if file already exists
+        if (file_exists($file))
+            unlink($file);
+
+        $img = str_replace('data:image/jpeg;base64,', '', $_POST['data']);
+        $img = str_replace(' ', '+', $img);
+        $res = file_put_contents( $file , base64_decode($img) );
+
+        $floorInfo = array(
+            ':floorId'   => $floorId,
+            ':floor'     => htmlspecialchars( $_POST['floor'] ),
+            ':floorPlan' => htmlspecialchars( $fileName ) 
+        );
     }
 
     public function floorDetailForWebBuilding( $buildingId ) {

@@ -192,9 +192,6 @@ let downloadPDF = ()=>{
     .then(function(canvas) {
         let contentWidth = canvas.width;
         let contentHeight = canvas.height;
-
-        console.log( contentWidth, contentHeight );
-        document.body.appendChild( canvas );
     
         //一页pdf显示html页面生成的canvas高度;
         let pageHeight = contentWidth / 592.28 * 841.89;

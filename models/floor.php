@@ -12,6 +12,14 @@ class ModelFloor {
         $insert->execute( $floorInfo );
     }
 
+    public function updateData( $floorInfo ) {
+        $sql = "UPDATE `floor`
+                SET floorPlan= :floorPlan, floor= :floor
+                WHERE floorId= :floorId";
+        $update = $GLOBALS['conn']->prepare( $sql ); 
+        $update->execute( $floorInfo );
+    }
+
     public function getFloorId( $buildingId, $floor ) {
         $sql = "SELECT floorId 
                 FROM `floor`

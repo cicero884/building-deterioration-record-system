@@ -2,7 +2,7 @@
 class ImageController {
 
     function imageUpload( $name, $page, $buildingId, $floorId = 0, $deteriorationId = 0, $num = 0 ) {
-//        $buildingId = 1;
+        $buildingId = 1;
         $target_dir  = "image/";
         $extension   =end(explode(".", $_FILES[$name]["name"]));
         $newfilename = "";
