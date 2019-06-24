@@ -56,7 +56,7 @@ $contentFlickity.on( 'change.flickity', function( event, index ) {
 	}
 	prev_index=index;
 });
-function setImage(){
+function setImage(img){
 	let final_ctx=$("#floor")[0].getContext("2d");
 	let drawCanvas=$('#floorDraw')[0];
 	let draw_ctx=baseCanvas.getContext("2d");
