@@ -73,6 +73,7 @@ class Router{
 						break;
 					}
 				}
+				$this->getFiles('view/app/utils');
 				$this->buildingDetail=($dangerous)? '1':'2';
 				$this->getFiles('view/app/response/');
 			}

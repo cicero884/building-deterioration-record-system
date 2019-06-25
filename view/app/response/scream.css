@@ -1,0 +1,9 @@
+#feedback>img{
+	position: fixed;
+    left: 50%;
+    top:30%;
+	width:70%;
+	height:auto;
+	transform: translateX(-50%);
+	z-index:10000;
+}
