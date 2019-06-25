@@ -56,16 +56,12 @@
     /* position */
     display: block;
     grid-area: picture;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20%;
+    visibility: hidden;
+    height:100%;
+    width: 100%;
 
     /* skin */
     color: rgba( 0, 101, 111, 0 );
-}
-
-.houseImage_cancel {
-    margin-top:0;
 }
 
 .image__upload > .image__logo {
@@ -74,16 +70,13 @@
     align-content: center;
     justify-content: center;
     grid-area: picture;
-    height: 80%;
-    width: auto;
+    height: 100%;
+    width: 100%;
 }
 
 .image__upload > .image__logo > .preview {
     /* position */
-    display: flex;
-
-    align-self: center;
-    justify-self: center;
+    display: block;
     height: 50%;
     width: auto;
 }
@@ -93,6 +86,5 @@
     display: flex;
 
     justify-self: center;
-    height: 90%;
-    width: auto;
+    width: 100%; 
 }
