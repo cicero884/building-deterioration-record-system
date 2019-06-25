@@ -62,8 +62,8 @@ switch( $_POST['page'] ) {
                         'image3'          => "image/".$item['image3'],
                         'image4'          => "image/".$item['image4'],
                         'ps'              => $item['ps'],
-                        'x'               => $item['x'],
-                        'y'               => $item['y']
+                        'x'               => $item['locationX'],
+                        'y'               => $item['locationY']
                     );
                     $count += 1;
                 }

@@ -230,11 +230,12 @@ let downloadPDF = ()=>{
 
 let setDeteriorationPosition = ( floorIndex )=>{
     DeteriorationInfo.forEach( ( element, index )=>{
-        let xSize=Number($('.floor-plan__location').get(floorIndex).offsetWidth)/100;
-        let ySize=Number($('.floor-plan__location').get(floorIndex).offsetHeight)/100;
+        let xSize=Number($('.floor-plan__location').get(floorIndex).offsetWidth);
+        let ySize=Number($('.floor-plan__location').get(floorIndex).offsetHeight);
         let temp = $("<span class = floor-plan__deteripration>"+ ('0'+(1+index)).slice(-2) + "</span>")[0];
-        temp.style.left=element.x * xSize + "px"; 
-        temp.style.top =element.y * ySize + "px";
+        temp.style.left=element.x * xSize / 100 + "px"; 
+        temp.style.top =element.y * ySize / 100 + "px";
+        console.log(  element );
 
         $('.floor-plan__location').get(floorIndex).appendChild(temp);
 
