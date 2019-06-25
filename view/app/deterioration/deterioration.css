@@ -17,7 +17,7 @@
     .style2 {
         /* position */
         display: grid;
-        height: 100vh;
+        height: 85%;
         width: 100vw;
         /* layout */
         grid-template-columns: 98vw;
@@ -201,7 +201,7 @@
         justify-items: center;
         margin-right: auto;
         margin-left: auto;*/
-        top: 76vh;
+        top: 70vh;
         left: 8vw;
         width: 80vw;
         font-size: 3rem;
@@ -211,7 +211,7 @@
     
     b {
         display: block;
-        margin-top: 4rem;
+        margin-top: 2rem;
     }
     .bigbox{
         display: grid;
