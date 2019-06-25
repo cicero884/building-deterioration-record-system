@@ -28,7 +28,9 @@
         <article class="info__floor-plan">
             <h2 class="footer__pictureinfo">平面圖</h2> 
             <p class="floor-plan__title" >地下一樓</p>
-            <img class="floor-plan__image"/>
+            <div class="floor-plan__location">
+                <img class="floor-plan__image"/>
+            </div>
         </article>
         <article class="info__deterioration">
             <h2 class="footer__deteriortitle">建築劣化資料</h2>

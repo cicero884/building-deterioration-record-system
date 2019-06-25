@@ -79,6 +79,7 @@ let getDeterationDetail = ( floorIds )=>{
         .done(() => {
             makeDeteriorationTable( id )
             .then( setFloorImage( index ) )
+            .then( setDeteriorationPosition( index ) )
         })
     } )
     document.getElementById("pdf-download").addEventListener( 'click', ()=>{
@@ -227,4 +228,17 @@ let downloadPDF = ()=>{
     });
 }
 
+let setDeteriorationPosition = ( floorIndex )=>{
+    DeteriorationInfo.forEach( ( element, index )=>{
+        let xSize=Number($('.floor-plan__location').get(floorIndex).offsetWidth)/100;
+        let ySize=Number($('.floor-plan__location').get(floorIndex).offsetHeight)/100;
+        let temp = $("<span class = floor-plan__deteripration>"+ ('0'+(1+index)).slice(-2) + "</span>")[0];
+        temp.style.left=element.x * xSize + "px"; 
+        temp.style.top =element.y * ySize + "px";
 
+        $('.floor-plan__location').get(floorIndex).appendChild(temp);
+
+        console.log("test");
+        // document.getElementsByClassName("floor-plan__location").appendChild(temp)
+    } )
+}

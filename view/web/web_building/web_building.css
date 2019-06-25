@@ -248,15 +248,33 @@ a {
     height:40vh;
 }
 
-.info__floor-plan > .floor-plan__image{
+.info__floor-plan > .floor-plan__location{
     grid-area: picture;
-    display: block;
+    display: grid;
+    grid-template-areas: "image";
+    position: relative;
     height:30vh;
     width:12vw;
     margin-top:auto;
     margin-right:auto;
     margin-left:auto;
     margin-bottom:auto;
+}
+
+.floor-plan__location > .floor-plan__image {
+    display: block;
+    grid-area: image;
+    height: 100%;
+    width: 100%;
+}
+
+.floor-plan__location > .floor-plan__deteripration {
+	background-color:#00bdbd;
+	color:white;
+	font-size:2vmin;
+	position:absolute;
+	margin:0;
+    z-index:900;
 }
 
 .floor__info > .info__floor-plan{
