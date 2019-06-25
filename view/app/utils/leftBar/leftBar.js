@@ -19,3 +19,7 @@ $('#logOut').click(function(){
 		}
 	});
 })
+$('#houseInfo').click(function(){
+	window.location.hash="app_main";
+	leftBarBack();
+});
