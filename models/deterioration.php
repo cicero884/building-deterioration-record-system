@@ -122,7 +122,6 @@ class ModelDeterioration {
 
     public function getDeteriorationInfosByFloorId( $floorId ) {
         $deteriorationInfos = array();
-        $count = 0;
         $sql = "SELECT *
                 FROM deterioration
                 WHERE floorId=".$floorId ;
@@ -130,7 +129,7 @@ class ModelDeterioration {
         $select->execute();
 
         while( $row=$select->fetch(PDO::FETCH_OBJ) ){    
-            $deteriorationInfos[$count] = array(
+            $deteriorationInfos[] = array(
                 'deteriorationId' => $row->deteriorationId,
                 'floorId' => $row->floorId,
                 'column'  => $row->column,
@@ -154,7 +153,6 @@ class ModelDeterioration {
                 'image3'      => $row->image3,
                 'image4'      => $row->image4 
             );
-            $count += 1;
         }
 
         return  $deteriorationInfos;        

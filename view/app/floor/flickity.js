@@ -27,6 +27,15 @@ $contentFlickity.on( 'change.flickity', function( event, index ) {
 				setPlanes();
 				$element_contentFlickity.flickity('resize');
 			}
+			let floor=getInputFloor();
+			if(isNaN(floor)||floor==0){
+				$contentFlickity.flickity('previous');
+				$('#floorNumber').addClass("blink");
+				setTimeout(function() {
+					$('#floorNumber').removeClass("blink");
+				}, 0.5);
+				break;
+			}
 
 			flkty.options.draggable=false;
 			flkty.updateDraggable();
@@ -120,11 +129,7 @@ function initEvent(func){
 function send_floor_data(){
 	let formData = new FormData();
 	let hashData=window.location.hash.substring(1).split('-');
-	let upper_or_down=$('input[name="floor"]:checked').val();
-	let floor;
 	let planeData=$("#baseCanvas")[0].toDataURL("image/png");
-	if(upper_or_down==='upper') floor=$('#upper').val();
-	else if(upper_or_down==='down') floor='-'+$('#down').val();
 	formData.append('page', 'floor');
 	if(hashData.length>2){
 		formData.append('action', 'update');
@@ -132,7 +137,7 @@ function send_floor_data(){
 	}
 	else formData.append('action', 'insert');
 
-	formData.append('floor',floor);
+	formData.append('floor',getInputFloor());
 	formData.append('buildingId', hashData[1]);
 	formData.append('floorPlan',planeData);
 	$.ajax({
@@ -149,4 +154,11 @@ function send_floor_data(){
 			window.location.hash=window.location.hash+"-"+response;
 		}
 	});
+}
+function getInputFloor(){
+	let upper_or_down=$('input[name="floor"]:checked').val();
+	let floor;
+	if(upper_or_down==='upper') floor=$('#upper').val();
+	else if(upper_or_down==='down') floor='-'+$('#down').val();
+	return Number(floor);
 }

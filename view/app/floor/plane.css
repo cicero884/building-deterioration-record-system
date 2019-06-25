@@ -6,10 +6,7 @@ canvas,#d_tags{
 	padding:2vmin;
 }
 .plane>div{
-	position:absolute;
-	width:8%;
 	height:inherit;
-	right:1vmin;
 	display:flex;
 	flex-direction:column;
 	flex-wrap: nowrap;

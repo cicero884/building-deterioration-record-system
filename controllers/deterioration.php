@@ -13,6 +13,9 @@ class DeteriorationController {
     public function insertData(){
 		echo $this->models['deterioration']->newDeterioration($_POST['floorID'],$_POST['x'],$_POST['y']);
 	}
+	public function removeData(){
+		$this->models['deterioration']->deleteDeterioration($_POST['deteriorationID']);
+	}
 
     public function updateData(){
 

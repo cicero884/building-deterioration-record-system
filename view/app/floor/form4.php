@@ -13,7 +13,7 @@ $image=(is_null($this->floorInfo))? '':'image/'.$this->floorInfo['picture'];
 		<div id="d_tags">
 <?php 
 if(!is_null($this->deteriorations)){
-	foreach($this->deteriorations as $d) echo "<span class='record' posLeft=".$d['locationX']." posTop=".$d['locationY']."></span>";
+	foreach($this->deteriorations as $d) echo "<span class='record' posLeft=".$d['locationX']." posTop=".$d['locationY']." d_id=".$d['deteriorationId']."></span>";
 }
 ?>
 		</div>

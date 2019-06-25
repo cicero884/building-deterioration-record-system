@@ -1,10 +1,13 @@
 #upperBar{
+	background-repeat: no-repeat;
+	background-size: 92% auto;
+	background-position: bottom center;
 	position:fixed;
 	box-sizing: border-box;
 	top:0;
 	left:0;
 	width: 100%;
-	height:10vh;
+	height:13vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -13,9 +16,9 @@
 }
 #hamburger{
 	position:absolute;
-	height:60%;
+	height:40%;
 	width:auto;
-	top: 3vmin;
+	top: center;
 	left:3vmin;
 }
 #userName{

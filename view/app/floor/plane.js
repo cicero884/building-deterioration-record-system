@@ -68,13 +68,18 @@ function deteriorationPos(pointer,moving){
 		e.style.left=x+"px";
 		e.style.top=y+"px";
 		if(moving==false&&opacity!=1){
-			if(e.classList.contains("new_tag")){
-				unsave_tags=unsave_tags.filter(function(a){
-					return a.id!=Number($(e).text());
-				});
-			}
+			if(e.classList.contains("new_tag")) new_elem=null;
 			else{
 				//ajax to remove data;
+				$.ajax({
+					url:'upload.php',
+					type:'POST',
+					data:{
+						'page': 'deterioration',
+						'action':'remove',
+						'deteriorationID':e.getAttribute('d_id')
+					}
+				})
 			}
 			$(e).remove();
 		}

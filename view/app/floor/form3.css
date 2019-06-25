@@ -1,11 +1,21 @@
 #f3_plane{
 	height:70%;
+	width:100%;
+}
+#f3_plane>div{
+	position:absolute;
+	width:10%;
+	right:1.5%;
+}
+#f3_plane>canvas{
+	position:absolute;
+	left:5%;
 }
 #elementList{
 	background-color:rgba(255,255,255,0.5);
 	position:absolute;
-	width:99.5%;
-	height:15%;
+	width:92vw;
+	height:18%;
 	bottom:10%;
 }
 .floorElement{

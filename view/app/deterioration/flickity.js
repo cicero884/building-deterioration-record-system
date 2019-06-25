@@ -1,3 +1,4 @@
 var $carousel = $('.content').flickity({
-	cellSelector: '.page'
+	cellSelector: '.page',
+	prevNextButtons: false
 });

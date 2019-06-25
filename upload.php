@@ -24,6 +24,8 @@ if(isset($_POST['action'])){
 		case 'insert':
 			$controller->insertData();
 			break;
+		case 'remove':
+			$controller->removeData();
 	}
 }
 ?>

@@ -20,6 +20,10 @@ $('#new').click(function(){
 		}, 0.5);
 	}
 })
+$('#finish').click(function(){
+	let hashData=window.location.hash.substring(1).split('-');
+	document.location.href = "index.php?page=judge&floorID="+hashData[2];
+});
 function record_deterioration(){
 	$contentFlickity.on('staticClick.flickity',function(event,pointer,cellElement,cellIndex){
 		let formData=new FormData();

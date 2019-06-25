@@ -6,6 +6,13 @@ window.onhashchange=function(){
 		return;
 	}
 	let data=window.location.hash.substring(1).split('-');
+	let TitleImageList={
+		'app_main':'',
+		'app_house':'view/app/image/title/houseTitle.png',
+		'app_floor':'view/app/image/title/dataTitle.png',
+		'app_deterioration':'view/app/image/title/dataTitle.png',
+	};
+	$('#upperBar').css("background-image", `url(${TitleImageList[data[0]]})`);
 	$.ajax({
 		url:'index.php',
 		type:'POST',

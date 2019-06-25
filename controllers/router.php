@@ -1,10 +1,12 @@
 <?php
 require_once('controllers/building.php');
+require_once('controllers/response.php');
 require_once("models/login.php");
 require_once("models/building.php");
 require_once("models/floor.php");
 require_once("models/deterioration.php");
 class Router{
+	//for view variable
 	protected $recentHouses=array();
 	protected $floorInfo;
 	protected $buildingDetail;
@@ -62,6 +64,17 @@ class Router{
 					array_push( $this->page_js, "https://unpkg.com/jspdf@latest/dist/jspdf.min.js" );
 					$this->getFiles('view/web/web_building');
 				}
+			}elseif($page==="judge"){
+				$dangerous=false;
+				$deteriorations=$this->models['deterioration']->getDeteriorationInfosByFloorId($floorID);
+				foreach($deteriorations as $d){
+					if($d['flake']!=0||$d['crack']||$d['RC']){
+						$dangerous=true;
+						break;
+					}
+				}
+				$this->buildingDetail=($dangerous)? '1':'2';
+				$this->getFiles('view/app/response/');
 			}
 		}
 		require realpath('view/structure.php');
