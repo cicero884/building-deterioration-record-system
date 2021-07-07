@@ -37,4 +37,5 @@ $('.house').click(function(){
 	})
 	*/
 });
+
 window.location.hash='app_main';

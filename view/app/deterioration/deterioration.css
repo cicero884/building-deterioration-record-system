@@ -201,7 +201,7 @@
         justify-items: center;
         margin-right: auto;
         margin-left: auto;*/
-        top: 80vh;
+        top: 76vh;
         left: 8vw;
         width: 80vw;
         font-size: 3rem;
@@ -213,3 +213,90 @@
         display: block;
         margin-top: 4rem;
     }
+    .bigbox{
+        display: grid;
+        grid-template-areas: "first" "second" "third";
+        grid-template-rows:  1fr 4fr 1fr; 
+    }
+    .page {
+        /* position */
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 28px;
+    }
+
+    .bigbox>.fle{
+        grid-area: second;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .fle > .image__upload {
+        /* layout */
+        
+        display:block;
+    
+        /* position */
+        width: 40%;
+        height: 20vh;
+        margin-left: 2rem;
+    
+        /* skin */
+        border: 2pt solid white;
+    
+    }
+
+    .bigbox>.titlep{
+        grid-area:first;
+        margin-top:5vh;
+        margin-left: 5vw;
+        font-size:3rem;
+        font-family: 微軟正黑體；
+    }
+    .bigbox>.titlepo{
+        grid-area:first;
+        display:inline-block;
+        margin-top:5vh;
+        margin-left: 50vw;
+        width:35vw;
+        height:4vh;
+        text-align: center;
+        border:0px;
+        background-color: #edce3d;
+        font-size:3rem;
+        font-family: 微軟正黑體；
+    }
+
+    .textpho{
+        margin-top:1vw;
+        margin-left:1vw;
+        font-size: 6rem;
+        color:rgb(255, 255, 255,0.25);
+        font-family: 微軟正黑體；
+    }
+
+    .preview{
+        margin-top:-5vh;
+        margin-left:12vw;
+        height:5vh;
+        
+    }
+
+    .picture__button{
+        visibility: hidden;
+    }
+
+    .display__none{
+        display: none;
+    }
+
+    .show__preivew-image{
+        display: block;
+        margin-top:-11vh;
+        margin-left:0vw; 
+        width: 36vw;
+        height: 20vh;
+    }
+

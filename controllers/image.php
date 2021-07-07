@@ -34,7 +34,7 @@ class ImageController {
         if ( move_uploaded_file($_FILES[$name]["tmp_name"], $target_file )) {
             return $newfilename;
         } else {
-            return "false";
+            return $target_dir;
         }
     }
 }
